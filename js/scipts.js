@@ -1,0 +1,42 @@
+/*  Кнопка подписаться */
+
+$('.subscribe').click(function() {
+        $('.subsc-text').replaceWith('<div class="subsc-true"><img src="img/Check.png" alt="">Вы подписаны</div>');
+})
+
+
+/*  Добавить вариант ответа */
+    
+
+$('.add-survey-btn').click(function() {
+    $('.survey-select-items').append('<input type="text" placeholder="Вариант *">');
+})
+
+
+/* Табы */
+
+const tabsBtn = document.querySelectorAll('.js-tab-trigger');
+const tabsItems = document.querySelectorAll('.tab-items');
+
+  
+tabsBtn.forEach(function(item) {
+    item.addEventListener('click', function() {
+
+
+        let currentBtn = item;
+        let tabId = currentBtn.getAttribute('data-tab');
+        let currentTab = document.querySelector(tabId);
+
+        tabsBtn.forEach(function(item) {
+            item.classList.remove('active')
+        })
+
+        tabsItems.forEach(function(item) {
+            item.classList.remove('active');
+        })
+
+
+        item.classList.add('active');
+        currentTab.classList.add('active');
+    })
+})

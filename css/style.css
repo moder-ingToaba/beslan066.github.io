@@ -254,6 +254,11 @@ footer  .container{
     margin-left: 900px;
 }
 
+ .subscribe {
+     width: 137px;
+     height: 50px;
+ }
+
 
 
 .followed button {
@@ -357,7 +362,19 @@ background: #ffffff;
 border-radius: 6px;
 }
 
-.active {
+.tab-items {
+    display: none;
+}
+
+.tab-items.active {
+    display: flex;
+}
+
+.tabs-content {
+    margin-top: 25px;
+}
+
+button.active {
     background-color: #042026;
     color: #ffffff;
 }
@@ -602,12 +619,26 @@ border-radius: 6px;
 
 /* Стили для опроса */ 
 
+.survey {
+    margin-top: 25px;
+}
+
+.theme-survey label {
+    font-weight: 600;
+    font-size: 14px;
+    line-height: 16px;
+    display: flex;
+    align-items: center;
+    color: #7A969C;
+    margin-bottom: 12px;
+}
 
 .survey .container{
     display: flex;
     flex-direction: column;
     justify-content: center;;
     align-items: center;
+    margin-top: 25px;
 }
 
 .survey-title span{
