@@ -38,21 +38,21 @@
             <h4>Основная информация</h4>
             <div class="fields-rus">
                 <div>
-                    <input type="text" placeholder="Фамилия">
-                    <input type="text" placeholder="Имя">
+                    <input type="text" placeholder="Фамилия" required class="inputValidateNames">
+                    <input type="text" placeholder="Имя" required class="inputValidateNames">
                 </div>
                 <div>
-                    <input type="text" placeholder="Отчество">
+                    <input type="text" placeholder="Отчество" required class="inputValidateNames">
                 </div>
             </div>
 
             <div class="fields-ing">
                 <div>
-                    <input type="text" placeholder="Тейп">
-                    <input type="text" placeholder="Цъи">
+                    <input type="text" placeholder="Тейп" required class="inputValidateNames">
+                    <input type="text" placeholder="Цъи" required class="inputValidateNames">
                 </div>
                 <div>
-                    <input type="text" placeholder="Даь цъи">
+                    <input type="text" placeholder="Даь цъи" required class="inputValidateNames">
                 </div>
             </div>
 
@@ -78,7 +78,7 @@
                 <h4>Контактная информация</h4>
                 <div class="contact-info-fields">
                     <input type="email" placeholder="Email">
-                    <input type="tel" placeholder="Номер телефона">
+                    <input type="tel" placeholder="Номер телефона" required pattern="[\+]*[7-8]{1}\s?*9[0-9]{9}">
                 </div>
             </div>
 
