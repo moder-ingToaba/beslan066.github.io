@@ -1,0 +1,504 @@
+/*  Стили регистрации  */
+body {
+    font-family: 'Montserrat', sans-serif;
+}
+
+input {
+    outline: none;
+    
+}
+
+button {
+    cursor: pointer;
+}
+
+
+
+.container {
+    margin: 0 auto;
+    width: 1120px;
+    padding-left: 16px;
+}
+
+
+.auth-page {
+    top: 35%;
+    position: absolute;
+    margin-left:  40%;
+}
+
+.auth-page .wrapper {
+    display: flex;
+    margin: 0 auto;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    
+}
+
+
+
+form {
+    display: flex;
+    flex-direction: column;
+    margin-top: 40px;
+    margin-bottom: 20px;
+}
+
+.auth-page input{
+    padding: 12px;
+    width: 280px;
+    height: 40px;
+    left: 40px;
+    top: 228px;
+    background: #FFFFFF;
+    border: 1px solid #CFE3E7;
+    box-sizing: border-box;
+    border-radius: 6px;
+    margin-bottom: 14px;
+   
+
+}
+
+.auth-page input::placeholder {
+    color: #7A969C;
+}
+
+ button{
+        margin-top: 16px;
+        padding: 0px;
+        width: 280px;
+        height: 48px;
+        left: 40px;
+        top: 350px;
+        background: #054857;
+        border-radius: 8px;
+        border: none;
+        color: #FFFFFF;
+        margin-bottom: 20px;
+}
+
+    .auth-page a{
+        font-weight: 500;
+        font-size: 14px;
+        line-height: 18px;
+        color: #2199CC;
+        text-decoration: none;
+    }
+
+    .forgot-pass {
+        display: flex;
+
+    }
+
+    .register-link {
+        display: flex;
+        margin-top: 160px;
+    }
+
+    .register-link span {
+        color: #054857;
+        font-size: 14px;
+        line-height: 18px;
+
+    }
+
+    .register-link a {
+        color: #2199CC;
+        text-decoration: none;
+    }
+
+
+/* Основная информация */
+
+
+header {
+    display: flex;
+    
+}
+
+header .container {
+    display: flex;
+    justify-content: start;
+    align-items: center;
+    margin: 0 auto;
+    width: 1120px;
+}
+
+
+header .container h3 {
+    margin-left: 107px;
+    font-weight: 600;
+    font-size: 14px;
+    line-height: 16px;
+    display: flex;
+    align-items: center;
+    text-align: center;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    color: #054857;
+}
+
+hr {
+    width: 100%;
+    border: 1px solid #E3EFF1;
+}
+
+
+.register-step h3{
+    font-weight: 600;
+    font-size: 14px;
+    line-height: 16px;
+    display: flex;
+    align-items: center;
+    text-align: center;
+    color: #054857;
+}
+
+.register-step p {
+    font-weight: 400;
+    font-size: 13px;
+    line-height: 150%;
+    width: 274px;
+    height: 60px;
+    margin-top: 8px;
+    display: flex;
+    align-items: center;
+    color: #7A969C;
+
+}
+
+.register-step h4 {
+    margin-bottom: 12px;
+    font-size: 14px;
+    line-height: 16px;
+    display: flex;
+    align-items: center;
+    text-align: center;
+    color: #7A969C;
+}
+
+
+.fields-rus {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 16px;
+}
+
+.fields-rus input {
+    height: 40px;
+    left: 0px;
+    top: 80px;
+    background: #FFFFFF;
+    border: 1px solid #CFE3E7;
+    box-sizing: border-box;
+    border-radius: 6px;
+    width: 158px;
+    margin-right: 8px;
+}
+
+.fields-rus div:last-child input:last-child {
+    width: 328px;
+    margin-top: 8px;
+}
+
+
+.error-block {
+    display: none;
+    color: red;
+    font-size: 13px;
+}
+
+.select {
+    width: 160px;
+    height: 40px;
+    left: 16px;
+    top: 380px;
+    background: #FFFFFF;
+    border: 1px solid #CFE3E7;
+    box-sizing: border-box;
+    border-radius: 6px;
+
+    color: #7A969C;
+ 
+}
+
+.date-input {
+    margin-top: 8px;
+    color: #7A969C;
+    background: #FFFFFF;
+    border: 1px solid #CFE3E7;
+    box-sizing: border-box;
+    border-radius: 6px;
+    width: 325px;
+    height: 40px;
+    padding: 5px; 
+}
+
+.step-2 form div:last-child {
+    display: flex;
+}
+
+.step-2 form span {
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 15px;
+    display: flex;
+    align-items: center;
+    color: #7A969C;
+    margin-top: 12px;
+
+}
+
+.pass-error {
+    margin-bottom: 28px;
+}
+
+
+.step-2-input {
+    width: 160px;
+    height: 40px;
+    left: 16px;
+    top: 264px;
+    background: #FFFFFF;
+    border: 1px solid #CFE3E7;
+    box-sizing: border-box;
+    border-radius: 6px;
+}
+
+.reg-agree label{
+    color: #567F88;
+    font-size: 14px;
+    line-height: 18px;
+    font-weight: 400;
+}
+
+.reg-agree a {
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 18px;
+    color: #054857;
+    text-decoration: none;
+}
+
+#privacy-policy {
+    accent-color: #054857;
+    width: 18px;
+    height: 18px;
+    left: 7px;
+    top: 7px;
+
+    /* off */
+
+    border: 2px solid #567F88;
+    box-sizing: border-box;
+    border-radius: 4px;
+}
+
+
+
+/* Подтверждение номера */
+
+
+.auth-code {
+    top: 30%;
+    position: absolute;
+    margin-left:  35%;
+}
+
+.auth-code .wrapper {
+    display: flex;
+    margin: 0 auto;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    
+}
+
+
+
+
+.code-section-head {
+    display: flex;
+    margin-bottom: 32px;
+    align-items: center;
+}
+
+.code-section-head h3 {
+    font-weight: 600;
+    font-size: 14px;
+    line-height: 16px;
+    text-align: center;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    color: #567F88;
+    margin-left: 30px;
+}
+
+
+
+.auth-code input {
+    width: 57.14px;
+    height: 57.14px;
+    background: #FFFFFF;
+    border: 1px solid #CFE3E7;
+    box-sizing: border-box;
+    border-radius: 8px;
+}
+
+
+.close-btn {
+    width: 50px;
+    background-color: #FFFFFF;
+    
+}
+
+.confirm-info {
+    margin-left: 100px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.confirm-info h4 {
+    font-weight: 600;
+    font-size: 14px;
+    line-height: 16px;
+    display: flex;
+    align-items: center;
+    color: #054857;
+    margin-right: 120px;
+}
+
+.confirm-info p {
+    width: 322px;
+    height: 60px;
+    font-weight: 400;
+    font-size: 13px;
+    line-height: 150%;
+    text-align: left;
+    color: #567F88;
+    margin-bottom: 30px;
+}
+
+.auth-code form {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-left: 30px;
+}
+
+.auth-code form input:first-child {
+    margin-left: 50px;
+}
+
+.auth-code form input {
+    margin-bottom: 20px;
+    margin-right: 17px;
+}
+
+.auth-code form button {
+    margin-left: 40px;
+}
+
+.repeat-code {
+    margin-bottom: 20px;
+}
+
+.repeat-code a{
+    margin-right: 8px;
+}
+
+
+/* Похожие в базе*/
+
+.similar-name-head {
+    display: flex;
+    align-items: center;
+}
+
+
+.similar-name-head button{
+    width: 18px;
+    background-color: #ffffff;
+    border: none;
+}
+
+
+.similar-name-head h3 {
+    font-weight: 600;
+    font-size: 14px;
+    line-height: 16px;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    margin-left: 57px;
+    color: #054857;
+}
+
+.similar-human {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.similar-data {
+    display: flex;
+    align-items: center;
+    width: 215px;
+    justify-content: space-between;
+}
+
+.similar-data .logo {
+    margin-right: 12px;
+}
+
+.similar-people-name {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 8px;
+    
+    
+}
+
+.similar-people-name h4 {
+    margin-bottom: 4px;
+    font-weight: 600;
+    font-size: 14px;
+    line-height: 16px;
+    color: #054857;
+}
+
+.similar-people-name span {
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 15px;
+    color: #567F88;
+}
+
+.parent {
+    display: flex;
+    flex-direction: column;
+}
+
+.parent span:first-child {
+    font-weight: 500;
+    font-size: 13px;
+    line-height: 16px;
+    color: #567F88;
+    margin-bottom: 4px;
+}
+
+.parent a {
+    font-weight: 500;
+    font-size: 13px;
+    line-height: 16px;
+    color: #2199CC;
+    text-decoration: none;
+    margin-bottom: 20px;
+}
+
+.confirm-human {
+    padding: 12px 16px;
+    width: 71px;
+}

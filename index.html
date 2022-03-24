@@ -1,168 +1,37 @@
 <!DOCTYPE html>
-<html lang="ru">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="css/style.css">
-    <title>Gargalo</title>
+    <link rel="stylesheet" href="css/auth.css">
+    <title>Авторизация</title>
 </head>
 <body>
-    <header>
-        <div class="container">
-
-            <div class="header">
-                <div class="menu">
-                    <div class="burger-menu">
-                        <span></span>
-                        <span></span>
-                        <span></span>
-                    </div>
-                </div>
-        
-                <div class="logo">
-                    <img src="img/gargalo.png" alt="">
-                </div>
-        
-                <div class="profile">
-                    <img src="img/Ellipse 56.png" alt="">
-                </div>
-            </div>
-            
-            <hr>
-        </div>
-        
-
-    </header>
-
-
-    <section class="posts">
-        <div class="container">
-            <div class="section-title">
-                <div class="create-post">
-                    <button><img src="img/plus.png" alt=""></button>
-                </div>
-    
-                <h2>ПОСТЫ</h2>
-    
-                <div class="filter-new">
-                    <button>		
-                        <svg width="20" height="14" viewBox="0 0 20 14" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <path d="M11.875 11.1243L1.75 11.1243" stroke="#7A969C" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
-                            <path d="M18.25 11.1243L15.625 11.1243" stroke="#7A969C" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
-                            <path d="M13.75 12.9993C14.7855 12.9993 15.625 12.1598 15.625 11.1243C15.625 10.0887 14.7855 9.24927 13.75 9.24927C12.7145 9.24927 11.875 10.0887 11.875 11.1243C11.875 12.1598 12.7145 12.9993 13.75 12.9993Z" stroke="#7A969C" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
-                            <path d="M5.875 2.87432L1.75 2.87427" stroke="#7A969C" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
-                            <path d="M18.25 2.87427L9.625 2.87432" stroke="#7A969C" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
-                            <path d="M7.75 4.74927C8.78553 4.74927 9.625 3.9098 9.625 2.87427C9.625 1.83873 8.78553 0.999268 7.75 0.999268C6.71447 0.999268 5.875 1.83873 5.875 2.87427C5.875 3.9098 6.71447 4.74927 7.75 4.74927Z" stroke="#7A969C" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
-                        </svg>	
-                    </button>
-                </div>
+    <div class="auth-page">
+        <div class="wrapper">
+            <div class="auth-logo">
+                <img src="img/auth/Logo.png" alt="">
             </div>
 
-            <hr>
+            <form action="">
+                <input type="email" placeholder="Телефон, или эл. адрес" class="login-field" id="login-field">
+                <input type="password" placeholder="Пароль" class="pass-field" id="pass-field">
+                <button type="submit" class="sign-in">Далее</button>
+            </form>
 
-            <div class="post-body">
-                <div class="container">
-                    <div class="post-head">
-
-                        <div class="logo-title">
-                            <div class="logo">
-                                <img src="img/UserCircle.png" alt="">
-                            </div>
-    
-                            <div class="post-title">
-                                <h3>ПОДСЛУШАНО!</h3>
-                                <h4>Сегодня в 14:00</h4>
-                            </div>
-                        </div>
-                        
-                        <div class="add">
-                            <button><img src="img/add.png" alt=""></button>
-                        </div>
-
-                    </div>
-                    
-                    <div class="post-desc">
-                        <div class="post">
-                            <div class="img-title">
-                                <img src="img/Rectangle 12.png" alt="">
-                                <h3>«Обманули самым неслыханным образом»</h3>
-                                <p>Сталин дал СССР новую конституцию и обещал честные выборы...</p>
-                            </div>
-                        </div> 
-                    </div>
-                    <div class="post-info">
-                        <div class="like-btn">
-                            <button><span><img src="img/heart.png" alt="">234</span></button>
-                            <button><span><img src="img/Vector.png" alt="">14</span></button>
-                            <button><span><img src="img/UploadSimple.png" alt=""></span></button>
-                        </div>
-                        <div class="view"><span><img src="img/View.png" alt="">1709</span></div>
-                    </div>
-                </div>
+            <div class="forgot-pass">
+                <span><a href="#">Забыли пароль?</a></span>
             </div>
 
-            <hr>
-
-            <div class="post-body">
-                <div class="container">
-                    <div class="post-head">
-
-                        <div class="logo-title">
-                            <div class="logo">
-                                <img src="img/UserCircle.png" alt="">
-                            </div>
-    
-                            <div class="post-title">
-                                <h3>Сердало</h3>
-                                <h4>Вчера в 17:10</h4>
-                            </div>
-                        </div>
-                        
-                        <div class="add">
-                            <button><img style="margin-left: 40px;" src="img/add.png" alt=""></button>
-                        </div>
-
-                    </div>
-                    
-                    <div class="post-desc">
-                        <div class="post">
-                            <div class="img-title">
-                                <img src="img/Rectangle 10.png" alt="">
-                                <h3>
-                                    «Убить на зоне могут лишь спецназ и плохая медицина»
-                                   </h3>
-                                <p> В начале марта стало известно, что в исправительной колонии Татарстана...</p>
-                            </div>
-                        </div> 
-                    </div>
-                    <div class="post-info">
-                        <div class="like-btn">
-                            <button><span><img src="img/heart.png" alt="">74</span></button>
-                            <button><span><img src="img/Vector.png" alt="">24</span></button>
-                            <button><span><img src="img/UploadSimple.png" alt=""></span></button>
-                        </div>
-                        <div class="view"><span><img src="img/View.png" alt="">6709</span></div>
-                    </div>
-                </div>
+            <div class="register-link">
+                <span>У Вас нет аккаунта? <a href="pages/auth/register-step-1.html">Зарегистрируйтесь.</a></span>
             </div>
         </div>
-    </section>
+    </div>
 
-
-    <footer>
-        <div class="container">
-            <div class="btn-group">
-                <button><span><img src="img/Home.png" alt=""></span></button>
-                <button><span><img src="img/Calendar.png" alt=""></span></button>
-                <button><span><img src="img/Search.png" alt=""></span></button>
-                <button><span><img src="img/Message.png" alt=""></span></button>
-                <button><span><img src="img/App.png" alt=""></span></button>
-            </div>
-        </div>
-    </footer>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="js/register.js"></script>
+    <script src="js/scipts.js"></script>
 </body>
 </html>

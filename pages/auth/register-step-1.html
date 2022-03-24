@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../css/auth.css">
+    <title>Авторизация</title>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <a href=""><img src="../img/Back.png" alt=""></a>
+            <h3>Регистрация</h3>
+        </div>
+    </header>
+
+    <hr>
+
+    <div class="register-step step-1">
+        <div class="container">
+            <h3>Информация должна быть достоверной</h3>
+            <p>Проверьте информацию на ошибки.
+                После регистрации информация пойдет на модерацию
+            </p>
+
+
+            <h4>ФИО</h4>
+            <form action="">
+
+                <div class="fields-rus">
+                    <div>
+                        <input type="text" placeholder="Фамилия" id="nameField" name="nameField">
+                        <input type="text" placeholder="Имя" id="secondNameField" name="secondNameField">
+                    </div>
+                    <div>
+                        <input type="text" placeholder="Отчество" id="patronymic" name="patronymic">
+                    </div>
+                </div>
+
+                <div class="more-fields">
+                    <h4>Дополнительная информация</h4>
+                    <div>
+                        <select class="select" id="family" name="family">
+                            <option selected="selected" >Тейп</option>
+                            <option value="value1">Лолохоев</option>
+                            <option value="value2" >Аушев</option>
+                            <option value="value3">Угурчиев</option>
+                        </select>
+                        <select name="male" class="select" id="male" name="male">
+                            <option selected="selected">Пол</option>
+                            <option value="male1">Мужчина</option>
+                            <option value="male2">Женщина</option>
+                        </select>
+                    </div>
+                    <div>
+                        <input class="date-input" type="date" placeholder="Дата рождения" id="date-input" name="date-input">
+                    </div>
+                </div>
+
+                <div class="error-block"><span class="error-message">Это поле должно быть заполнено</span></div>
+
+                <button type="submit" class="reg-btn">Далее</button>
+            </form>
+
+            <div class="register-link">
+                <span>Уже есть аккаунт? <a href="#">Войдите</a></span>
+            </div>
+        </div>
+    </div>
+
+
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="../js/register.js"></script>
+</body>
+</html>

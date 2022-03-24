@@ -40,3 +40,32 @@ tabsBtn.forEach(function(item) {
         currentTab.classList.add('active');
     })
 })
+
+
+/*  Регистрация */
+
+
+
+window.onload=function(){
+    const signBtn = document.querySelector('.sign-in');
+
+
+    signBtn.addEventListener('click', function(event) {
+        
+        event.preventDefault();
+
+        let loginField = document.getElementById('login-field').value;
+        console.log(loginField);
+        let passwordField = document.getElementById('pass-field').value;
+        console.log(passwordField);
+        let login = 'superAdmin@gmail.com';
+        let password = 1234;
+
+
+
+        if(loginField == login  && passwordField == password) {
+            window.location= "/pages/home/index.html";
+        }
+
+    })
+}

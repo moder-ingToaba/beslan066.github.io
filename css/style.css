@@ -12,6 +12,7 @@ body {
     margin: 0 auto;
     width: 1120px;
     padding-left: 16px;
+    color: red;
 }
 
 button {
@@ -1010,7 +1011,7 @@ button.active {
     border-radius: 6px;
     width: 158px;
     margin-right: 8px;
-
+    padding: 5px;
     
 }
 
@@ -1072,6 +1073,535 @@ button.active {
     margin-top: 8px;
     color: #7A969C; 
 }
+
+
+/*Стили поиска ФИО*/
+.search__rus{
+    width: 328px;
+    height: 40px;
+    background: #E3EFF1;
+    margin-left: 16px;
+    margin-top: 16px;
+    border-radius: 8px;
+}
+
+.search__rus button {
+    border: none;
+    background-color: #E3EFF1;
+}
+
+.search__input{
+    border: none;
+    text-decoration: none;
+    width: 284px;
+    height: 40px;
+    background: #E3EFF1;
+    border-radius: 8px;
+}
+.search__input, text{
+    font-family: 'Montserrat';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 13px;  
+    padding-left: 14px; 
+}
+.filter{
+    margin-left: 9px;
+    margin-top: 12px;
+    cursor: pointer;
+}
+.search__filter{
+    height: 48px;
+    border-bottom: 1px solid #E3EFF1;
+    
+}
+.search__list{
+    list-style-type: none;
+    display: flex;
+    flex-wrap: wrap;
+}
+.search__item{
+    margin-right: 20px;
+}
+.search__link{
+    text-decoration: none;
+    font-family: 'Montserrat';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 18px;
+    color: #7A969C;
+}
+.search__link:hover, .search__link:focus, .search__link:active{
+    color: #054857;
+}
+.search__list{
+    margin-left: 17px;
+    padding-top: 16px;
+}
+.profile{
+    display:flex;
+    justify-content:center;
+    width: 360px;
+}
+.search_profile{
+    padding-top: 20px;
+    display: inline-flex;
+    height: 123px;
+    width: 328px;
+    justify-content:space-between;
+    border-bottom:  1px solid #E3EFF1;
+}
+.profile__link{
+    text-decoration: none;
+    font-family: 'Montserrat';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 14px;
+    line-height: 16px;  
+    color: #054857;
+}
+.profile__link1{
+    text-decoration: none;
+    font-family: 'Montserrat';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 13px;
+    line-height: 16px;
+    color: #2199CC;
+}
+.profile__text{
+    font-family: 'Montserrat';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 13px;
+    line-height: 150%;
+    color: #7A969C;
+}
+.profile__text1{
+    font-family: 'Montserrat';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 13px;
+    line-height: 16px;
+    color: #7A969C; 
+}
+.add-pic{
+    display: flex;
+    align-items: flex-start;
+    justify-content: right; 
+    margin-bottom: 16px;
+    cursor: pointer;
+    margin-left: 10px;
+}
+.G-pic{
+    display: flex;
+    align-items: center;
+    justify-content: right; 
+    cursor: pointer;
+}
+
+/*Стили поиска связей*/
+.search__buttons{
+    width: 358px;
+    height: 40px;
+    margin-top: 16px;
+    display: flex;
+    flex-wrap: wrap;
+}
+.search__button{
+    border: none;
+    width: 124px;
+    height: 40px;
+    background: #FFFFFF;
+    border: 1px solid #CFE3E7;
+    border-radius: 6px;
+    font-family: 'Montserrat';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 14px;
+    line-height: 16px;
+    display: flex;
+    align-items: center;
+    color: #7A969C;
+    margin-right: 8px;
+}
+.search-pic{
+    margin-left: 27px;
+    margin-right: 8px;
+}
+.search__button:hover{
+    background: #054857;
+    color: #FFFFFF;
+}
+.search__button:active{
+    background: #054857;
+    color: #FFFFFF;
+}
+.search__button:focus{
+    background: #054857;
+    color: #FFFFFF;
+}
+.search__button1{
+    border: none;
+    width: 196px;
+    height: 40px;
+    background: #FFFFFF;
+    border: 1px solid #CFE3E7;
+    border-radius: 6px;
+    font-family: 'Montserrat';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 14px;
+    line-height: 16px;  
+    display: flex;
+    align-items: center;
+    color: #7A969C;
+}
+.search-pic1{
+    margin-left: 27px;
+    margin-right: 8px;
+}
+.search__button1:hover{
+    background: #054857;
+    color: #FFFFFF;
+}
+.search__button1:active{
+    background: #054857;
+    color: #FFFFFF;
+}
+.search__button1:focus{
+    background: #054857;
+    color: #FFFFFF;
+}
+.search__human{
+    width: 358px;
+    height: 300px;
+    display: flex;
+    flex-wrap: wrap;
+    margin-top: 86px;
+}
+.you__pic{
+    width: 100px;
+    height: 100px;
+    border-radius: 50px;
+    margin-left: 24px;
+}
+.you__pic img{
+    width: 100%;
+    height: 100%;
+}
+.arrow-pic{
+    margin-left: 20px;
+    margin-right: 30px;
+    margin-top: 50px;
+}
+.textBox__you{
+    margin-left: 19px;
+    margin-top: 12px;
+    height: 32px;
+    width: 111px;
+}
+.text__you{
+    text-align: center;
+    font-family: 'Montserrat';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 14px;
+    line-height: 16px; 
+    color: #054857;
+}
+.search__button2{
+    border: none;
+    width: 328px;
+    height: 48px;
+    background: #CFE3E7;
+    border-radius: 8px;
+    font-family: 'Montserrat';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 14px;
+    line-height: 16px;
+    text-align: center;
+    color: #7A969C;
+}
+.search__button2:hover{
+    background: #054857;
+    color: #FFFFFF;
+}
+.search__button2:active{
+    background: #054857;
+    color: #FFFFFF;
+}
+.search__button2:focus{
+    background: #054857;
+    color: #FFFFFF;
+}
+
+
+/*Стили словаря*/
+
+.dictionary__rus{
+    width: 328px;
+    height: 40px;
+    background: #E3EFF1;
+    margin-left: 16px;
+    margin-top: 16px;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    text-align: center;
+}
+.dictionary__input{
+    border: none;
+    text-decoration: none;
+    width: 226px;
+    height: 40px;
+    background: #E3EFF1;
+    border-radius: 8px;
+}
+.dictionary__input, text{
+    font-family: 'Montserrat';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 13px;  
+    padding-left: 14px; 
+}
+.dictionary__lang{
+    font-family: 'Montserrat';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 14px;
+    line-height: 16px; 
+    color: #567F88;
+    cursor: pointer;
+}
+.ing{
+    margin-left: 2px;
+    margin-right: 8px;
+}
+.rus{
+    margin-left: 8px;
+}
+.ArrowsClockwise{
+    cursor: pointer;
+}
+.dictionary__lang:active, .dictionary__lang:focus, .dictionary__lang:hover{
+    color: #054857;
+}
+.words{
+    display:flex;
+    flex-wrap:wrap;
+    justify-content:space-between;
+    width: 328px;
+    margin-left: 16px;
+    margin-top: 16px;
+}
+.words_block{
+    width: 160px;
+    height: 74px;
+    background: #EFF5F5;
+    border-radius: 8px;
+    margin-bottom: 8px;
+}
+.words_block:active, .words_block:focus, .words_block:hover{
+    background: #E3EFF1;
+}
+.translate__text{
+    font-family: 'Montserrat';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 18px;
+    color: #054857;
+    margin-left: 16px;
+    margin-top: 16px;
+}
+.original__text{
+    font-family: 'Montserrat';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 13px;
+    line-height: 150%;
+    color: #567F88;
+    margin-left: 16px;
+    margin-top: 4px;
+}
+
+
+/*Стили App*/
+.apps{
+    display:flex;
+    flex-wrap:wrap;
+    justify-content:space-between;
+    width: 328px;
+    margin-left: 16px;
+    margin-top: 16px;
+}
+.apps_block{
+    border: none;
+    width: 160px;
+    height: 90px;
+    background: #EFF5F5;
+    border-radius: 8px;
+    margin-bottom: 8px;
+}
+.apps__text{
+    font-family: 'Montserrat';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 18px;
+    text-align: center;
+    color: #567F88;
+}
+
+/*Стили добавления сообщества*/
+.community__wrap{
+    display: flex;
+    flex-wrap:wrap;
+    width: 360px;
+}
+.adding__img{
+    width: 328px;
+    height: 168px;
+    background: #FFFFFF;
+    border: 1px dashed #CFE3E7;
+    box-sizing: border-box;
+    border-radius: 8px;
+    display: flex;
+    margin-top: 16px;
+    margin-left: 16px;
+    flex-direction: column;
+    justify-content: center;
+}
+.adding__img input{
+    opacity: 0;
+    visibility: hidden;
+}
+.adding__img label{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    cursor: pointer;
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 18px;
+    color: #567F88;
+    text-align: center;
+}
+.adding__text{
+    font-family: 'Montserrat';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 14px;
+    line-height: 16px;
+    color: #567F88;
+    margin-top: 24px;
+    margin-left: 16px;
+}
+.select__tem {
+    margin-top: 16px;
+    margin-left: 16px;
+    width: 328px;
+    height: 40px;
+    background: #FFFFFF;
+    border: 1px solid #CFE3E7;
+    box-sizing: border-box;
+    border-radius: 6px;
+    font-family: 'Montserrat';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 13px;
+    line-height: 16px; 
+    display: flex;
+    align-items: center;
+    color: #AAC0C5;
+}
+.select__tem, text{
+    padding-left: 12px;
+}
+.input__text{
+    border: none;
+    text-decoration: none;
+    left: 0px;
+    top: 84px;
+    background: #FFFFFF;
+    border: 1px solid #CFE3E7;
+    box-sizing: border-box;
+    border-radius: 6px;
+    font-family: 'Montserrat';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 13px;
+    line-height: 16px;
+    padding-left: 12px;
+}
+input.input__text::placeholder {
+    color: #AAC0C5;
+}
+textarea.input__text::placeholder {
+    color: #AAC0C5;
+}
+.name{
+    margin-top: 12px;
+    margin-left: 16px;
+    width: 328px;
+    height: 40px;
+}
+.description{
+    margin-top: 12px;
+    margin-left: 16px;
+    padding-top: 10px;
+    padding-right: 12px;
+    width: 328px;
+    height: 112px;
+    resize: none;
+}
+.community__button{
+    justify-content: start;
+    align-items: center;
+    margin-left: 16px;
+    margin-top: 28px;
+    border: none;
+    width: 328px;
+    height: 40px;
+    background: #CFE3E7;
+    border-radius: 8px;
+    font-family: 'Montserrat';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 14px;
+    line-height: 16px; 
+    text-align: center;
+    color: #567F88;
+}
+
+.community__button:hover, .community__button:active, .community__button:focus{
+    background: #054857;
+    color: #FFFFFF;
+}
+
+/*Стили добавления организации*/
+.number{
+    margin-left: 16px;
+    margin-top: 16px;
+    width: 160px;
+    height: 40px;
+}
+.mail{
+    margin-left: 8px;
+    width: 160px;
+    height: 40px;
+}
+.address{
+    margin-top: 12px;
+    margin-left: 16px;
+    width: 328px;
+    height: 40px;
+}
+
+/*Стили Род. связей*/
 
 
 
