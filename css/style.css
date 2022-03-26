@@ -15,6 +15,17 @@ body {
     color: red;
 }
 
+
+input {
+    outline: none;
+    border: 1px solid #AAC0C5;
+    
+}
+
+a {
+    text-decoration: none;
+}
+
 button {
     cursor: pointer;
 }
@@ -32,6 +43,8 @@ header .header{
     margin-top: 18px;
     margin-bottom: 18px;
 }
+
+
 
 .burger-menu {
     display: flex;
@@ -122,7 +135,7 @@ header hr {
 
 
 .add {
-    margin-left: 940px;
+    margin-left: 910px;
 }
 
 .add button {
@@ -1115,6 +1128,11 @@ button.active {
     border-bottom: 1px solid #E3EFF1;
     
 }
+
+.profile__info {
+    margin-right: 50px;
+}
+
 .search__list{
     list-style-type: none;
     display: flex;
@@ -1146,9 +1164,9 @@ button.active {
 }
 .search_profile{
     padding-top: 20px;
-    display: inline-flex;
+    display: flex;
     height: 123px;
-    width: 328px;
+    width: 360px;
     justify-content:space-between;
     border-bottom:  1px solid #E3EFF1;
 }
@@ -1604,6 +1622,248 @@ textarea.input__text::placeholder {
 /*Стили Род. связей*/
 
 
+/*Стили добавления сообщества*/
+.community__wrap{
+    display: flex;
+    flex-wrap:wrap;
+    width: 360px;
+}
+.adding__img{
+    width: 328px;
+    height: 168px;
+    background: #FFFFFF;
+    border: 1px dashed #CFE3E7;
+    box-sizing: border-box;
+    border-radius: 8px;
+    display: flex;
+    margin-top: 16px;
+    margin-left: 16px;
+    flex-direction: column;
+    justify-content: center;
+}
+.adding__img input{
+    opacity: 0;
+    visibility: hidden;
+}
+.adding__img label{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    cursor: pointer;
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 18px;
+    color: #567F88;
+    text-align: center;
+}
+.adding__text{
+    font-family: 'Montserrat';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 14px;
+    line-height: 16px;
+    color: #567F88;
+    margin-top: 24px;
+    margin-left: 16px;
+}
+.select__tem {
+    margin-top: 16px;
+    margin-left: 16px;
+    width: 328px;
+    height: 40px;
+    background: #FFFFFF;
+    border: 1px solid #CFE3E7;
+    box-sizing: border-box;
+    border-radius: 6px;
+    font-family: 'Montserrat';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 13px;
+    line-height: 16px; 
+    display: flex;
+    align-items: center;
+    color: #AAC0C5;
+}
+.select__tem, text{
+    padding-left: 12px;
+}
+.input__text{
+    border: none;
+    text-decoration: none;
+    left: 0px;
+    top: 84px;
+    background: #FFFFFF;
+    border: 1px solid #CFE3E7;
+    box-sizing: border-box;
+    border-radius: 6px;
+    font-family: 'Montserrat';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 13px;
+    line-height: 16px;
+    padding-left: 12px;
+}
+input.input__text::placeholder {
+    color: #AAC0C5;
+}
+textarea.input__text::placeholder {
+    color: #AAC0C5;
+}
+.name{
+    margin-top: 12px;
+    margin-left: 16px;
+    width: 328px;
+    height: 40px;
+}
+.description{
+    margin-top: 12px;
+    margin-left: 16px;
+    padding-top: 10px;
+    padding-right: 12px;
+    width: 328px;
+    height: 112px;
+    resize: none;
+}
+.community__button{
+    justify-content: start;
+    align-items: center;
+    margin-left: 16px;
+    margin-top: 28px;
+    border: none;
+    width: 328px;
+    height: 40px;
+    background: #CFE3E7;
+    border-radius: 8px;
+    font-family: 'Montserrat';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 14px;
+    line-height: 16px; 
+    text-align: center;
+    color: #567F88;
+}
+
+.community__button:hover, .community__button:active, .community__button:focus{
+    background: #054857;
+    color: #FFFFFF;
+}
+
+/*Стили добавления организации*/
+.number{
+    margin-left: 16px;
+    margin-top: 16px;
+    width: 160px;
+    height: 40px;
+}
+.mail{
+    margin-left: 8px;
+    width: 160px;
+    height: 40px;
+}
+.address{
+    margin-top: 12px;
+    margin-left: 16px;
+    width: 328px;
+    height: 40px;
+}
+
+/*Стили добавления СМИ*/
+
+/*Стили сообществ*/
+.community__wrapper{
+    display: flex;
+    flex-wrap:wrap;
+    width: 360px;
+    height: 46px;
+    border-bottom: 1px solid #E3EFF1;
+}
+.add-search{
+    display: flex;
+    width: 328px;
+    height: 46px;
+    justify-content:space-between;
+    align-items: center;
+    margin: 0 auto;
+}
+.communinty__text{
+    font-family: 'Montserrat';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 14px;
+    line-height: 16px;
+    color: #567F88;
+}
+.plus-btn{
+    cursor: pointer;
+}
+.search-btn{
+    cursor: pointer;
+}
+.community__list{
+    display: flex;
+    flex-wrap:wrap;
+    justify-content:space-between;
+    width: 328px;
+    margin: 0 auto;
+    margin-top: 16px;
+}
+.community__box{
+    display: flex;
+    width: 160px;
+    height: 174px;
+    background: #EFF5F5;
+    border-radius: 8px;
+    align-items: center;
+    justify-content:center;
+    flex-direction:column;
+    margin-bottom: 8px;
+    cursor: pointer;
+}
+.community__img{
+    width: 80px;
+    height: 80px;
+    background: #CFE3E7;
+    border-radius: 60px;
+    display: flex;
+    align-items: center;
+    justify-content:center;
+}
+.community__img img{
+    width: 100%;
+    height: 100%;
+}
+.communinty__nameBox{
+    max-width: 100px;
+    max-height: 16px;
+    margin-bottom: 8px;
+    margin-top: 10px;
+    overflow: hidden;
+}
+.communinty__name{
+    font-family: 'Montserrat';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 14px;
+    line-height: 16px;
+    color: #054857;
+}
+.subscribers{
+    display: flex;
+    align-items: center;
+    justify-content:center;
+}
+.communinty__subscribers{
+    font-family: 'Montserrat';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 14px;
+    line-height: 16px;
+    color: #567F88;
+    margin-left: 8px;
+}
+
+
+/*Стили организаций*/
 
 
 
@@ -1638,7 +1898,7 @@ textarea.input__text::placeholder {
 
 /* Media for PostPage*/
 
-@media screen and (max-width: 375px) {
+@media screen and (max-width: 410px) {
     
     body {
         height: 200px;
@@ -1649,7 +1909,7 @@ textarea.input__text::placeholder {
         justify-content: start;
         width: auto;
         margin: 0;
-        margin-right: 12px;
+        
     }
 
     .posts .container {
@@ -1688,7 +1948,7 @@ textarea.input__text::placeholder {
     }
 
     .post-head .add {
-        margin-left: 135px;
+        margin-left: 125px;
     }
 
 

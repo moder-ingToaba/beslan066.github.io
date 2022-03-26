@@ -54,9 +54,10 @@ $(document).ready(function() {
             }
             else {
                 $('.error-block').css("display", "none")
+                window.location = '../auth/register-step-2.html';
             }
-
-        return false
+ 
+       
 
     });
 
