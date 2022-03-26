@@ -1986,4 +1986,8 @@ textarea.input__text::placeholder {
     section .post-head .followed{
         margin-left: 60px;
     }
+
+    .auth-page {
+        left: 25%;
+    }
 }
