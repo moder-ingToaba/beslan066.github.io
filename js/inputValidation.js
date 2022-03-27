@@ -16,6 +16,9 @@ Array.from(allInputs).forEach(function(input){
     if (input.classList.contains("inputValidateNames")) {
         input.addEventListener("input", validateNames);
     }
+    if (input.classList.contains("inputValidateFIO")) {
+        input.addEventListener("input", validateFIO);
+    }
 });
 
 function validatePhone() {
@@ -39,6 +42,15 @@ function validateEmail() {
 function validateNames() {
     var val = this.value;
     if (/^[1IА-Я][\-1IА-Яа-яЁё]*$/.test(val)) {
+        this.style.backgroundColor = correctInputColor;
+    } else {
+        this.style.backgroundColor = wrongInputColor;
+    }
+}
+
+function validateFIO() {
+    var val = this.value;
+    if (/^[1IА-Я][\-1IА-Яа-яЁё]*\s[1IА-Я][\-1IА-Яа-яЁё]*\s[1IА-Я][\-1IА-Яа-яЁё]*$/.test(val)) {
         this.style.backgroundColor = correctInputColor;
     } else {
         this.style.backgroundColor = wrongInputColor;
