@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../../css/style.css">
+    <link rel="stylesheet" href="../../css/style2.css">
+    <title>Gargalo - Добавление события</title>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="header">
+                <div>
+                    <a href="/pages/home/">
+                        <img src="../../img/Back.png" alt="">
+                    </a>
+                </div>
+                <div class="logo">
+                    <img src="../../img/gargalo.png" alt="">
+                </div>
+        
+                <div class="profile-icon">
+                    <img src="../../img/Ellipse 56.png" alt="">
+                </div>
+            </div>
+            
+            <hr>
+        </div>
+        
+
+    </header>
+
+    <section class="posts">
+        <div class="container">
+            <div class="section-title">
+                <div class="create-post">
+                    <button><img src="../../img/plus.png" alt=""></button>
+                </div>
+    
+                <h2>СООБЩЕНИЯ</h2>
+    
+                <div class="filter-new">
+                    <button><img src="../../img/Search.png" alt="">
+                    </button>
+                </div>
+            </div>
+
+            <hr>
+
+            <div class="post-body add-person main-wrap">
+                <div class="container">
+                    <h4>Выберите событие</h4>
+                    <div class="fields-rus fields">
+                        <div>
+                            <select name="event" id="" class="select selectWide" onchange="eventSelect(this)">
+                                <!-- <option value="" disabled selected hidden>Событие</option> -->
+                                <option value="funeral" selected>Похороны</option>
+                                <option value="birth">Рождение</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="ghost-tab" id="ghost-tab-funeral">
+                        <div class="fields">
+                            <h4>Умерший</h4>
+                            <div>
+                                <input type="text" placeholder="ФИО" required class="inputWide inputValidateFIO">
+                            </div>
+                        </div>
+                        <div class="fields">
+                            <h4>Адрес проведения</h4>
+                            <div>
+                                <input type="text" placeholder="Адрес" required class="inputWide">
+                            </div>
+                        </div>
+                        <div class="fields">
+                            <h4>Дата проведения</h4>
+                            <div>
+                                <input class="date-input" type="date">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="ghost-tab" id="ghost-tab-birth" style="display: none;">
+                        <div class="fields">
+                            <h4>Родившийся</h4>
+                            <div>
+                                <input type="text" placeholder="ФИО" required class="inputWide inputValidateFIO">
+                            </div>
+                        </div>
+                        <div class="fields">
+                            <h4>Дата рождения</h4>
+                            <div>
+                                <input class="date-input" type="date">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="fields">
+                        <h4>Комментарий</h4>
+                        <div>
+                            <textarea name="note" class="textareaNote inputWide" cols="30" rows="30" placeholder="Писать тут"></textarea>
+                        </div>
+                    </div>
+                    <br><br>
+                    <div>
+                        <input type="button" class="main-button inputWide" value="Добавить">
+                        <p class="sub wide">
+                            Человек будет добавлен после расмотрения модератором
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <hr>
+
+        </div>
+    </section>
+
+
+    <footer>
+        <div class="container">
+            <div class="btn-group">
+                <button><span><a href="/pages/home/index.html"><img src="../../img/Home.png" alt=""></a></span></button>
+                <button><span><a href="/pages/events/index.html"><img src="../../img/Calendar.png" alt=""></a></span></button>
+                <button><span><a href="/pages/search/search-name.html"><img src="../../img/Search.png" alt=""></a></span></button>
+                <button><span><a href="/pages/chats/index.html"><img src="../../img/Message.png" alt=""></a></span></button>
+                <button><span><a href="/pages/app/app.html"><img src="../../img/App.png" alt=""></a></span></button>
+            </div>
+        </div>
+    </footer>
+    <script src="../../js/inputValidation.js"></script>
+    <script>
+        var allGhostTabs = document.getElementsByClassName("ghost-tab");
+        var ghostTabFuneral = document.getElementById("ghost-tab-funeral");
+        var ghostTabBirth = document.getElementById("ghost-tab-birth");
+        function hideGhostTabs() {
+            Array.from(allGhostTabs).forEach(function(ghostTab) {
+                ghostTab.style.display = "none";
+            })
+        }
+        function eventSelect(sender) {
+            // alert(sender);
+            hideGhostTabs();
+            switch(sender.value) {
+                case "funeral":
+                    ghostTabFuneral.style.display = "initial";
+                    break;
+                case "birth":
+                    ghostTabBirth.style.display = "initial";
+                    break;
+            }
+        }
+    </script>
+</body>
+</html>

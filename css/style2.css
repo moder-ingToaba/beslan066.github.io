@@ -1,0 +1,144 @@
+.chat-container {
+    display: flex;
+    /* padding: 6px 0; */
+}
+
+.chat-ave {
+    display: flex;
+    align-items: center;
+    /* border-radius: 50%; */
+    /* flex: 1 1 0; */
+    /* background: url("../img/Ellipse\ 56.png"); */
+    /* padding: 6px; */
+}
+
+.chat-body {
+    display: flex;
+    flex-flow: column;
+    width: 100%;
+    padding: 6px;
+}
+
+.chat-body h4 {
+    font-weight: bold;
+    color: #054857;
+    padding: 6px;
+}
+
+.chat-inner {
+    display: flex;
+}
+
+.chat-inner p {
+    color: #567F88;
+    padding: 6px;
+    font-size: 13px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-height: 25px;
+}
+
+.chat-time {
+    display: flex;
+    align-items: flex-end;
+    font-size: 13px;
+    color: #AAC0C5;
+    padding: 6px;
+}
+
+.chat-unread {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 6px 0 6px 6px;
+}
+
+.chat-unread p {
+    background-color: #CFE3E7;
+    border-radius: 100px;
+    color: #054857;
+    padding: 2px 6px;
+    max-height: 20px;
+    font-size: 13px;
+}
+
+
+input {
+    padding: 8px;
+    margin-bottom: 8px;
+}
+
+.fields input, .fields select, .fields textarea {
+    height: 40px;
+    background-color: #fff;
+    border: 1px solid #CFE3E7;
+    box-sizing: border-box;
+    border-radius: 6px;
+    /* width: 158px; */
+    margin-right: 8px;
+}
+
+.fields input::placeholder, .fields select::placeholder, .fields textarea::placeholder {
+    font-weight: 500;
+    font-size: 13px;
+    line-height: 16px;
+    /* padding: 5px; */
+    color: #7A969C;
+}
+
+.main-wrap {
+    margin-bottom: 60px;
+}
+
+.main-wrap h4 {
+    margin-bottom: 16px;
+    font-weight: 600;
+    font-size: 14px;
+    line-height: 16px;
+    display: flex;
+    align-items: center;
+    color: #7A969C;
+    margin-top: 32px;
+}
+
+.inputWide, .selectWide {
+    width: 100%;
+}
+
+.textareaNote, .textareaBio {
+    height: 100px !important;
+    font-family: 'Montserrat', Arial, Helvetica, sans-serif;
+    padding: 8px;
+    font-size: 13px;
+}
+
+.sub {
+    text-align: center;
+    font-family: 'Montserrat', Arial, Helvetica, sans-serif;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 15px;
+    color: #567F88;
+    margin-top: 8px;
+    margin-bottom: 8px;
+}
+
+.wide {
+    width: 100%;
+}
+
+input.main-button {
+    background-color: #054857;
+    border: none;
+    color: white;
+    border-radius: 10px;
+    padding: 10px;
+    cursor: pointer;
+    font-family: 'Montserrat', Arial, Helvetica, sans-serif;
+}
+
+input.main-button:hover {
+    background-color: #3498db;
+    transition: 0.2s;
+}
