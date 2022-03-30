@@ -5,43 +5,43 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../../css/auth.css">
-    <title>Подтверждение номера</title>
+    <title>Document</title>
 </head>
 <body>
-    <div class="auth-code">
-        <div class="wrapper">
-            <div class="code-section-head">
-                <h3>Подтвердите номер</h3>
-                <button type="button" class="close-btn"><img src="../img/X.png" alt=""></button>
+    <div class="code-modal">
+        <div class="container">
+            <div class="modal-head">
+                <h3>Введите код</h3>
+                <a href="../auth/forgot-password-step-2.html"><img src="../../img/X.png" alt=""></a>
             </div>
 
-            <div class="confirm-info">
-                <h4>Зачем мне это нужно?</h4>
-                <p>Подстверждение нужно, что бы вы могли восстановить доступ к аккаунту, если вы<br> забудете пароль</p>
-            </div>
-
-
-            <form>
-            
+            <form action="">
                 <div class="confirm-fields">
                     <input type="number">
                     <input type="number">
                     <input type="number">
                     <input type="number">
                 </div>
-                
-            
+
                 <div class="repeat-code">
                     <span><a href="">Отправить еще раз</a>34 сек</span>
                 </div>
     
-                <button type="submit">Подтвердить</button>
-            </form>    
+                <button type="submit">Далее</button>
+            </form>
+        </div>
+    </div>
 
+
+    <div class="modal-success">
+        <div class="container">
+            <h3>Вы изменили пароль!</h3>
+            <p>Войдите в ваш аккаунт уже с новым паролем.</p>
+            <a href="../../index.html" type="button">Войти</a>
         </div>
     </div>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-    <script src="../js/register.js"></script>
+    <script src="../../js/register.js"></script>
 </body>
 </html>

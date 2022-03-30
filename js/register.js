@@ -64,3 +64,63 @@ $(document).ready(function() {
 
 
 });
+
+console.log('fsajfk')
+
+/*  Скрыть показать пароль */
+
+$('.password-control').on('click', function(event){
+    
+    event.preventDefault()
+
+    console.log('hello')
+	if ($('#password-input').attr('type') == 'password'){
+		$(this).addClass('view');
+		$('#password-input').attr('type', 'text');
+	} else {
+		$(this).removeClass('view');
+		$('#password-input').attr('type', 'password');
+	}
+	return false;
+});
+
+
+
+/* Забыли пароль(код) */
+
+
+
+
+ let sendCode = $('.forg-pass-btn');
+ 
+ sendCode.each(function() {
+    sendCode.click(function(e) {
+        e.preventDefault();
+    
+        const newPass = $("#password-input").val();
+        const repNewPass = $("#repeat-new-pass").val();
+    
+        if(newPass == '') {
+            $('#password-input').css("border", "1px solid red");
+        }else {
+            $('#password-input').css("border", "1px solid #CFE3E7");
+        }
+    
+        if(repNewPass == '') {
+            $('#repeat-new-pass').css("border", "1px solid red");
+        }else {
+            $('#repeat-new-pass').css("border", "1px solid #CFE3E7");
+        }
+
+
+        if(newPass !== repNewPass) {
+            $('.error-block').css("display", "block");
+        }else {
+            window.location = '../auth/auth-modal.html'
+        }
+    
+        return false;
+ })
+ 
+
+ })

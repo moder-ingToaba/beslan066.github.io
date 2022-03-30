@@ -504,6 +504,236 @@ hr {
 }
 
 
+
+
+/* Забыли пароль */
+
+.forgot-pass p:first-child {
+    width: 328px;
+    height: 48px;
+    left: 16px;
+    top: 100px;
+    font-family: 'Montserrat';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 14px;
+    line-height: 16px;
+    display: flex;
+    align-items: center;
+    color: #054857;
+}
+
+.privacy  {
+    width: 304px;
+    height: 80px;
+    left: 16px;
+    top: 164px;
+    font-weight: 400;
+    font-size: 13px;
+    line-height: 150%;
+    display: flex;
+    align-items: center;
+    color: #567F88;
+}
+
+.forgot-pass input {
+    width: 328px;
+    height: 40px;
+    left: 16px;
+    top: 304px;
+    padding: 10px;
+    background: #FFFFFF;
+    border: 1px solid #CFE3E7;
+    box-sizing: border-box;
+    border-radius: 6px;
+}
+
+.enter-tel {
+    margin-bottom: 50px;
+}
+
+.forgot-pass input::placeholder {
+    font-weight: 400;
+    font-size: 13px;
+    line-height: 150%;
+    display: flex;
+    align-items: center;
+    color: #567F88;
+    
+}
+
+.new-password {
+    display: flex;
+    justify-content: start;
+	position: relative;
+    width: 328px;
+    margin-bottom: 12px;
+	
+}
+.password-control {
+	position: absolute;
+	top: 11px;
+	right: 6px;
+	display: inline-block;
+	width: 20px;
+	height: 20px;
+	background: url(../img/EyeClosed.png) 0 0 no-repeat;
+    
+}
+
+#password-input[type=text] {
+    color: #054857;
+    font-size: 15px;
+}
+.password-control.view {
+	background: url(../img/EyeClosed.png) 0 0 no-repeat;
+}
+
+.code-modal {
+    width: 360px;
+    height: 344px;
+    display: flex;
+    margin: 0 auto;
+    justify-content: center;
+    align-items: center;
+}
+
+.modal-none {
+    display: none;
+}
+
+.confirm-fields {
+    display: flex;
+}
+
+.confirm-fields input {
+    width: 57.14px;
+    height: 57.14px;
+    left: 262.86px;
+    top: 397.43px;
+     background: #FFFFFF;
+    border: 1px solid #CFE3E7;
+    box-sizing: border-box;
+    border-radius: 8px;
+    margin-right: 17px;
+}
+
+.confirm-fields input.true {
+    border: 1px solid #27AE60;
+}
+
+.modal-head {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: 30px;
+}
+
+.modal-head h3 {
+    font-weight: 600;
+    font-size: 14px;
+    line-height: 16px;
+    display: flex;
+    align-items: center;
+    text-align: center;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    color: #567F88;
+}
+
+.modal-head img {
+    margin-left: 90px;
+}
+
+.code-modal .repeat-code {
+    margin-top: 21px;
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 15px;
+    display: flex;
+    align-items: center;
+    color: #2199CC;
+}
+
+.repeat-code a {
+    text-decoration: none;
+    color: #2199CC;;
+}
+
+.repeat-code span {
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 15px;
+    color: #567F88;
+}
+
+.modal-success{
+    margin-right: 50px;
+    display: none;
+}
+
+
+.modal-success .container {
+    width: 328px;
+    height: 230px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.modal-success h3 {
+    font-weight: 700;
+    font-size: 18px;
+    line-height: 22px;
+    text-align: center;
+    color: #054857
+}
+
+.modal-success p {
+    width: 221px;
+    height: 36px;;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 18px;
+    text-align: center;
+    color: #567F88;
+    margin-left: 50px;
+    margin-bottom: 32px;
+}
+
+.modal-success a {
+    text-decoration: none;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 12px 0px;
+    color: #FFFFFF;
+   justify-content: center;
+    width: 328px;
+    height: 40px;
+    left: 16px;
+    top: 561px;
+    background: #054857;
+    border-radius: 8px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 @media screen and (max-width: 410px) {
     .auth-page {
         margin-left: 15%;
