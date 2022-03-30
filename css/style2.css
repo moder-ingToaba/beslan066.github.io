@@ -142,3 +142,46 @@ input.main-button:hover {
     background-color: #3498db;
     transition: 0.2s;
 }
+
+
+
+
+.msg-date {
+    padding: 13px;
+    font-size: 13px;
+    text-align: center;
+    color: #567F88;
+}
+
+.msg-inner {
+    color: black;
+    padding: 6px;
+    font-size: 13px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-height: 25px;
+}
+
+
+/* .msg-container img {
+    float: left;
+    max-width: 60px;
+    width: 100%;
+    margin-right: 20px;
+    border-radius: 50%;
+}
+.msg-container img.right {
+    float: right;
+    margin-left: 20px;
+    margin-right:0;
+}
+
+.msg-time-right {
+    float: right;
+    color: #aaa;
+}
+
+.msg-time-left {
+    float: left;
+    color: #999;
+} */
