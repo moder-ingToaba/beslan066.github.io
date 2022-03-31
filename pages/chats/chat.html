@@ -59,7 +59,7 @@
             <hr>
 
             <div class="post-body">
-                <div class="container scrollable margin-for-footer">
+                <div class="container scrollable margin-for-footer" id="messages-container">
                     <!-- <div class="msg-container">
                         <img src="/img/User.png" alt="" style="width:100%;">
                         <p>Х1ам ди моги?</p>
@@ -165,12 +165,68 @@
                 <img src="/img/chat/AddPic.png" alt="">
             </div>
             <div id="chat-brd-text" class="centered-flex side-kick">
-                <input type="text" placeholder="Печатать" style="width: 360px; display: flex; justify-content: center;">
+                <input id="msg-input" type="text" placeholder="Печатать" style="width: 360px; display: flex; justify-content: center;" onkeypress="sendMsg(event)">
             </div>
             <div id="chat-brd-send" class="centered-flex pointed side-kick">
                 <img src="/img/chat/Mic.png" alt="">
             </div>
         </div>
     </footer>
+    <script>
+        function sendMsg(e) {
+            if (e.keyCode == 13) {
+                // alert("yes");
+                var MC = document.getElementById("messages-container");
+                const d = new Date();
+                var MM = document.getElementById("msg-input");
+                var MV = MM.value;
+
+                var mS = addEl("div", ["msg-container", "msg-sent"], MC);
+                var mT = addEl("div", ["msg-time"], mS, d.getHours().toString() + ':' + d.getMinutes().toString());
+                var mB = addEl("div", ["msg-body"], mS);
+                var mP = addEl("p", [""], mB, MM.value);
+                var mA = addEl("div", ["msg-ave"], mS);
+                var mI = addEl("img", [""], mA);
+
+                mI.setAttribute("src", "../../img/User.png");
+                mI.setAttribute("alt", "");
+
+                window.scroll(0, document.body.scrollHeight);
+                MM.value = '';
+
+                // var dc = document.createElement("div");
+                // dc.classList.add("msg-container");
+                // dc.classList.add("msg-sent");
+
+                // var dc = document.createElement("div");
+                // dc.classList.add("msg-time");
+                // dc.innerHTML = d.getHours().toString() + ':' + d.getMinutes().toString();
+
+                // var dc = document.createElement("div");
+                // dc.classList.add("msg-body");
+            }
+        }
+
+        function addEl(tag_, classes_, parent_, innerHTML_ = "") {
+            var El = document.createElement(tag_);
+            if (classes_.length > 0) {
+                if (classes_[0] != "") {
+                    for (var i = 0; i < classes_.length; i++) {
+                        El.classList.add(classes_[i]);
+                    }
+                }
+            }
+            if (innerHTML_.length > 0) {
+                El.innerHTML = innerHTML_;
+            }
+            parent_.appendChild(El);
+            return El;
+        };
+    </script>
+    <script defer>
+        window.onload = function () {
+            window.scroll(0, document.body.scrollHeight);
+        }
+    </script>
 </body>
 </html>

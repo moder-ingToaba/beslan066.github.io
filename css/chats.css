@@ -1,3 +1,7 @@
+html {
+    scroll-behavior: smooth;
+}
+
 .msg-container {
     display: flex;
 }
