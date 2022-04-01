@@ -74,7 +74,7 @@
                         <div class="event__wrap4">
                             <div class="event__icon">
                                 <div class="event__icon1">
-                                    <img src="../../img/teip-profile/Notify.png" alt="" class="Notify-pic">
+                                    <img src="../../img/teip-profile/Notify.png" alt="" class="Notify-pic inactive-notify">
                                 </div>
                                 <div class="event__icon2">
                                     <img src="../../img/teip-profile/Comment.png" alt="" class="commentteip-pic">
@@ -120,6 +120,8 @@
                         <div class="event__wrap4">
                             <div class="event__icon">
                                 <div class="event__icon1">
+                                    <!-- <img src="../../img/teip-profile/NotifyActive.png" alt="" class="Notify-pic inactive-notify" style="display: none;">
+                                    <img src="../../img/teip-profile/Notify.png" alt="" class="Notify-pic inactive-notify" style="display: initial;"> -->
                                     <img src="../../img/teip-profile/Notify.png" alt="" class="Notify-pic">
                                 </div>
                                 <div class="event__icon2">
@@ -155,5 +157,25 @@
             </div>
         </div>
     </footer>
+    <script>
+        var imgs = ["../../img/teip-profile/Notify.png", "../../img/teip-profile/NotifyActive.png"];
+        // var allNotifs = document.getElementsByTagName("img");
+        var allNotifs = document.getElementsByClassName("Notify-pic");
+        Array.from(allNotifs).forEach(function(notif){
+            notif.addEventListener("click", notifyToggle);
+        });
+        
+        function notifyToggle(event) {
+            event.target.classList.toggle("active-notif");
+            checkImgSrc(event.target);
+        }
+        function checkImgSrc(img_) {
+            if (img_.classList.contains("active-notif")) {
+                img_.src = imgs[1];
+            } else {
+                img_.src = imgs[0];
+            }
+        }
+    </script>
 </body>
 </html>
