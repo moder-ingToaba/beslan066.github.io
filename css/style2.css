@@ -162,26 +162,8 @@ input.main-button:hover {
     max-height: 25px;
 }
 
-
-/* .msg-container img {
-    float: left;
-    max-width: 60px;
-    width: 100%;
-    margin-right: 20px;
-    border-radius: 50%;
-}
-.msg-container img.right {
-    float: right;
-    margin-left: 20px;
-    margin-right:0;
+header .header {
+    margin-bottom: 1px;
 }
 
-.msg-time-right {
-    float: right;
-    color: #aaa;
-}
-
-.msg-time-left {
-    float: left;
-    color: #999;
-} */
+.display-none {  display: none;  }
