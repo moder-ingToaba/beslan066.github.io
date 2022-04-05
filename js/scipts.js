@@ -4,6 +4,11 @@ $('.subscribe').click(function() {
         $('.subsc-text').replaceWith('<div class="subsc-true"><img src="img/Check.png" alt="">Вы подписаны</div>');
 })
 
+/*  Добавить Адрессата */
+
+$('.add_adress').click(function() {
+    $('.addressee__list').append('<input type="text">');
+})
 
 /*  Добавить вариант ответа */
     
