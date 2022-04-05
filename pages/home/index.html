@@ -5,8 +5,8 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="../../css/style.css">
     <title>Gargalo</title>
 </head>
@@ -27,7 +27,7 @@
                     <img src="../../img/gargalo.png" alt="">
                 </div>
         
-                <div class="profile-icon">
+                <div class="profile">
                     <img src="../../img/Ellipse 56.png" alt="">
                 </div>
             </div>
@@ -41,13 +41,14 @@
 
     <section class="posts">
         <div class="container">
+            <div class="posts__wrapper">
             <div class="section-title">
                 <div class="create-post">
-                    <button><a href="../../pages/home/create-post.html"><img src="../../img/plus.png" alt=""></a></button>
+                    <button><img src="../../img/plus.png" alt=""></button>
                 </div>
-    
-                <h2>ПОСТЫ</h2>
-    
+                <div class="post__text">
+                    <h2>ПОСТЫ</h2>
+                </div>
                 <div class="filter-new">
                     <button>		
                         <svg width="20" height="14" viewBox="0 0 20 14" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -65,9 +66,7 @@
             <hr>
 
             <div class="post-body">
-                <div class="container">
                     <div class="post-head">
-
                         <div class="logo-title">
                             <div class="logo">
                                 <img src="../../img/UserCircle.png" alt="">
@@ -78,44 +77,34 @@
                                 <h4>Сегодня в 14:00</h4>
                             </div>
                         </div>
-                        
                         <div class="add">
                             <button><img src="../../img/add.png" alt=""></button>
                         </div>
-
                     </div>
                     
                     <div class="post-desc">
-                        <div class="post">
-                            <div class="img-title">
-                                <img src="../../img/Rectangle 12.png" alt="">
-                                <h3>«Обманули самым неслыханным образом»</h3>
-                                <p>Сталин дал СССР новую конституцию и обещал честные выборы...</p>
+                        <a href="post-show.html" class="post">
+                            <div class="../../img-title">
+                                <img src="../../img/profile/slider.png" alt="">   
                             </div>
-                        </div> 
+                            <div class="post__text">
+                               <p>Сталин дал СССР новую конституцию и обещал честные выборы...</p>
+                            </div>
+                        </a> 
                     </div>
                     <div class="post-info">
                         <div class="like-btn">
-                            <button class="likes" aria-label="Отправить реакцию «нравится»" aria-pressed="false" data-id="0"><svg class="like-heart" width="22" height="20" viewBox="0 0 19 17" fill="white" xmlns="http://www.w3.org/2000/svg">
-                                <path d="M15.8398 2.39496C13.013 -0.169205 10.2871 2.03882 9.27755 
-                                    3.46336C8.26797 2.03882 5.54163 -0.169205 2.71481 2.39496C-0.112011 
-                                    4.95912 1.87349 8.80536 3.2196 10.408C4.22918 11.6544 6.85456 14.361  
-                                    9.27755 15.2158C11.7005 14.361 14.3254 11.6544 15.335 10.408C16.6811 
-                                    8.80536 18.6666 4.95912 15.8398 2.39496Z" stroke="#7A969C" 
-                                    stroke-width="2" stroke-linejoin="round"/>
-                                </svg>234</span></button>
+                            <button><span><img src="../../img/heart.png" alt="">234</span></button>
                             <button><span><img src="../../img/Vector.png" alt="">14</span></button>
                             <button><span><img src="../../img/UploadSimple.png" alt=""></span></button>
                         </div>
                         <div class="view"><span><img src="../../img/View.png" alt="">1709</span></div>
                     </div>
-                </div>
             </div>
 
             <hr>
 
             <div class="post-body">
-                <div class="container">
                     <div class="post-head">
 
                         <div class="logo-title">
@@ -130,38 +119,33 @@
                         </div>
                         
                         <div class="add">
-                            <button><a href="../../pages/home/create-post.html"></a><img style="margin-left: 40px;" src="../../img/add.png" alt=""></button>
+                            <button><img style="margin-left: 40px;" src="../../img/add.png" alt=""></button>
                         </div>
 
                     </div>
                     
                     <div class="post-desc">
-                        <div class="post">
+                        <a href="post-show.html" class="post">
                             <div class="img-title">
-                                <img src="../../img/Rectangle 10.png" alt="">
-                                <h3>
-                                    «Убить на зоне могут лишь спецназ и плохая медицина»
-                                   </h3>
-                                <p> В начале марта стало известно, что в исправительной колонии Татарстана...</p>
+                                <img src="../../img/Rectangle 11.png" alt="">
                             </div>
-                        </div> 
+                            <div class="post__text">
+                                <p>В начале марта стало известно, что в исправительной колонии Татарстана...</p>
+                             </div>
+                        </a> 
                     </div>
                     <div class="post-info">
                         <div class="like-btn">
-                            <button class="likes" aria-label="Отправить реакцию «нравится»" aria-pressed="false" data-id="1"><span><svg class="like-heart" width="22" height="20" viewBox="0 0 19 17" fill="white" xmlns="http://www.w3.org/2000/svg">
-                                <path d="M15.8398 2.39496C13.013 -0.169205 10.2871 2.03882 9.27755 
-                                    3.46336C8.26797 2.03882 5.54163 -0.169205 2.71481 2.39496C-0.112011 
-                                    4.95912 1.87349 8.80536 3.2196 10.408C4.22918 11.6544 6.85456 14.361  
-                                    9.27755 15.2158C11.7005 14.361 14.3254 11.6544 15.335 10.408C16.6811 
-                                    8.80536 18.6666 4.95912 15.8398 2.39496Z" stroke="#7A969C" 
-                                    stroke-width="2" stroke-linejoin="round"/>
-                                </svg>74</span></button>
+                            <button><span><img src="../../img/heart.png" alt="">74</span></button>
                             <button><span><img src="../../img/Vector.png" alt="">24</span></button>
                             <button><span><img src="../../img/UploadSimple.png" alt=""></span></button>
                         </div>
                         <div class="view"><span><img src="../../img/View.png" alt="">6709</span></div>
                     </div>
-                </div>
+            </div>
+
+            <hr>
+
             </div>
         </div>
     </section>
@@ -170,16 +154,13 @@
     <footer>
         <div class="container">
             <div class="btn-group">
-                <button><span><a href="../home/index.html"><img src="../../img/Home.png" alt=""></a></span></button>
-                <button><span><a href="../events/event.html"><img src="../../img/Calendar.png" alt=""></a></span></button>
-                <button><span><a href="../search/search-name.html"><img src="../../img/Search.png" alt=""></a></span></button>
-                <button><span><a href="../chats/index.html"><img src="../../img/Message.png" alt=""></a></span></button>
-                <button><span><a href="../app/app.html"><img src="../../img/App.png" alt=""></a></span></button>
+                <button><span><img src="../../img/Home.png" alt=""></span></button>
+                <button><span><img src="../../img/Calendar.png" alt=""></span></button>
+                <button><span><img src="../../img/Search.png" alt=""></span></button>
+                <button><span><img src="../../img/Message.png" alt=""></span></button>
+                <button><span><img src="../../img/App.png" alt=""></span></button>
             </div>
         </div>
     </footer>
-
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-    <script src="../../js/likes.js"></script>
 </body>
 </html>
