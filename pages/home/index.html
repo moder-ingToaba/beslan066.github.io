@@ -8,6 +8,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="../../css/style.css">
+    <link rel="stylesheet" href="../../css/modals.css">
     <title>Gargalo</title>
 </head>
 <body>
@@ -43,13 +44,13 @@
         <div class="container">
             <div class="posts__wrapper">
             <div class="section-title">
-                <div class="create-post">
+                <div class="create-post" onclick="popShowUpwards('create-post', popHideCreatePost, '20vw', 1)">
                     <button><img src="../../img/plus.png" alt=""></button>
                 </div>
                 <div class="post__text">
                     <h2>ПОСТЫ</h2>
                 </div>
-                <div class="filter-new">
+                <div class="filter-new" onclick="popShowDownwards('filter-pop', popHideFilter, '55%', 1)">
                     <button>		
                         <svg width="20" height="14" viewBox="0 0 20 14" fill="none" xmlns="http://www.w3.org/2000/svg">
                             <path d="M11.875 11.1243L1.75 11.1243" stroke="#7A969C" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
@@ -78,7 +79,9 @@
                             </div>
                         </div>
                         <div class="add">
-                            <button><img src="../../img/add.png" alt=""></button>
+                            <button onclick="popShowUpwards('sub-pop', popHideSub, '35%', 1)">
+                                <img src="../../img/add.png" alt="">
+                            </button>
                         </div>
                     </div>
                     
@@ -162,5 +165,210 @@
             </div>
         </div>
     </footer>
+
+    <div id="filter-pop">
+        <div class="filter-default">
+            <div class="mod-container">
+                <div class="filter-item">
+                    <input type="checkbox">
+                    <span>Посты</span>
+                </div>
+                <div class="filter-item">
+                    <input type="checkbox">
+                    <span>Обращения</span>
+                </div>
+                <div class="filter-item">
+                    <input type="checkbox">
+                    <span>Опросы</span>
+                </div>
+            </div>
+        </div>
+        <br><br>
+        <div id="filterSubmit" class="filter-item" onclick="popHideFilter();">
+            OK
+        </div>
+    </div>
+
+
+
+
+
+    <div id="create-post">
+        <header>
+            <div class="container">
+                <div class="create-post-header">
+                    <h3>ДОБАВЛЕНИЕ ПОСТА</h3>
+                    <button onclick="popHideCreatePost()">
+                        <!-- <a href="../../pages/home/index.html"> -->
+                            <img src="../../img/X.png" alt="">
+                        <!-- </a> -->
+                    </button>
+                </div>
+                <div class="btn-group-list">
+                    <button class="active js-tab-trigger" data-tab="#tab_1">Пост</button>
+                    <button class="js-tab-trigger" data-tab="#tab_2">Обращение</button>
+                    <button class="js-tab-trigger" data-tab="#tab_3">Опрос</button>
+                </div>
+            </div>
+        </header>
+
+        <div class="tabs-content">
+            <section class="create-post tab-items active" id="tab_1">
+                <div class="container">
+                        <section>
+                            <form>
+                            <div class="add-photo-video">
+                            
+                                    <input type="file" id="input-file">
+                                    <label for="input-file"><span class="input__file-icon-wrapper"><img class="input__file-icon" src="../../img/plus.png" width="25"></span>  Добавить <br> фото / видео</label>
+
+                            </div>
+                            <input type="text" placeholder="Описание" class="input-desc">
+                        </form>
+                        </section>
+
+                </div>
+
+            </section>
+        
+            <section class="create-appeal tab-items" id="tab_2">
+                <div class="container">
+
+                    <div class="appeal">
+                        <form>
+                            <div class="theme-appeal">   
+                                <label for="">Тема обращения</label>
+                                <input type="text" id="appeal" placeholder="Тема обращения">    
+                            </div>
+
+                            <div class="addressee">
+                                <label for="addressee">Адресат</label>
+                                <div class="add-addressee">
+                                    <div class="addressee__list">
+                                        <input type="text">
+                                    </div>
+                                    <div class="address-button">
+                                        <button type="button" class="add_adress"><img src="../../img/post/add-addresse.png" alt=""></button>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+
+                
+                    <div class="photo-video-view">
+
+                            <div class="add-media-header">
+                                <span>Видео или фото</span>
+                            </div>
+                        
+                            <div class="add-media-section">
+                                <div class="add-show-media">
+                                    <div>
+                                        <img src="../../img/post/img-show.png" alt="">
+                                    </div>
+                                    <div class="add-media">
+                                        <input type="file" id="media-input">
+                                        <label for="media-input"><span class="input__file-icon-wrapper"><img class="input__file-icon" src="../../img/plus.png" ></span></label>
+                                    </div>
+                                </div>
+                            </div>
+                    </div>
+                
+                </div>
+            </section>
+        
+            <section class="survey tab-items" id="tab_3">
+                <div class="container">
+                    <form>
+
+                        <div class="theme-survey">   
+                            <label for="survey">Вопрос</label>
+                            <input type="text" id="survey" placeholder="Задайте вопрос">    
+                        </div>
+                    
+                        <div class="survey-select-items">
+                            <input type="text" placeholder="Вариант 1">
+                            <input type="text" placeholder="Вариант 2">
+                        </div>
+                    
+                        <div class="add-survey-item">
+                            <button type="button" class="add-survey-btn"><img src="../../img/plus.png" alt=""><span>Вариант</span></button>
+                        </div>
+                    
+                        <div class="photo-video-view">
+                        
+                            <div class="add-media-header">
+                                <span>Видео или фото</span>
+                            </div>
+                        
+                            <div class="add-media-section">
+                                <div class="add-show-media">
+                                    <div>
+                                        <img src="../../img/post/img-show.png" alt="">
+                                    </div>
+                                    <div class="add-media">
+                                        <input type="file" id="media-input">
+                                        <label for="media-input"><span class="input__file-icon-wrapper"><img class="input__file-icon" src="../../img/plus.png" ></span></label>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    
+                    </form>
+                </div>
+            </section>
+        </div>
+    </div>
+
+
+
+
+    <div id="sub-pop">
+        <div class="filter-default">
+            <div class="mod-container">
+                <ul>
+                    <li>
+                        <img src="../../img/modals/X.png" alt="">
+                        <button>Отписаться</button>
+                    </li>
+                    <li>
+                        <img src="../../img/modals/Notice.png" alt="">
+                        <button>Уведомить о новых постах</button>
+                    </li>
+                    <li>
+                        <img src="../../img/modals/link.png" alt="">
+                        <button>Скопировать ссылку</button>
+                    </li>
+                    <li>
+                        <img src="../../img/modals/Stop.png" alt="">
+                        <button>Скрыть пост</button>
+                    </li>
+                    <li>
+                        <img src="../../img/modals/Warning.png" alt="">
+                        <button>Пожаловаться на пост</button>
+                    </li>
+                    <li>
+                        <img src="../../img/modals/Trash.png" alt="">
+                        <button>Удалить</button>
+                    </li>
+                    
+                </ul>
+            </div>
+        </div>
+        <br>
+        <div id="filterSubmit" class="filter-item" onclick="popHideSub();">
+            ОТМЕНА
+        </div>
+    </div>
+
+
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="../../js/likes.js"></script>
+    <script src="../../js/modals.js"></script>
+
+
 </body>
 </html>
