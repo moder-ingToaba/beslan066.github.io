@@ -16,7 +16,7 @@ button {
 
 .container {
     margin: 0 auto;
-    width: 1120px;
+    max-width: 1120px;
     padding-left: 16px;
 }
 
@@ -250,6 +250,11 @@ hr {
 
 }
 
+.step-2 h4{
+    margin-top: 24px;
+
+}
+
 .pass-error {
     margin-bottom: 28px;
 }
@@ -259,11 +264,13 @@ hr {
     width: 160px;
     height: 40px;
     left: 16px;
+    padding: 10px 10px;
     top: 264px;
     background: #FFFFFF;
     border: 1px solid #CFE3E7;
     box-sizing: border-box;
     border-radius: 6px;
+    margin-right: 8px;
 }
 
 .reg-agree label{
@@ -513,7 +520,6 @@ hr {
     height: 48px;
     left: 16px;
     top: 100px;
-    font-family: 'Montserrat';
     font-style: normal;
     font-weight: 600;
     font-size: 14px;

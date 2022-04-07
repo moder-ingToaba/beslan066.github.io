@@ -2457,16 +2457,20 @@ textarea.input__text::placeholder {
        flex-direction: column;
     }
 
+    .container {
+        width: auto;
+    }
+
     
     header .container {
         justify-content: start;
-        width: auto;
+        
         margin: 0;
         
     }
 
     .posts .container {
-        width: auto;
+        
         margin: 0;
         
     }
@@ -2486,7 +2490,7 @@ textarea.input__text::placeholder {
     .post-body .container {
         margin: 0;
         padding: 0;
-        width: auto;
+        
     }
 
     .post-body {
@@ -2495,7 +2499,7 @@ textarea.input__text::placeholder {
 
     .post-head {
         margin: 0;
-        width: auto;
+        
         justify-content: start;
         align-items: center;
     }
@@ -2551,6 +2555,10 @@ textarea.input__text::placeholder {
     body {
        display: flex;
        flex-direction: column;
+    }
+
+    .container {
+        width: auto;
     }
 
     

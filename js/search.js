@@ -1,8 +1,6 @@
 
-
-let serchLinkItem = document.querySelectorAll('.serch_link_item');
-
-console.log(serchLinkItem);
-
-
-serchLinkItem.forEach();
+$('ul li').on('click', function(event) {
+    event.preventDefault();
+    
+    $(this).addClass('active').siblings().removeClass('active');
+})
