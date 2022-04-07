@@ -215,6 +215,11 @@ header hr {
     margin-right: 6px;
 }
 
+.like-btn a {
+color: #567F88;
+    
+}
+
 .view {
     display: flex;
     align-items: center;
@@ -243,10 +248,7 @@ footer {
 
 }
 
-.likes a {
-color: #567F88;
-    
-}
+
 
 footer  .container{
     height:1px;
