@@ -243,6 +243,11 @@ footer {
 
 }
 
+.likes a {
+color: #567F88;
+    
+}
+
 footer  .container{
     height:1px;
     border:none;
