@@ -2649,3 +2649,104 @@ textarea.input__text::placeholder {
 
     
 }
+
+@media screen and (max-width: 480px) {
+    
+    body {
+       display: flex;
+       flex-direction: column;
+    }
+
+    .container {
+        width: auto;
+    }
+
+    
+    header .container {
+        justify-content: start;
+        width: auto;
+        margin: 0;
+        
+    }
+
+    .posts .container {
+        width: auto;
+        margin: 0;
+        
+    }
+
+    .section-title {
+        display: flex;
+        margin-top: 16px;
+        margin-bottom: 16px;
+        margin-right: 12px;
+        align-items: center;
+    }
+
+    .section-title h2 {
+        margin-bottom: 13px;
+    }
+
+    .post-body .container {
+        margin: 0;
+        padding: 0;
+        width: auto;
+    }
+
+    .post-body {
+        margin-right: 16px;
+    }
+
+    .post-head {
+        margin: 0;
+        width: auto;
+        justify-content: start;
+        align-items: center;
+    }
+
+    .post-head .add {
+        margin-left: 125px;
+    }
+
+
+    .post-desc .img-title{
+        margin: 0;
+        padding: 0;
+        margin-top: 100px;
+    }
+
+    .post {
+        height: auto;
+    }
+
+    .post-info {
+        display: flex;
+        align-items: center;
+        text-align: center;
+    }
+
+    footer {
+        width: 375px;
+        justify-content: start;
+        height: 60px;
+        overflow: hidden;
+        position: fixed; 
+        
+        background-color: #ffffff; 
+    }
+
+    footer .container {
+        justify-content: start;
+    }
+
+    .btn-group button {
+        margin-right: 50px;
+    }
+
+    section .post-head .followed{
+        margin-left: 60px;
+    }
+
+    
+}
+
