@@ -17,7 +17,7 @@
 
             <div class="header">
                 <div class="menu">
-                    <div class="burger-menu">
+                    <div class="burger-menu cur-point" onclick="popShowUpwards('mod-menu', popHideModMenu, '50vw', 1)">
                         <span></span>
                         <span></span>
                         <span></span>
@@ -79,7 +79,7 @@
                             </div>
                         </div>
                         <div class="add">
-                            <button onclick="popShowUpwards('sub-pop', popHideSub, '35%', 1)">
+                            <button onclick="popShowUpwards('sub-pop', popHideSub, '35%', 1)" style="height: 36px;">
                                 <img src="../../img/add.png" alt="">
                             </button>
                         </div>
@@ -342,7 +342,7 @@
 
 
     <div id="sub-pop">
-        <div class="filter-default">
+        <div class="filter-default bg-white pads">
             <div class="mod-container">
                 <ul>
                     <li>
@@ -359,12 +359,12 @@
                     </li>
                     <li>
                         <img src="../../img/modals/Stop.png" alt="">
-                        <button>Скрыть пост</button>
+                        <button onclick="popShowUpwards('black-list-pop', popHideBlackList, '20vw', 3)">Скрыть пост</button>
                     </li>
-                    <li>
+                    <!-- <li>
                         <img src="../../img/modals/Warning.png" alt="">
                         <button>Пожаловаться на пост</button>
-                    </li>
+                    </li> -->
                     <li>
                         <img src="../../img/modals/Trash.png" alt="">
                         <button>Удалить</button>
@@ -379,6 +379,93 @@
         </div>
     </div>
 
+
+
+
+    <div class="black-list" id="black-list-pop">
+        <div class="filter-default bg-white pads">
+            <h2 class="h2-theme">Почему вы хотите добавить этот пост в черный список?</h2>
+            <ul>
+            <li>
+                <input type="checkbox" id="bl-spam">
+                <!-- <span>Это спам</span> -->
+                <label for="bl-spam">Это спам</label>
+            </li>
+            <li>
+                <input type="checkbox" id="bl-obscene">
+                <label for="bl-obscene">Нецензурный контент</label>
+            </li>
+            <li>
+                <input type="checkbox" id="bl-violence">
+                <label for="bl-violence">Враждебные высказывания или спам</label>
+            </li>
+            <li>
+                <input type="checkbox" id="bl-alcohol">
+                <label for="bl-alcohol">Продажа алкоголя или наркотиков</label>
+            </li>
+            <li>
+                <input type="checkbox" id="bl-phobia">
+                <label for="bl-phobia">Разжигание межнациональной или межрелигиозной розни</label>
+            </li>
+            <li>
+                <input type="checkbox" id="bl-false">
+                <label for="bl-false">Ложная информация </label>
+            </li>
+            <li>
+                <input type="checkbox" id="bl-fraud">
+                <label for="bl-fraud">Мошенничество или обман</label>
+            </li>
+            <li>
+                <input type="checkbox" id="bl-copyright">
+                <label for="bl-copyright">Нарушение прав на интеллектуальную собственность</label>
+            </li>
+            </ul>
+            <div class="buttons">
+                <button class="dg-button dark-button" onclick="popHideBlackList();">Отравить</button>
+                <button class="dg-button white-button" onclick="popHideBlackList();">Отмена</button>
+            </div>
+        </div>
+    </div>
+
+
+    
+    <div class="mod-menu pads" id="mod-menu">
+        <div class="mod-container pads filter-default no-border">
+            <div class="menu-head">
+                <h3>Меню</h3>
+                <button onclick="popHideModMenu();">
+                    <img src="../../img/modals/X.png" alt="">
+                </button>
+            </div>
+
+            <ul>
+                <li>
+                    <img src="../../img/modals/Setings.png" alt="">
+                    <a href="">Настройки приложения</a>
+                </li>
+                <li>
+                    <img src="../../img/modals/Support.png" alt="">
+                    <a href="">Поддержка</a>
+                </li>
+                <li>
+                    <img src="../../img/modals/ShieldCheck.png" alt="">
+                    <a href="">Политика конфиденциальности</a>
+                </li>
+                <li>
+                    <img src="../../img/modals/Handshake.png" alt="">
+                    <a href="">Пользовательское соглашение</a>
+                </li>
+                <li>
+                    <img src="../../img/modals/Translate.png" alt="">
+                    <a href="">Язык приложения</a>
+                </li>
+                <li class="menu-footer">
+                    <img src="../../img/modals/SignOut.png" alt="">
+                    <a href="">Выйти из аккаунта</a>
+                </li>
+            </ul>
+        </div>
+    </div>
 
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>

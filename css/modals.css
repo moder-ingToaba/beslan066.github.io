@@ -1,3 +1,16 @@
+h2.h2-theme {
+    font-weight: 700;
+    font-size: 14px;
+    line-height: 17px;
+    text-transform: uppercase;
+    color: #054857;
+    padding: 0;
+}
+
+a, a:visited, a:hover, a:active {
+    text-decoration: none;
+    color: inherit;
+}
 
 .filter-default {
     border: 1px solid #E3EFF1;
@@ -18,7 +31,7 @@
     /* background-color: #fff; */
     display: flex;
     align-items: center;
-    padding-left: 15px;
+    /* padding-left: 15px; */
 }
 
 .filter-default ul img {
@@ -29,6 +42,28 @@
 .filter-default ul button {
     border: none;
     background-color: #FFFFFF;
+    margin-left: 18px;
+    cursor: pointer;
+
+    font-weight: 600;
+    font-size: 14px;
+    line-height: 16px;
+    color: #042026;
+}
+
+.filter-default ul label {
+    background-color: #fff;
+    margin-left: 18px;
+    cursor: pointer;
+
+    font-weight: 600;
+    font-size: 14px;
+    line-height: 16px;
+    color: #042026;
+}
+
+.filter-default ul a {
+    background-color: #fff;
     margin-left: 18px;
     cursor: pointer;
 
@@ -90,11 +125,15 @@
 
 
 
+.cur-point {    cursor: pointer;    }
 
+.pads {    padding: 15px;    }
 
+.bg-white {    background-color: #fff;    }
 
+.no-border {    border: none !important;    }
 
-#create-post {
+#create-post, #mod-menu {
     background-color: #fff;
     height: 100%;
     position: fixed;
@@ -105,7 +144,7 @@
     border-radius: 10px;
 }
 
-#sub-pop {
+#sub-pop, #black-list-pop {
     /* background-color: #fff; */
     position: fixed;
     top: 100%;
@@ -114,6 +153,53 @@
     margin: 0 5%;
 }
 
-#sub-pop .filter-default {
+.buttons {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+}
+
+.dg-button {
+    width: 140px;
+    height: 40px;
+    border-radius: 8px;
+}
+
+.dark-button {
+    border: none;
+    background: #054857;
+    color: #fff;
+}
+
+.white-button {
     background-color: #fff;
+    color: #000;
+    border: 1px solid #567F88;
+}
+
+.dg-button:hover {
+    background-color: #3498db;
+}
+
+#mod-menu button {
+    border: none;
+    background-color: #fff;
+}
+
+#mod-menu li:last-child {    margin-top: 36px;    }
+
+#mod-menu .menu-head {
+    display: flex;
+    margin-bottom: 16px;
+}
+
+#mod-menu .menu-head h3 {
+    width: 100%;
+    text-align: center;
+    font-family: 'Montserrat';
+    font-style: normal;
+    font-weight: 600;
+    /* font-size: 14px; */
+    line-height: 16px;
+    color: #567F88;
 }

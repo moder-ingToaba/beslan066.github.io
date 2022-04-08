@@ -1,3 +1,7 @@
+html {
+    scrollbar-width: none;
+}
+
 * {
     margin: 0;
     padding: 0;
@@ -12,14 +16,12 @@ body {
     margin: 0 auto;
     width: 1120px;
     padding-left: 16px;
-    
 }
 
 
 input {
     outline: none;
     border: 1px solid #AAC0C5;
-    
 }
 
 a {
