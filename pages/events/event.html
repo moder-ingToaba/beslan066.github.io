@@ -8,6 +8,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="../../css/style.css">
+    <link rel="stylesheet" href="../../css/modals.css">
     <title>События</title>
 </head>
 <body>
@@ -61,7 +62,9 @@
                                 </div>
                            </div>
                            <div>
-                                <img src="../../img/teip-profile/add.png" alt="" class="addteip-pic">
+                                <button class="no-border bg-white" onclick="popShowUpwards('events-menu', popHideEventsMenu, '35%', 1)" style="height: 36px;">
+                                    <img src="../../img/teip-profile/add.png" alt="">
+                                </button>
                            </div>
                         </div>
                         <div class="event__wrap2">
@@ -157,6 +160,43 @@
             </div>
         </div>
     </footer>
+
+
+    
+    <div id="events-menu">
+        <div class="filter-default bg-white pads">
+            <div class="mod-container">
+                <ul>
+                    <li>
+                        <img src="../../img/modals/EyeClosed.png" alt="">
+                        <button>Скрыть событие</button>
+                    </li>
+                    <li>
+                        <img src="../../img/modals/Calendar.png" alt="">
+                        <button>Напомнить</button>
+                    </li>
+                    <li>
+                        <img src="../../img/modals/link.png" alt="">
+                        <button>Скопировать ссылку</button>
+                    </li>
+                    <li>
+                        <img src="../../img/modals/Warning.png" alt="">
+                        <button>Сообщить об ошибке</button>
+                    </li>
+                    <li>
+                        <img src="../../img/modals/Trash.png" alt="">
+                        <button>Удалить</button>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <br>
+        <div id="eventsMenuClose" class="filter-item" onclick="popHideEventsMenu();">
+            ОТМЕНА
+        </div>
+    </div>
+
+
     <script>
         var imgs = ["../../img/teip-profile/Notify.png", "../../img/teip-profile/NotifyActive.png"];
         // var allNotifs = document.getElementsByTagName("img");
@@ -177,5 +217,6 @@
             }
         }
     </script>
+    <script src="../../js/modals.js"></script>
 </body>
 </html>

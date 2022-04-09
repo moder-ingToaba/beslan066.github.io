@@ -113,7 +113,7 @@ a, a:visited, a:hover, a:active {
     margin: 0 5%;
 }
 
-#filterSubmit {
+#filterClose, #eventsMenuClose {
     text-align: center;
     align-items: center;
     justify-content: center;
@@ -144,7 +144,7 @@ a, a:visited, a:hover, a:active {
     border-radius: 10px;
 }
 
-#sub-pop, #black-list-pop {
+#sub-pop, #black-list-pop, #events-menu {
     /* background-color: #fff; */
     position: fixed;
     top: 100%;
@@ -202,4 +202,24 @@ a, a:visited, a:hover, a:active {
     /* font-size: 14px; */
     line-height: 16px;
     color: #567F88;
+}
+
+.pop-appear {
+    z-index: -1;
+    opacity: 0;
+
+    position: fixed;
+    top: 50%;
+    margin-top: -25%;
+    
+    transition: all 0.3s ease-in 0;
+}
+
+#events-menu img {
+    width: 22px;
+    height: 22px;
+}
+
+#events-menu button {
+    color: #054857 !important;
 }
