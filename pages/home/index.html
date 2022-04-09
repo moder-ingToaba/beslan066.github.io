@@ -200,7 +200,7 @@
             </div>
         </div>
         <br><br>
-        <div id="filterSubmit" class="filter-item" onclick="popHideFilter();">
+        <div id="filterClose" class="filter-item" onclick="popHideFilter();">
             OK
         </div>
     </div>
@@ -359,7 +359,7 @@
                     </li>
                     <li>
                         <img src="../../img/modals/Stop.png" alt="">
-                        <button onclick="popShowUpwards('black-list-pop', popHideBlackList, '20vw', 3)">Скрыть пост</button>
+                        <button onclick="popShowUpwards('black-list-pop', popHideBlackList, '20vw', 3)">Пожаловаться на пост</button>
                     </li>
                     <!-- <li>
                         <img src="../../img/modals/Warning.png" alt="">
@@ -374,7 +374,7 @@
             </div>
         </div>
         <br>
-        <div id="filterSubmit" class="filter-item" onclick="popHideSub();">
+        <div id="filterClose" class="filter-item" onclick="popHideSub();">
             ОТМЕНА
         </div>
     </div>
@@ -421,7 +421,7 @@
             </li>
             </ul>
             <div class="buttons">
-                <button class="dg-button dark-button" onclick="popHideBlackList();">Отравить</button>
+                <button class="dg-button dark-button" onclick="popSendBlackList();">Отравить</button>
                 <button class="dg-button white-button" onclick="popHideBlackList();">Отмена</button>
             </div>
         </div>
@@ -467,12 +467,22 @@
         </div>
     </div>
 
+    
+    <div class="mod-result pop-appear" id="mod-result">
+        <div class="mod-container">
+            <h4>Спасибо Вам за внимательность!</h4>
+            <p>Мы уже рассматриваем вашу жалобу!</p>
+            <button class="dg-button dark-button" onclick="popHideModResult();">Закрыть</button>
+        </div>
+    </div>
+
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <script src="../../js/likes.js"></script>
     <script src="../../js/slider.js"></script>
     <script src="../../js/tab.js"></script>
     <script src="../../js/modals.js"></script>
+    <script src="../../js/scipts.js"></script>
 
 
 </body>
