@@ -54,6 +54,11 @@ function popHideEventsMenu() {
     removeMask(1);
 }
 
+function popHideAddEvent() {
+    document.getElementById("add-event").style.top = "100%";
+    removeMask(1);
+}
+
 function showMask(hide_func, maskZ) {
     var maskDiv = document.createElement("div");
     maskDiv.style.width = "100%";

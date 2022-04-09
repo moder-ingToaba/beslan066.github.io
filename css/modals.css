@@ -133,7 +133,7 @@ a, a:visited, a:hover, a:active {
 
 .no-border {    border: none !important;    }
 
-#create-post, #mod-menu {
+#create-post, #mod-menu, #add-event {
     background-color: #fff;
     height: 100%;
     position: fixed;
@@ -145,12 +145,13 @@ a, a:visited, a:hover, a:active {
 }
 
 #sub-pop, #black-list-pop, #events-menu {
-    /* background-color: #fff; */
     position: fixed;
     top: 100%;
     transition: top 0.3s ease-out;
-    width: 90%;
-    margin: 0 5%;
+    /* width: 90%;
+    margin: 0 5%; */
+    width: calc(100% - 32px);
+    margin: 0 16px;
 }
 
 .buttons {
@@ -212,7 +213,7 @@ a, a:visited, a:hover, a:active {
     top: 50%;
     margin-top: -25%;
     
-    transition: all 0.3s ease-in 0;
+    transition: all 0.2s ease-in 0s;
 }
 
 #events-menu img {
@@ -222,4 +223,34 @@ a, a:visited, a:hover, a:active {
 
 #events-menu button {
     color: #054857 !important;
+}
+
+#mod-result {
+    width: calc(100% - 32px);
+    margin: 0 16px;
+}
+
+#mod-result .mod-container {
+    padding: 24px 32px;
+    text-align: center;
+}
+
+#mod-result h4 {
+    font-style: normal;
+    font-weight: 700;
+    font-size: 18px;
+    line-height: 22px;
+    color: #054857;
+}
+
+#mod-result p {
+    font-style: normal;
+    /* font-weight: 700; */
+    font-size: 18px;
+    line-height: 22px;
+    color: #567F88;
+}
+
+#mod-result .mod-container button {
+    width: 200px;
 }

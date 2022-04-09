@@ -167,3 +167,8 @@ header .header {
 }
 
 .display-none {  display: none;  }
+
+.btn-clear {
+    background: #fff;
+    border: none;
+}

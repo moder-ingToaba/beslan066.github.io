@@ -8,6 +8,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="../../css/style.css">
+    <link rel="stylesheet" href="../../css/style2.css">
     <link rel="stylesheet" href="../../css/modals.css">
     <title>События</title>
 </head>
@@ -29,7 +30,9 @@
                 </div>
         
                 <div class="profile-icon">
-                    <a href="../settings/my-settings.html"><img src="../../img/lk/Setings-active.png" alt=""></a>
+                    <a href="../settings/my-settings.html">
+                        <img src="../../img/lk/Setings-active.png" alt="">
+                    </a>
                 </div>
             </div>
             
@@ -41,9 +44,9 @@
         <div class="container">
             <div class="teipprofile__wrapper">
                 <div class="add-search">
-                    <a href="../events/add-event.html">
+                    <button class="btn-clear" onclick="popShowUpwards('add-event', popHideAddEvent, '20vw', 1)">
                         <img class="plus-btn" src="../../img/plus.png" alt="">
-                    </a>
+                    </button>
                     
                     <h2 class="communinty__text">СОБЫТИЯ</h2>
                     <img class="search-btn" src="../../img/search/filter.png" alt="">
@@ -85,7 +88,7 @@
                                 </div>
                                 <div class="event__icon3">
                                     <img src="../../img/teip-profile/Clock.png" alt="" class="clockteip-pic">
-                                    <h3>1.06.2021</h3>
+                                    <h3>01.06.2021</h3>
                                 </div>
                             </div>
                             <div class="event__teip color__event"></div>
@@ -133,7 +136,7 @@
                                 </div>
                                 <div class="event__icon3">
                                     <img src="../../img/teip-profile/Clock.png" alt="" class="clockteip-pic">
-                                    <h3>1.06.2021</h3>
+                                    <h3>11.06.2021</h3>
                                 </div>
                             </div>
                             <div class="event__teip color__event1"></div>
@@ -193,6 +196,83 @@
         <br>
         <div id="eventsMenuClose" class="filter-item" onclick="popHideEventsMenu();">
             ОТМЕНА
+        </div>
+    </div>
+
+
+    <div id="add-event">
+        <div class="container">
+            <div class="add-event-header">
+                <h3>ДОБАВЛЕНИЕ СОБЫТИЯ</h3>
+                <button onclick="popHideAddEvent()">
+                    <img src="../../img/X.png" alt="">
+                </button>
+            </div>
+        </div>
+
+        <div class="container">
+            <div class="post-body add-person main-wrap">
+                <div class="container">
+                    <h4>Выберите событие</h4>
+                    <div class="fields-rus fields">
+                        <div>
+                            <select name="event" id="" class="select selectWide" onchange="eventSelect(this)">
+                                <!-- <option value="" disabled selected hidden>Событие</option> -->
+                                <option value="funeral" selected>Похороны</option>
+                                <option value="birth">Рождение</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="ghost-tab" id="ghost-tab-funeral">
+                        <div class="fields">
+                            <h4>Умерший</h4>
+                            <div>
+                                <input type="text" placeholder="ФИО" required class="inputWide inputValidateFIO">
+                            </div>
+                        </div>
+                        <div class="fields">
+                            <h4>Адрес проведения</h4>
+                            <div>
+                                <input type="text" placeholder="Адрес" required class="inputWide">
+                            </div>
+                        </div>
+                        <div class="fields">
+                            <h4>Дата проведения</h4>
+                            <div>
+                                <input class="date-input" type="date">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="ghost-tab" id="ghost-tab-birth" style="display: none;">
+                        <div class="fields">
+                            <h4>Родившийся</h4>
+                            <div>
+                                <input type="text" placeholder="ФИО" required class="inputWide inputValidateFIO">
+                            </div>
+                        </div>
+                        <div class="fields">
+                            <h4>Дата рождения</h4>
+                            <div>
+                                <input class="date-input" type="date">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="fields">
+                        <h4>Комментарий</h4>
+                        <div>
+                            <textarea name="note" class="textareaNote inputWide" cols="30" rows="30" placeholder="Писать тут"></textarea>
+                        </div>
+                    </div>
+                    <br><br>
+                    <div>
+                        <input type="button" class="main-button inputWide" value="Добавить">
+                        <p class="sub wide">
+                            Человек будет добавлен после расмотрения модератором
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <hr>
         </div>
     </div>
 
