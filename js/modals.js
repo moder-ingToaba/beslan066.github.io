@@ -5,9 +5,9 @@ function popShowDownwards(id_, hide_func, newBottom, newZ) {
     showMask(hide_func, newZ);
 }
 
-function popShowUpwards(id_, hide_func, newTop, newZ) {
+function popShowUpwards(id_, hide_func, newBottom, newZ) {
     var pop_ = document.getElementById(id_);
-    pop_.style.top = newTop;
+    pop_.style.bottom = newBottom;
     pop_.style.zIndex = newZ + 1;
     showMask(hide_func, newZ);
 }
@@ -15,6 +15,7 @@ function popShowUpwards(id_, hide_func, newTop, newZ) {
 function popAppear(id_, hide_func, newOpac, newZ) {
     var pop_ = document.getElementById(id_);
     pop_.style.zIndex = newZ + 1;
+    pop_.style.left = "auto";
     pop_.style.opacity = newOpac;
     showMask(hide_func, newZ);
 }
@@ -25,27 +26,30 @@ function popHideFilter() {
 }
 
 function popHideCreatePost() {
-    document.getElementById("create-post").style.top = "100%";
+    document.getElementById("create-post").style.bottom = "-120%";
     removeMask(1);
 }
 
 function popHideModMenu() {
-    document.getElementById("mod-menu").style.top = "100%";
+    document.getElementById("mod-menu").style.bottom = "-120%";
     removeMask(1);
 }
 
 function popHideSub() {
-    document.getElementById("sub-pop").style.top = "100%";
+    document.getElementById("sub-pop").style.bottom = "-120%";
     removeMask(1);
 }
 
 function popHideBlackList() {
-    document.getElementById("black-list-pop").style.top = "100%";
+    document.getElementById("black-list-pop").style.bottom = "-120%";
     removeMask(3);
 }
 
 function popHideModResult() {
-    document.getElementById("mod-result").style.opacity = 0;
+    var MR = document.getElementById("mod-result")
+    MR.style.opacity = 0;
+    MR.style.zIndex = -1;
+    MR.style.left = "-110%";
     removeMask(5);
 }
 

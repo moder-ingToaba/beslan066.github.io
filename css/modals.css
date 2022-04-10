@@ -135,10 +135,10 @@ a, a:visited, a:hover, a:active {
 
 #create-post, #mod-menu, #add-event {
     background-color: #fff;
-    height: 100%;
+    max-height: 85%;
     position: fixed;
-    top: 100%;
-    transition: top 0.3s ease-out;
+    bottom: -120%;
+    transition: bottom 0.3s ease-out;
     width: 100%;
     margin: 0;
     border-radius: 10px;
@@ -146,12 +146,24 @@ a, a:visited, a:hover, a:active {
 
 #sub-pop, #black-list-pop, #events-menu {
     position: fixed;
-    top: 100%;
-    transition: top 0.3s ease-out;
+    bottom: -120%;
+    transition: bottom 0.3s ease-out;
     /* width: 90%;
     margin: 0 5%; */
     width: calc(100% - 32px);
     margin: 0 16px;
+}
+
+#create-post  {
+    max-height: 85%;
+}
+
+#add-event {
+    height: 650px;
+}
+
+#create-post {
+    padding-bottom: 32px;
 }
 
 .buttons {
@@ -187,10 +199,11 @@ a, a:visited, a:hover, a:active {
     background-color: #fff;
 }
 
-#mod-menu li:last-child {    margin-top: 36px;    }
+#mod-menu li:last-child {    margin-top: 100px;    }
 
 #mod-menu .menu-head {
     display: flex;
+    align-items: flex-start;
     margin-bottom: 16px;
 }
 
@@ -203,6 +216,8 @@ a, a:visited, a:hover, a:active {
     /* font-size: 14px; */
     line-height: 16px;
     color: #567F88;
+    /* margin-top: 16px; */
+    margin-bottom: 32px;
 }
 
 .pop-appear {
@@ -212,6 +227,8 @@ a, a:visited, a:hover, a:active {
     position: fixed;
     top: 50%;
     margin-top: -25%;
+
+    left: -120%;
     
     transition: all 0.2s ease-in 0s;
 }
@@ -227,7 +244,8 @@ a, a:visited, a:hover, a:active {
 
 #mod-result {
     width: calc(100% - 32px);
-    margin: 0 16px;
+    margin-left: 16px;
+    margin-right: 16px;
 }
 
 #mod-result .mod-container {
@@ -278,4 +296,9 @@ a, a:visited, a:hover, a:active {
     margin: 10px 0;
     display: flex;
     justify-content: space-between;
+}
+
+.stick-to-bottom {
+    position: absolute;
+    bottom: 32px;
 }
