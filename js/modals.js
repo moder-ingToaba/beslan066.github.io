@@ -63,6 +63,11 @@ function popHideAddEvent() {
     removeMask(1);
 }
 
+function popHideFilterEvent() {
+    document.getElementById("filter-event").style.bottom = "-120%";
+    removeMask(1);
+}
+
 function showMask(hide_func, maskZ) {
     var maskDiv = document.createElement("div");
     maskDiv.style.width = "100%";

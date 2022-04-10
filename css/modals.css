@@ -97,12 +97,14 @@ a, a:visited, a:hover, a:active {
     border: 1px solid #AAC0C5;
 }
 
-.filter-item span {
+.filter-item span, .filter-item label {
     font-weight: 600;
     font-size: 14px;
     line-height: 16px;
+    cursor: pointer;
     color: #042026;
     margin-left: 15px;
+    flex-grow: 1;
 }
 
 #filter-pop {
