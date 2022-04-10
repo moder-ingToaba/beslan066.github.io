@@ -2360,6 +2360,263 @@ textarea.input__text::placeholder {
     justify-content: center;
 }
 
+.teipprofile__wraper{
+    display: flex;
+    width: 328px;
+    height: 91px;
+    align-items: center;
+    padding-top: 15px;
+    margin: 0 auto;
+}
+.block__twoProfile{
+    height: 65px;
+    display: flex;
+    flex-direction:column;
+    justify-content: space-between;
+}
+.block__partnum{
+    display: flex;
+}
+.block__P{
+    display: flex;
+    flex-direction:column;
+    justify-content: space-between;
+    margin-right: 38px;
+}
+.profile__buttonns{
+    width: 328px;
+    height: 44px;
+    display: flex;
+    justify-content: space-between;
+    margin: 0 auto;
+}
+.publication_button-profile{
+    width: 207px;
+    height: 44px;
+    background: #EFF5F5;
+    border-radius: 8px;
+    display: flex;
+    cursor: pointer;
+}
+.publication_button-profile:hover{
+    background: #CFE3E7;
+}
+.publication__item-profile{
+    padding-top: 12px;
+    width: 179px;
+    height: 20px;
+    justify-content:space-between;
+    margin: 0 auto;
+    display: flex;
+}
+.publication_button-info{
+    width: 113px;
+    height: 44px;
+    background: #EFF5F5;
+    border-radius: 8px;
+    display: flex;
+    align-items:center;
+    justify-content: center;
+    cursor: pointer;
+}
+.publication_button-info:hover{
+    background: #CFE3E7;
+}
+.tab__nav-btn.active{
+    background: #CFE3E7;
+}
+.publication__info-profile{
+    width: 70px;
+    height: 28px;
+    display: flex;
+    align-items:center;
+    justify-content: center;
+}
+.number__participant{
+    font-family: 'Montserrat';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 14px;
+    line-height: 16px;
+    color: #054857;
+}
+.subscribeprofile{
+    width: 276px;
+}
+.tabs__item{
+    width: 360px;
+    display: flex;
+    justify-content: center;
+    margin-top: 24px;
+}
+.tabs__wrap{
+    width: 360px;
+    display: flex;
+    flex-direction:column;
+    justify-content: space-between;
+}
+.tabs__wrap1{
+    height: 36px;
+    width: 328px;
+    display: flex;
+    justify-content:space-between;
+    margin: 0 auto;
+}
+.slider__profile{
+    margin-top: 15px;
+    margin-bottom: 15px;
+    height: 220px;
+    width: 360px;
+}
+.slider{
+    position: relative;
+    overflow: hidden;
+}
+.slider__arrow {
+    position: absolute;
+    top: 50%;
+    margin: -10px;
+    z-index: 1;
+    outline: none;
+}
+.slider__arrow::before {
+    content: "";
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    border: solid #EFF5F5;
+    border-width: 2px 2px 0 0;
+}
+.slider__arrow:hover::before,
+.slider__arrow:focus::before {
+    border-color: #2199CC;
+}
+.slider__arrow_left {
+    left: 30px;
+    transform: rotate(-135deg);
+}
+.slider__arrow_right {
+    right: 30px;
+    transform: rotate(45deg);
+}
+.slider__slide {
+    display: none;
+    max-width: 100%;
+}
+.slider__slide_active {
+    display: block;
+}
+.slider__dots{
+    position: absolute;
+    display: flex;
+    align-items: center;
+    left: 50%;
+    bottom: 20px;
+    transform: translateX(-50%);
+    z-index: 1;
+}
+.slider__dot{
+    display: inline-block;
+    margin: 0 4px;
+    width: 4px;
+    height: 4px;
+    background: #EFF5F5;
+    border-radius: 50%;
+    outline: none;
+}
+
+.slider__dot:hover,
+.slider__dot:focus {
+    background: #2199CC;
+    width: 8px;
+    height: 8px;
+}
+
+.slider__dot_active {
+    background: #2199CC;
+    width: 8px;
+    height: 8px;
+}
+
+.slider__dot_active:hover,
+.slider__dot_active:focus {
+    border-color: transparent;
+    background: #2199CC;
+}
+.info__wrapper{
+    width: 328px;
+    height: 350px;
+    display: flex;
+    flex-direction:column;
+    justify-content: space-between;
+    font-family: 'Montserrat';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 14px;
+    line-height: 16px;
+    color: #567F88;
+    margin-top: 47px;
+    margin: 0 auto;
+}
+.info__wrap{
+    width: 328px;
+    height: 72px;
+    background: #FFFFFF;
+    border: 1px solid #E3EFF1;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+}
+.info__blokOne{
+    width: 156px;
+    height: 40px;
+    margin-left: 16px;
+    display: flex;
+    flex-direction:column;
+    justify-content: space-between;
+}
+.info__blokTwo{
+    width: 156px;
+    height: 40px;
+    display: flex;
+    flex-direction:column;
+    justify-content: space-between;
+}
+.info__name{
+    font-family: 'Montserrat';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 13px;
+    line-height: 16px;
+    color: #567F88;
+}
+.info__name1{
+    font-family: 'Montserrat';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 14px;
+    line-height: 16px;
+    color: #054857;
+}
+.parents__img{
+    display: flex;
+}
+.parents-pic{
+    width: 60px;
+    height: 60px;
+    margin-right: 8px;
+    margin-top: 13px;
+    background: #DDEBED;
+    border-radius: 60px;
+}
+.tabs__item{
+    display: none;
+}
+.tabs__item.active{
+    display: block;
+}
+/* Media for PostPage*/
+
 
 /*Стили событий*/
 
@@ -2470,6 +2727,14 @@ textarea.input__text::placeholder {
         width: auto;
     }
 
+    .app .conatiner {
+        margin-top: 40px;
+    }
+
+    .eventApp .container{
+        margin-top: 10px;
+    }
+
     
     header .container {
         justify-content: start;
@@ -2549,7 +2814,7 @@ textarea.input__text::placeholder {
     }
 
     .btn-group button {
-        margin-right: 50px;
+        margin-right: 43px;
     }
 
     section .post-head .followed{
@@ -2570,6 +2835,13 @@ textarea.input__text::placeholder {
         width: auto;
     }
 
+    .app .conatiner {
+        margin-top: 40px;
+    }
+
+    .eventApp .container{
+        margin-top: 10px;
+    }
     
     header .container {
         justify-content: start;
@@ -2649,7 +2921,7 @@ textarea.input__text::placeholder {
     }
 
     .btn-group button {
-        margin-right: 50px;
+        margin-right: 43px;
     }
 
     section .post-head .followed{
@@ -2668,6 +2940,15 @@ textarea.input__text::placeholder {
 
     .container {
         width: auto;
+        
+    }
+
+    .app .conatiner {
+        margin-top: 40px;
+    }
+
+    .eventApp .container{
+        margin-top: 10px;
     }
 
     
@@ -2711,6 +2992,7 @@ textarea.input__text::placeholder {
         width: auto;
         justify-content: start;
         align-items: center;
+        margin-top: 20px;
     }
 
     .post-head .add {
@@ -2749,7 +3031,7 @@ textarea.input__text::placeholder {
     }
 
     .btn-group button {
-        margin-right: 50px;
+        margin-right: 43px;
     }
 
     section .post-head .followed{
