@@ -91,14 +91,13 @@ input {
 }
 
 .main-wrap h4 {
-    margin-bottom: 16px;
+    margin: 8px 0;
     font-weight: 600;
     font-size: 14px;
     line-height: 16px;
     display: flex;
     align-items: center;
     color: #7A969C;
-    margin-top: 32px;
 }
 
 .inputWide, .selectWide {

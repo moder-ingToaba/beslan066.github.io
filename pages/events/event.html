@@ -201,14 +201,14 @@
 
 
     <div id="add-event">
-        <div class="container">
+        <!-- <div class="container" style="padding-right: 16px;">
             <div class="add-event-header">
-                <h3>ДОБАВЛЕНИЕ СОБЫТИЯ</h3>
-                <button onclick="popHideAddEvent()">
+                <h3 class="uph3">ДОБАВЛЕНИЕ СОБЫТИЯ</h3>
+                <button class="btn-clear" onclick="popHideAddEvent()">
                     <img src="../../img/X.png" alt="">
                 </button>
             </div>
-        </div>
+        </div> -->
 
         <div class="container">
             <div class="post-body add-person main-wrap">
@@ -260,19 +260,19 @@
                     <div class="fields">
                         <h4>Комментарий</h4>
                         <div>
-                            <textarea name="note" class="textareaNote inputWide" cols="30" rows="30" placeholder="Писать тут"></textarea>
+                            <textarea name="note" class="textareaNote inputWide" cols="30" rows="25" placeholder="Писать тут"></textarea>
                         </div>
                     </div>
                     <br><br>
                     <div>
-                        <input type="button" class="main-button inputWide" value="Добавить">
+                        <input type="button" class="main-button inputWide" value="Добавить"
+                        onclick="popHideAddEvent();">
                         <p class="sub wide">
                             Человек будет добавлен после расмотрения модератором
                         </p>
                     </div>
                 </div>
             </div>
-            <hr>
         </div>
     </div>
 
@@ -298,5 +298,28 @@
         }
     </script>
     <script src="../../js/modals.js"></script>
+    <script src="../../js/inputValidation.js"></script>
+    <script>
+        var allGhostTabs = document.getElementsByClassName("ghost-tab");
+        var ghostTabFuneral = document.getElementById("ghost-tab-funeral");
+        var ghostTabBirth = document.getElementById("ghost-tab-birth");
+        function hideGhostTabs() {
+            Array.from(allGhostTabs).forEach(function(ghostTab) {
+                ghostTab.style.display = "none";
+            })
+        }
+        function eventSelect(sender) {
+            // alert(sender);
+            hideGhostTabs();
+            switch(sender.value) {
+                case "funeral":
+                    ghostTabFuneral.style.display = "initial";
+                    break;
+                case "birth":
+                    ghostTabBirth.style.display = "initial";
+                    break;
+            }
+        }
+    </script>
 </body>
 </html>

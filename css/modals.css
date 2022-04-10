@@ -254,3 +254,28 @@ a, a:visited, a:hover, a:active {
 #mod-result .mod-container button {
     width: 200px;
 }
+
+#add-event {
+    overflow: scroll;
+    scroll-behavior: smooth;
+    scrollbar-width: none;
+}
+
+#add-event .container {
+    margin-top: 16px;
+}
+
+.uph3 {
+    font-size: 1.17em;
+    font-weight: bold;
+    line-height: 16px;
+
+    text-transform: uppercase;
+    color: #7A969C;
+}
+
+.add-event-header {
+    margin: 10px 0;
+    display: flex;
+    justify-content: space-between;
+}
