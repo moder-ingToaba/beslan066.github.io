@@ -54,12 +54,12 @@ function popHideModResult() {
 }
 
 function popHideEventsMenu() {
-    document.getElementById("events-menu").style.top = "100%";
+    document.getElementById("events-menu").style.bottom = "-120%";
     removeMask(1);
 }
 
 function popHideAddEvent() {
-    document.getElementById("add-event").style.top = "100%";
+    document.getElementById("add-event").style.bottom = "-120%";
     removeMask(1);
 }
 
