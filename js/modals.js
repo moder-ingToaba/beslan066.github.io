@@ -21,7 +21,7 @@ function popAppear(id_, hide_func, newOpac, newZ) {
 }
 
 function popHideFilter() {
-    document.getElementById("filter-pop").style.bottom = "100%";
+    document.getElementById("filter-pop").style.bottom = "-120%";
     removeMask(1);
 }
 

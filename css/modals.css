@@ -102,17 +102,19 @@ a, a:visited, a:hover, a:active {
     font-size: 14px;
     line-height: 16px;
     cursor: pointer;
-    color: #042026;
+    color: #054857;
     margin-left: 15px;
     flex-grow: 1;
 }
 
 #filter-pop {
     position: fixed;
-    bottom: 100%;
+    bottom: -120%;
     transition: bottom 0.3s ease-out;
-    width: 90%;
-    margin: 0 5%;
+    /* width: 90%;
+    margin: 0 5%; */
+    width: calc(100% - 32px);
+    margin: 0 16px;
 }
 
 #filterClose, #eventsMenuClose {
@@ -135,7 +137,7 @@ a, a:visited, a:hover, a:active {
 
 .no-border {    border: none !important;    }
 
-#create-post, #mod-menu, #add-event {
+#create-post, #mod-menu, #add-event, #filter-event {
     background-color: #fff;
     max-height: 85%;
     position: fixed;
@@ -143,7 +145,7 @@ a, a:visited, a:hover, a:active {
     transition: bottom 0.3s ease-out;
     width: 100%;
     margin: 0;
-    border-radius: 10px;
+    border-radius: 10px 10px 0 0;
 }
 
 #sub-pop, #black-list-pop, #events-menu {
@@ -303,4 +305,32 @@ a, a:visited, a:hover, a:active {
 .stick-to-bottom {
     position: absolute;
     bottom: 32px;
+    /* width: calc(100% - 32px);
+    margin: 0 16px; */
+}
+
+
+
+
+#filter-event .filter-item {
+    border: none !important;
+    border-radius: 0 !important;
+}
+
+#filter-event .filter-item input {
+    margin-bottom: 0 !important;
+}
+
+#filter-event .filter-item img {
+    padding: 8px;
+    cursor: pointer;
+}
+
+#filter-event .upper-group {
+    flex-grow: 1;
+}
+
+.flex-column {
+    display: flex;
+    flex-direction: column;
 }
