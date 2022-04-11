@@ -75,4 +75,15 @@ window.onload=function(){
     })
 }
 
+window.onload= function() {
+    let sendComment = document.getElementsByClassName('.send__com');
+
+    sendComment.addEventListener('click', function() {
+        let commentFieldVal = document.getElementsByClassName('.send__input').value();
+
+        console.log(commentFieldVal);
+    })
+}
+
+
 

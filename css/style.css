@@ -14,7 +14,7 @@ body {
 
 .container {
     margin: 0 auto;
-    width: 1120px;
+    max-width: 1120px;
     padding-left: 16px;
 }
 
@@ -200,6 +200,16 @@ header hr {
     justify-content: space-between;
     align-items: center;
     color: #567F88;
+}
+
+.likes[aria-pressed="true"] span svg {
+    fill: #042026;
+    stroke: #042026;
+}
+
+.likes[aria-pressed="false"] span svg {
+    fill: #fff;
+    stroke: #7A969C;
 }
 
 .like-btn button{
@@ -1146,6 +1156,38 @@ button.active {
 }
 
 
+.security h3 {
+    width: 132px;
+    height: 16px;
+    left: 0px;
+    top: 0px;
+    font-weight: 600;
+    font-size: 14px;
+    line-height: 16px;
+    display: flex;
+    align-items: center;
+    color: #567F88;
+    margin-bottom: 12px;
+
+}
+
+.security input {
+    width: 160px;
+    height: 40px;
+    left: 168px;
+    top: 28px;
+    background: #FFFFFF;
+    border: 1px solid #CFE3E7;
+    box-sizing: border-box;
+    border-radius: 6px;
+    margin-right: 8px;
+    color: #567F88;
+    padding: 8px ;
+}
+
+.security input::placeholder {
+    color: #567F88;;
+}
 
 /* Стили для уведомлений */
 
