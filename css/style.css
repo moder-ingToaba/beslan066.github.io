@@ -3032,20 +3032,19 @@ textarea.input__text::placeholder {
     .post-head {
         margin: 0;
         width: auto;
-        justify-content: start;
+        justify-content: space-between;
         align-items: center;
-        margin-top: 20px;
+        /* margin-top: 20px; */
     }
 
-    .post-head .add {
-        margin-left: 125px;
+    .post-head .add button {
+        height: 36px;
     }
-
 
     .post-desc .img-title{
         margin: 0;
         padding: 0;
-        margin-top: 100px;
+        /* margin-top: 100px; */
     }
 
     .post {

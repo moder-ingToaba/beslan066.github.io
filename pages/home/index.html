@@ -17,7 +17,7 @@
 
             <div class="header">
                 <div class="menu">
-                    <div class="burger-menu cur-point" onclick="popShowUpwards('mod-menu', popHideModMenu, '50vw', 1)">
+                    <div class="burger-menu cur-point" onclick="popShowUpwards('mod-menu', popHideModMenu, 0, 1)">
                         <span></span>
                         <span></span>
                         <span></span>
@@ -50,13 +50,13 @@
         <div class="container">
             <div class="posts__wrapper">
             <div class="section-title">
-                <div class="create-post" onclick="popShowUpwards('create-post', popHideCreatePost, '20vw', 1)">
+                <div class="create-post" onclick="popShowUpwards('create-post', popHideCreatePost, 0, 1)">
                     <button><img src="../../img/plus.png" alt=""></button>
                 </div>
                 <div class="post__text">
                     <h2>ПОСТЫ</h2>
                 </div>
-                <div class="filter-new" onclick="popShowDownwards('filter-pop', popHideFilter, '55%', 1)">
+                <div class="filter-new" onclick="popShowUpwards('filter-pop', popHideFilter, '45%', 1)">
                     <button>		
                         <svg width="20" height="14" viewBox="0 0 20 14" fill="none" xmlns="http://www.w3.org/2000/svg">
                             <path d="M11.875 11.1243L1.75 11.1243" stroke="#7A969C" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
@@ -139,9 +139,10 @@
                         </div>
                         
                         <div class="add">
-                            <button><img style="margin-left: 40px;" src="../../img/add.png" alt=""></button>
+                            <button onclick="popShowUpwards('sub-pop', popHideSub, '35%', 1)" style="height: 36px;">
+                                <img src="../../img/add.png" alt="">
+                            </button>
                         </div>
-
                     </div>
                     
                     <div class="post-desc">
@@ -195,16 +196,16 @@
         <div class="filter-default">
             <div class="mod-container">
                 <div class="filter-item">
-                    <input type="checkbox">
-                    <span>Посты</span>
+                    <input type="checkbox" id="chb-filter-posts">
+                    <label for="chb-filter-posts">Посты</label>
                 </div>
                 <div class="filter-item">
-                    <input type="checkbox">
-                    <span>Обращения</span>
+                    <input type="checkbox" id="chb-filter-address">
+                    <label for="chb-filter-address">Обращения</label>
                 </div>
                 <div class="filter-item">
-                    <input type="checkbox">
-                    <span>Опросы</span>
+                    <input type="checkbox" id="chb-filter-polls">
+                    <label for="chb-filter-polls">Опросы</label>
                 </div>
             </div>
         </div>
@@ -470,20 +471,24 @@
                 </li>
                 <li class="menu-footer">
                     <img src="../../img/modals/SignOut.png" alt="">
-                    <a href="">Выйти из аккаунта</a>
+                    <a href="../../index.html">Выйти из аккаунта</a>
                 </li>
             </ul>
         </div>
     </div>
 
+
     
-    <div class="mod-result pop-appear" id="mod-result">
-        <div class="mod-container">
-            <h4>Спасибо Вам за внимательность!</h4>
-            <p>Мы уже рассматриваем вашу жалобу!</p>
-            <button class="dg-button dark-button" onclick="popHideModResult();">Закрыть</button>
+    <div class="pop-appear" id="mod-result">
+        <div class="filter-default bg-white pads">
+            <div class="mod-container">
+                <h4>Спасибо Вам за внимательность!</h4><br>
+                <p>Мы уже рассматриваем вашу жалобу!</p><br>
+                <button class="dg-button dark-button" onclick="popHideModResult();">Закрыть</button>
+            </div>
         </div>
     </div>
+    
 
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
