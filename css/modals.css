@@ -97,20 +97,24 @@ a, a:visited, a:hover, a:active {
     border: 1px solid #AAC0C5;
 }
 
-.filter-item span {
+.filter-item span, .filter-item label {
     font-weight: 600;
     font-size: 14px;
     line-height: 16px;
-    color: #042026;
+    cursor: pointer;
+    color: #054857;
     margin-left: 15px;
+    flex-grow: 1;
 }
 
 #filter-pop {
     position: fixed;
-    bottom: 100%;
+    bottom: -120%;
     transition: bottom 0.3s ease-out;
-    width: 90%;
-    margin: 0 5%;
+    /* width: 90%;
+    margin: 0 5%; */
+    width: calc(100% - 32px);
+    margin: 0 16px;
 }
 
 #filterClose, #eventsMenuClose {
@@ -133,24 +137,37 @@ a, a:visited, a:hover, a:active {
 
 .no-border {    border: none !important;    }
 
-#create-post, #mod-menu {
+#create-post, #mod-menu, #add-event, #filter-event {
     background-color: #fff;
-    height: 100%;
+    max-height: 85%;
     position: fixed;
-    top: 100%;
-    transition: top 0.3s ease-out;
+    bottom: -120%;
+    transition: bottom 0.3s ease-out;
     width: 100%;
     margin: 0;
-    border-radius: 10px;
+    border-radius: 10px 10px 0 0;
 }
 
 #sub-pop, #black-list-pop, #events-menu {
-    /* background-color: #fff; */
     position: fixed;
-    top: 100%;
-    transition: top 0.3s ease-out;
-    width: 90%;
-    margin: 0 5%;
+    bottom: -120%;
+    transition: bottom 0.3s ease-out;
+    /* width: 90%;
+    margin: 0 5%; */
+    width: calc(100% - 32px);
+    margin: 0 16px;
+}
+
+#create-post  {
+    max-height: 85%;
+}
+
+#add-event {
+    height: 650px;
+}
+
+#create-post {
+    padding-bottom: 32px;
 }
 
 .buttons {
@@ -186,10 +203,11 @@ a, a:visited, a:hover, a:active {
     background-color: #fff;
 }
 
-#mod-menu li:last-child {    margin-top: 36px;    }
+#mod-menu li:last-child {    margin-top: 100px;    }
 
 #mod-menu .menu-head {
     display: flex;
+    align-items: flex-start;
     margin-bottom: 16px;
 }
 
@@ -202,6 +220,8 @@ a, a:visited, a:hover, a:active {
     /* font-size: 14px; */
     line-height: 16px;
     color: #567F88;
+    /* margin-top: 16px; */
+    margin-bottom: 32px;
 }
 
 .pop-appear {
@@ -211,8 +231,10 @@ a, a:visited, a:hover, a:active {
     position: fixed;
     top: 50%;
     margin-top: -25%;
+
+    left: -120%;
     
-    transition: all 0.3s ease-in 0;
+    transition: all 0.2s ease-in 0s;
 }
 
 #events-menu img {
@@ -222,4 +244,93 @@ a, a:visited, a:hover, a:active {
 
 #events-menu button {
     color: #054857 !important;
+}
+
+#mod-result {
+    width: calc(100% - 32px);
+    margin-left: 16px;
+    margin-right: 16px;
+}
+
+#mod-result .mod-container {
+    padding: 24px 32px;
+    text-align: center;
+}
+
+#mod-result h4 {
+    font-style: normal;
+    font-weight: 700;
+    font-size: 18px;
+    line-height: 22px;
+    color: #054857;
+}
+
+#mod-result p {
+    font-style: normal;
+    /* font-weight: 700; */
+    font-size: 18px;
+    line-height: 22px;
+    color: #567F88;
+}
+
+#mod-result .mod-container button {
+    width: 200px;
+}
+
+#add-event {
+    overflow: scroll;
+    scroll-behavior: smooth;
+    scrollbar-width: none;
+}
+
+#add-event .container {
+    margin-top: 16px;
+}
+
+.uph3 {
+    font-size: 1.17em;
+    font-weight: bold;
+    line-height: 16px;
+
+    text-transform: uppercase;
+    color: #7A969C;
+}
+
+.add-event-header {
+    margin: 10px 0;
+    display: flex;
+    justify-content: space-between;
+}
+
+.stick-to-bottom {
+    position: absolute;
+    bottom: 32px;
+    /* width: calc(100% - 32px);
+    margin: 0 16px; */
+}
+
+
+
+
+#filter-event .filter-item {
+    border: none !important;
+    border-radius: 0 !important;
+}
+
+#filter-event .filter-item input {
+    margin-bottom: 0 !important;
+}
+
+#filter-event .filter-item img {
+    padding: 8px;
+    cursor: pointer;
+}
+
+#filter-event .upper-group {
+    flex-grow: 1;
+}
+
+.flex-column {
+    display: flex;
+    flex-direction: column;
 }
