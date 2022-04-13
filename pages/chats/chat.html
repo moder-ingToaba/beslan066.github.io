@@ -10,6 +10,7 @@
     <link rel="stylesheet" href="../../css/style.css">
     <link rel="stylesheet" href="../../css/style2.css">
     <link rel="stylesheet" href="../../css/chats.css">
+    <link rel="stylesheet" href="../../css/modals.css">
     <title>Gargalo</title>
 </head>
 <body>
@@ -18,7 +19,7 @@
 
             <div class="header">
                 <div class="menu">
-                    <div class="burger-menu">
+                    <div class="burger-menu cur-point" onclick="popShowUpwards('mod-menu', popHideModMenu, 0, 1)">
                         <span></span>
                         <span></span>
                         <span></span>
@@ -179,83 +180,46 @@
             </div>
         </div>
     </footer>
+
+    <div class="mod-menu pads" id="mod-menu">
+        <div class="mod-container pads filter-default no-border">
+            <div class="menu-head">
+                <h3>Меню</h3>
+                <button onclick="popHideModMenu();">
+                    <img src="../../img/modals/X.png" alt="">
+                </button>
+            </div>
+
+            <ul>
+                <li>
+                    <img src="../../img/modals/Setings.png" alt="">
+                    <a href="">Настройки приложения</a>
+                </li>
+                <li>
+                    <img src="../../img/modals/Support.png" alt="">
+                    <a href="">Поддержка</a>
+                </li>
+                <li>
+                    <img src="../../img/modals/ShieldCheck.png" alt="">
+                    <a href="">Политика конфиденциальности</a>
+                </li>
+                <li>
+                    <img src="../../img/modals/Handshake.png" alt="">
+                    <a href="">Пользовательское соглашение</a>
+                </li>
+                <li>
+                    <img src="../../img/modals/Translate.png" alt="">
+                    <a href="">Язык приложения</a>
+                </li>
+                <li class="menu-footer">
+                    <img src="../../img/modals/SignOut.png" alt="">
+                    <a href="../../index.html">Выйти из аккаунта</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+
     <script src="../../js/modals.js"></script>
-    <script>
-        function sendMsg(e) {
-            if (e.keyCode == 13) {
-                var MC = document.getElementById("messages-container");
-                const d = new Date();
-                var MM = document.getElementById("msg-input");
-                var MV = MM.value;
-
-                var mS = addEl("div", ["msg-container", "msg-sent"], MC);
-                var mT = addEl("div", ["msg-time"], mS, d.getHours().toString() + ':' + d.getMinutes().toString());
-                var mB = addEl("div", ["msg-body"], mS);
-                var mP = addEl("p", [""], mB, MM.value);
-                var mA = addEl("div", ["msg-ave"], mS);
-                var mI = addEl("img", [""], mA);
-
-                mI.setAttribute("src", "../../img/User.png");
-                mI.setAttribute("alt", "");
-
-                window.scroll(0, document.body.scrollHeight);
-                MM.value = '';
-            }
-        }
-
-        function addEl(tag_, classes_, parent_, innerHTML_ = "") {
-            var El = document.createElement(tag_);
-            if (classes_.length > 0) {
-                if (classes_[0] != "") {
-                    for (var i = 0; i < classes_.length; i++) {
-                        El.classList.add(classes_[i]);
-                    }
-                }
-            }
-            if (innerHTML_.length > 0) {
-                El.innerHTML = innerHTML_;
-            }
-            parent_.appendChild(El);
-            return El;
-        };
-    </script>
     <script defer src="../../js/chats.js"></script>
-    <script defer>
-        window.onload = function () {
-            window.scroll(0, document.body.scrollHeight);
-        }
-        var msgs = document.getElementsByClassName("msg-container");
-        Array.from(msgs).forEach(function(msg){
-            msg.addEventListener("click", function() {
-                this.classList.toggle("selectedMsg");
-                loopThrough();
-            });
-        });
-        
-        var selectedMsgsBar = document.getElementById("selectedMsgsBar");
-
-        function loopThrough() {
-            // var msgs = document.getElementsByClassName("msg-container");
-            var selectedMsgCount = 0;
-            Array.from(msgs).forEach(function(msg){
-                if (msg.classList.contains("selectedMsg")) {
-                    selectedMsgCount++;
-                }
-            });
-            if (selectedMsgCount > 0) {
-                showBar(selectedMsgCount);
-            } else {
-                hideBar();
-            }
-        }
-
-        function showBar(selectedMsgCount) {
-            selectedMsgsBar.classList.add("selectedMsgsBarActive");
-        }
-        
-        function hideBar() {
-            selectedMsgsBar.classList.remove("selectedMsgsBarActive");
-        }
-    </script>
 </body>
 </html>
