@@ -4,6 +4,7 @@ html {
 
 .msg-container {
     display: flex;
+    cursor: pointer;
 }
 
 .msg-ave {
@@ -72,6 +73,7 @@ h4 {
 .scrollable {
     overflow-x: hidden;
     overflow-y: scroll;
+    scrollbar-width: none;
 }
 
 .margin-for-footer {
@@ -144,4 +146,8 @@ h4 {
 .selectedMsgsBarActive a {
     max-height: 72px !important;
     padding: 10px 15px !important;
+}
+
+footer {
+    height: unset;
 }

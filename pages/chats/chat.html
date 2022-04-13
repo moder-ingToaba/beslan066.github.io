@@ -42,7 +42,7 @@
     </header>
 
     <section class="posts">
-        <div class="container">
+        <div class="container" style="margin-right: 10px;">
             <div class="section-title">
                 <!-- <div class="filter-new">
                     <button>
@@ -169,20 +169,20 @@
     <footer>
         <div class="chat-board">
             <div id="chat-brd-addpic" class="centered-flex pointed side-kick">
-                <img src="/img/chat/AddPic.png" alt="">
+                <img src="../../img/chat/AddPic.png" alt="">
             </div>
             <div id="chat-brd-text" class="centered-flex side-kick">
-                <input id="msg-input" type="text" placeholder="Печатать" style="width: 360px; display: flex; justify-content: center;" onkeypress="sendMsg(event)">
+                <input id="msg-input" type="text" placeholder="Печатать" onkeypress="sendMsg(event)">
             </div>
             <div id="chat-brd-send" class="centered-flex pointed side-kick">
-                <img src="/img/chat/Mic.png" alt="">
+                <img id="chat-brd-send-pic" src="../../img/chat/Mic.png" alt="">
             </div>
         </div>
     </footer>
+    <script src="../../js/modals.js"></script>
     <script>
         function sendMsg(e) {
             if (e.keyCode == 13) {
-                // alert("yes");
                 var MC = document.getElementById("messages-container");
                 const d = new Date();
                 var MM = document.getElementById("msg-input");
@@ -200,17 +200,6 @@
 
                 window.scroll(0, document.body.scrollHeight);
                 MM.value = '';
-
-                // var dc = document.createElement("div");
-                // dc.classList.add("msg-container");
-                // dc.classList.add("msg-sent");
-
-                // var dc = document.createElement("div");
-                // dc.classList.add("msg-time");
-                // dc.innerHTML = d.getHours().toString() + ':' + d.getMinutes().toString();
-
-                // var dc = document.createElement("div");
-                // dc.classList.add("msg-body");
             }
         }
 
@@ -230,6 +219,7 @@
             return El;
         };
     </script>
+    <script defer src="../../js/chats.js"></script>
     <script defer>
         window.onload = function () {
             window.scroll(0, document.body.scrollHeight);
@@ -261,14 +251,10 @@
 
         function showBar(selectedMsgCount) {
             selectedMsgsBar.classList.add("selectedMsgsBarActive");
-            // selectedMsgsBar.style.display = "flex";
-            // selectedMsgsBar.style.maxHeight = "72px";
         }
         
         function hideBar() {
             selectedMsgsBar.classList.remove("selectedMsgsBarActive");
-            // selectedMsgsBar.style.display = "none";
-            // selectedMsgsBar.style.maxHeight = 0;
         }
     </script>
 </body>
