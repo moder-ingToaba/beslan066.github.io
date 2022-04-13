@@ -200,6 +200,133 @@
     </div>
 
 
+    <div id="add-event">
+        <!-- <div class="container" style="padding-right: 16px;">
+            <div class="add-event-header">
+                <h3 class="uph3">ДОБАВЛЕНИЕ СОБЫТИЯ</h3>
+                <button class="btn-clear" onclick="popHideAddEvent()">
+                    <img src="../../img/X.png" alt="">
+                </button>
+            </div>
+        </div> -->
+
+        <div class="container">
+            <div class="post-body add-person main-wrap">
+                <div class="container">
+                    <h4>Выберите событие</h4>
+                    <div class="fields-rus fields">
+                        <div>
+                            <select name="event" id="" class="select selectWide" onchange="eventSelect(this)">
+                                <!-- <option value="" disabled selected hidden>Событие</option> -->
+                                <option value="funeral" selected>Похороны</option>
+                                <option value="birth">Рождение</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="ghost-tab" id="ghost-tab-funeral">
+                        <div class="fields">
+                            <h4>Умерший</h4>
+                            <div>
+                                <input type="text" placeholder="ФИО" required class="inputWide inputValidateFIO">
+                            </div>
+                        </div>
+                        <div class="fields">
+                            <h4>Адрес проведения</h4>
+                            <div>
+                                <input type="text" placeholder="Адрес" required class="inputWide">
+                            </div>
+                        </div>
+                        <div class="fields">
+                            <h4>Дата проведения</h4>
+                            <div>
+                                <input class="date-input" type="date">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="ghost-tab" id="ghost-tab-birth" style="display: none;">
+                        <div class="fields">
+                            <h4>Родившийся</h4>
+                            <div>
+                                <input type="text" placeholder="ФИО" required class="inputWide inputValidateFIO">
+                            </div>
+                        </div>
+                        <div class="fields">
+                            <h4>Дата рождения</h4>
+                            <div>
+                                <input class="date-input" type="date">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="fields">
+                        <h4>Комментарий</h4>
+                        <div>
+                            <textarea name="note" class="textareaNote inputWide" cols="30" rows="25" placeholder="Писать тут"></textarea>
+                        </div>
+                    </div>
+                    <br><br>
+                    <div class="stick-to-bottom">
+                        <input type="button" class="main-button inputWide" value="Добавить"
+                        onclick="popHideAddEvent();">
+                        <p class="sub wide">
+                            Человек будет добавлен после расмотрения модератором
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="filter-event">
+        <div class="container">
+            <div class="post-body add-person main-wrap">
+                <div class="container .flex-column">
+                    <div class="upper-group">
+                        <div class="filter-item">
+                            <input type="checkbox" id="chb-filter-parental">
+                            <label for="chb-filter-parental">Отцовская линия</label>
+                            <img src="../../img/lk/down.png" alt="">
+                        </div> 
+                        <div class="filter-item">
+                            <input type="checkbox" id="chb-filter-maternal">
+                            <label for="chb-filter-maternal">Материнская линия</label>
+                            <img src="../../img/lk/down.png" alt="">
+                        </div>
+                        <div class="filter-item">
+                            <input type="checkbox" id="chb-filter-spouse">
+                            <label for="chb-filter-spouse">Супружеская линия</label>
+                            <img src="../../img/lk/down.png" alt="">
+                        </div>
+                        <div class="filter-item">
+                            <input type="checkbox" id="chb-filter-all">
+                            <label for="chb-filter-all">Все</label>
+                            <img src="../../img/lk/down.png" alt="">
+                        </div>
+                        <br>
+                        <div class="filter-item">
+                            <input type="checkbox" id="chb-filter-meet">
+                            <label for="chb-filter-meet">Собрание</label>
+                            <img src="../../img/lk/down.png" alt="">
+                        </div>
+                        <div class="filter-item">
+                            <input type="checkbox" id="chb-filter-gather">
+                            <label for="chb-filter-gather">Сбор средств</label>
+                            <img src="../../img/lk/down.png" alt="">
+                        </div>
+                        <div class="filter-item">
+                            <input type="checkbox" id="chb-filter-other">
+                            <label for="chb-filter-other">Другое</label>
+                            <img src="../../img/lk/down.png" alt="">
+                        </div>
+                    </div>
+                    <div style="margin-top: 16px;">
+                        <input type="button" class="main-button inputWide" value="Принять"
+                        onclick="popHideFilterEvent();">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <script>
         var imgs = ["../../img/teip-profile/Notify.png", "../../img/teip-profile/NotifyActive.png"];
         // var allNotifs = document.getElementsByTagName("img");
