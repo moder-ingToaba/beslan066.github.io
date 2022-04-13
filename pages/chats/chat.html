@@ -5,8 +5,8 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="../../css/style.css">
     <link rel="stylesheet" href="../../css/style2.css">
     <link rel="stylesheet" href="../../css/chats.css">
@@ -26,7 +26,7 @@
                 </div>
         
                 <div class="logo">
-                    <a href="../home/index.html">
+                    <a href="../home/">
                         <img src="../../img/gargalo.png" alt="">
                     </a>
                 </div>
@@ -35,7 +35,6 @@
                     <a href="../profile/profile.html">
                         <img src="../../img/Ellipse 56.png" alt="">
                     </a>
-                    
                 </div>
             </div>
             <hr>
@@ -68,6 +67,11 @@
                         <p>Х1ам ди моги?</p>
                         <span class="time-right">15:10</span>
                     </div> -->
+                    <div id="selectedMsgsBar" class="controll-bar">
+                        <a class="replay">Ответить</a>
+                        <a class="forward" ajax-modal="" href="/messages/forward/659">Переслать</a>
+                        <a class="delete ajax-modal" href="/messages/delete/659">Удалить</a>
+                    </div>
 
                     <div class="msg-date">
                         <span>
@@ -229,6 +233,42 @@
     <script defer>
         window.onload = function () {
             window.scroll(0, document.body.scrollHeight);
+        }
+        var msgs = document.getElementsByClassName("msg-container");
+        Array.from(msgs).forEach(function(msg){
+            msg.addEventListener("click", function() {
+                this.classList.toggle("selectedMsg");
+                loopThrough();
+            });
+        });
+        
+        var selectedMsgsBar = document.getElementById("selectedMsgsBar");
+
+        function loopThrough() {
+            // var msgs = document.getElementsByClassName("msg-container");
+            var selectedMsgCount = 0;
+            Array.from(msgs).forEach(function(msg){
+                if (msg.classList.contains("selectedMsg")) {
+                    selectedMsgCount++;
+                }
+            });
+            if (selectedMsgCount > 0) {
+                showBar(selectedMsgCount);
+            } else {
+                hideBar();
+            }
+        }
+
+        function showBar(selectedMsgCount) {
+            selectedMsgsBar.classList.add("selectedMsgsBarActive");
+            // selectedMsgsBar.style.display = "flex";
+            // selectedMsgsBar.style.maxHeight = "72px";
+        }
+        
+        function hideBar() {
+            selectedMsgsBar.classList.remove("selectedMsgsBarActive");
+            // selectedMsgsBar.style.display = "none";
+            // selectedMsgsBar.style.maxHeight = 0;
         }
     </script>
 </body>

@@ -193,7 +193,7 @@ header hr {
     font-size: 13px;
 }
 
-/* Секция с лайками*/
+/* Секция с лайками */
 
 .post-info {
     display: flex;
@@ -275,12 +275,12 @@ footer  .container{
 }
 
 .btn-group {
-   width: 100%;
-   margin-top: 10px;
-   margin-bottom: 20px;
-   display: flex;
-   justify-content: space-between;
-   padding: 0 20px;
+    width: 100%;
+    margin-top: 10px;
+    margin-bottom: 20px;
+    display: flex;
+    justify-content: space-between;
+    padding: 0 20px;
 }
 
 .btn-group button{
@@ -378,7 +378,7 @@ footer  .container{
     background: #FFFFFF;
     margin: 0 auto;
     overflow: hidden;
-    position: fixed; 
+    position: fixed;
     bottom: 46px;
 }
 .send__text{
@@ -416,8 +416,6 @@ footer  .container{
 
 /*  Создание поста, обращения и опроса */
 
-
-
 .create-post-header {
     display: flex;
     margin-top: 15px;
@@ -448,7 +446,9 @@ left: 16px;
 top: 140px;
 color: #AAC0C5;
 cursor: pointer;
+
 /* Dark blue */
+
 margin-right: 7px;
 border: 1px solid #AAC0C5;
 background: #ffffff;
@@ -471,8 +471,6 @@ button.active {
     background-color: #042026;
     color: #ffffff;
 }
-
-
 
 .add-photo-video {
     width: 328px;
@@ -1049,10 +1047,10 @@ button.active {
 
     color: #7A969C;
 }
+
 .subscriptions {
     display: flex;
 }
-
 
 .my-posts {
     width: 300px;
@@ -2949,8 +2947,6 @@ textarea.input__text::placeholder {
         align-items: center;
     }
 
-
-
     .post-desc .img-title{
         margin: 0;
         padding: 0;
@@ -3076,7 +3072,6 @@ textarea.input__text::placeholder {
         padding: 0;
         width: auto;
     }
-
 
     .post-head {
         margin: 0;
@@ -3212,7 +3207,6 @@ textarea.input__text::placeholder {
         padding: 0;
         width: auto;
     }
-
 
     .post-head {
         padding-top: 20px;
