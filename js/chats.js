@@ -22,23 +22,25 @@ function sendMsg(e) {
         var MC = document.getElementById("messages-container");
         const d = new Date();
         var MM = document.getElementById("msg-input");
+        if (MM.value != '') {
+            var mS = addEl("div", ["msg-container", "msg-sent"], MC);
+            var mT = addEl("div", ["msg-time"], mS, MinsHrsToDoubleDigit(d.getHours().toString())
+                     + ':' + MinsHrsToDoubleDigit(d.getMinutes().toString()));
+            var mB = addEl("div", ["msg-body"], mS);
+            var mP = addEl("p", [""], mB, MM.value);
+            var mA = addEl("div", ["msg-ave"], mS);
+            var mI = addEl("img", [""], mA);
+            
+            mI.setAttribute("src", "../../img/User.png");
+            mI.setAttribute("alt", "");
 
-        var mS = addEl("div", ["msg-container", "msg-sent"], MC);
-        var mT = addEl("div", ["msg-time"], mS, MinsHrsToDoubleDigit(d.getHours().toString())
-                 + ':' + MinsHrsToDoubleDigit(d.getMinutes().toString()));
-        var mB = addEl("div", ["msg-body"], mS);
-        var mP = addEl("p", [""], mB, MM.value);
-        var mA = addEl("div", ["msg-ave"], mS);
-        var mI = addEl("img", [""], mA);
+            window.scroll(0, document.body.scrollHeight);
+            MM.value = '';
+            
+            checkMsgInput();
+            addEvListenerTo1Msg(mS);
 
-        mI.setAttribute("src", "../../img/User.png");
-        mI.setAttribute("alt", "");
-
-        window.scroll(0, document.body.scrollHeight);
-        MM.value = '';
-
-        checkMsgInput();
-        addEvListenerTo1Msg(mS);
+        }
     }
 }
 
