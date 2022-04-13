@@ -36,7 +36,6 @@ button {
 
 header {
     height: 52px;
-    width: 100%;
 }
 
 header .header{
@@ -45,7 +44,6 @@ header .header{
     justify-content: space-between;
     margin-top: 18px;
     margin-bottom: 18px;
-    padding: 0 15px;
 }
 
 
@@ -74,15 +72,15 @@ header hr {
 
 /* Секции постов */
 .posts__wrapper{
-    width: 100%;
+    width: 360px;
 }
 .section-title {
     display: flex;
     align-items: center;
     justify-content: space-between;
     height: 48px;
-    width: 100%;
-    padding: 0 15px;
+    width: 328px;
+    margin: 0 auto;
 }
 
 .create-post button {
@@ -108,15 +106,12 @@ header hr {
     border:none;
     color:#E3EFF1;
     background-color: #E3EFF1;
+    margin-top: 16px;
 }
 .post__text{
     display: flex;
     align-items: center;
     justify-content: center;
-    font-weight: 600;
-    font-size: 14px;
-    line-height: 16px;
-    color: #567F88;
 }
 
 
@@ -128,8 +123,9 @@ header hr {
     display: flex;
     justify-content:space-between;
     height: 48px;
+    width: 328px;
     padding-top: 16px;
-    padding: 0 15px;
+    margin: 0 auto;
 }
 
 .logo-title {
@@ -170,9 +166,6 @@ header hr {
 }
 
 .img-title {
-    height: 220px;
-    width: 100%;
-    overflow: hidden;
     font-weight: 500;
     font-size: 14px;
     color: #ffffff;
@@ -180,27 +173,27 @@ header hr {
 }
 
 .img-title img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
+    width: 360px;
+    height: 220px;
+    padding: 0;
 }
 .post__text{
-    width: 100%;
-    padding: 0 15px;
+    width: 328px;
+    margin: 0 auto;
 }
 .post p {
     font-weight: 400;
     font-size: 13px;
 }
 
-/* Секция с лайками*/
+/* Секция с лайками */
 
 .post-info {
     display: flex;
     justify-content: space-between;
     height: 22px;
-    width: 100%;
-    padding: 0 15px;
+    width: 328px;
+    margin: 0 auto;
 }
 .like-btn {
     display: flex;
@@ -257,35 +250,38 @@ color: #567F88;
 /* Кнопки нижней панели */
 
 footer {
-    height: 50px;
+    height: 60px;
     overflow: hidden;
     position: fixed; 
     bottom: 0; 
     width: 100%;
     background-color: #ffffff; 
+    
+
 }
+
+
 
 footer  .container{
     height:1px;
     border:none;
     color:#E3EFF1;
     background-color: #E3EFF1;
+    margin-top: 15px;
     display: flex;
     justify-content: center;
 }
 
 .btn-group {
-   width: 100%;
    margin-top: 10px;
-   margin-bottom: 20px;
-   display: flex;
-   justify-content: space-between;
-   padding: 0 20px;
+    margin-bottom: 20px;
 }
 
 .btn-group button{
     background-color: #ffffff;
     border: none;
+    margin-right: 20px;
+
 }
 
 
@@ -301,12 +297,12 @@ footer  .container{
 .post__text p {
     font-size: 13px;
     font-weight: 400;
+    width: 328px;
     color: #042026;
     line-height: 150%;
 }
 .post__comment{
-    width: 100%;
-    padding: 0 15px;
+    width: 328px;
     margin: 0 auto;
     display: flex;
     flex-direction:column;
@@ -372,14 +368,14 @@ footer  .container{
     display: flex;
     justify-content: space-between;
     align-items: center;
-    width: 100%;
-    padding: 0 15px;
+    width: 328px;
     height: 56px;
     background: #FFFFFF;
     margin: 0 auto;
     overflow: hidden;
     position: fixed; 
-    bottom: 46px;
+    bottom: 56px;
+    margin-left: 16px;
 }
 .send__text{
     display: flex;
@@ -810,7 +806,6 @@ button.active {
 
 
 
-
 /* Стили личного кабинета */
 
 .lk-head .container{
@@ -891,8 +886,10 @@ button.active {
 }
 .tabs-info__wrapper{
     width: 328px;
+    height: 350px;
     display: flex;
     flex-direction:column;
+    justify-content: space-between;
     font-weight: 600;
     font-size: 14px;
     line-height: 16px;
@@ -910,7 +907,6 @@ button.active {
     align-items: center;
     justify-content: space-between;
     padding: 0 10px;
-    margin-bottom: 44px;
 }
 .tabs-info__blok{
     height: 40px;
@@ -918,12 +914,7 @@ button.active {
     flex-direction:column;
     justify-content: space-between;
 }
-.tabs-family__block{
-    margin-bottom: 44px;
-}
-.tabs-family__block:last-child{
-    margin-bottom: 0;
-}
+
 .tabs-info__name{
     font-weight: 500;
     font-size: 13px;
@@ -2919,7 +2910,9 @@ textarea.input__text::placeholder {
     
     header .container {
         justify-content: start;
+        
         margin: 0;
+        
     }
 
     .posts .container {
@@ -2930,7 +2923,14 @@ textarea.input__text::placeholder {
 
     .section-title {
         display: flex;
+        margin-top: 16px;
+        margin-bottom: 16px;
+        margin-right: 12px;
         align-items: center;
+    }
+
+    .section-title h2 {
+        margin-bottom: 13px;
     }
 
     .post-body .container {
@@ -2939,19 +2939,27 @@ textarea.input__text::placeholder {
         
     }
 
+    .post-body {
+        margin-right: 16px;
+    }
+
     .post-head {
         margin: 0;
-        padding-top: 20px;
-        justify-content: space-between;
+        
+        justify-content: start;
         align-items: center;
     }
 
+    .post-head .add {
+        margin-left: 125px;
+    }
 
 
     .post-desc .img-title{
         margin: 0;
         padding: 0;
         margin-top: 100px;
+        margin-left: -20px;
     }
 
     .post {
@@ -2965,29 +2973,28 @@ textarea.input__text::placeholder {
     }
 
     footer {
+        width: 375px;
         justify-content: start;
+        height: 60px;
         overflow: hidden;
         position: fixed; 
+        
         background-color: #ffffff; 
     }
+
+    footer .container {
+        justify-content: start;
+    }
+
+    .btn-group button {
+        margin-right: 43px;
+    }
+
     section .post-head .followed{
         margin-left: 60px;
     }
-    .lk-head .container{
-        margin-top: 16px;
-    }
-    .tabs__lk{
-        margin-top: 0;
-    }
-    .logo-title{
-        align-items: center;
-    }
-    .posts__wrapper .container{
-        padding: 0;
-    }
-    .posts .container{
-        padding: 0;
-    }
+
+    
 }
 
 @media screen and (max-width: 410px) {
@@ -3024,7 +3031,14 @@ textarea.input__text::placeholder {
 
     .section-title {
         display: flex;
+        margin-top: 16px;
+        margin-bottom: 16px;
+        margin-right: 12px;
         align-items: center;
+    }
+
+    .section-title h2 {
+        margin-bottom: 13px;
     }
 
     .post-body .container {
@@ -3033,14 +3047,21 @@ textarea.input__text::placeholder {
         width: auto;
     }
 
+    .post-body {
+        margin-right: 16px;
+    }
 
     .post-head {
         margin: 0;
         width: auto;
-        padding-top: 20px;
-        justify-content: space-between;
+        justify-content: start;
         align-items: center;
     }
+
+    .post-head .add {
+        margin-left: 125px;
+    }
+
 
     .post-desc .img-title{
         margin: 0;
@@ -3059,31 +3080,28 @@ textarea.input__text::placeholder {
     }
 
     footer {
+        width: 375px;
         justify-content: start;
+        height: 60px;
         overflow: hidden;
         position: fixed; 
+        
         background-color: #ffffff; 
+    }
+
+    footer .container {
+        justify-content: start;
+    }
+
+    .btn-group button {
+        margin-right: 43px;
     }
 
     section .post-head .followed{
         margin-left: 60px;
     }
 
-    .lk-head .container{
-        margin-top: 16px;
-    }
-    .tabs__lk{
-        margin-top: 0;
-    }
-    .logo-title{
-        align-items: center;
-    }
-    .posts__wrapper .container{
-        padding: 0;
-    }
-    .posts .container{
-        padding: 0;
-    }
+    
 }
 
 @media screen and (max-width: 480px) {
@@ -3122,7 +3140,14 @@ textarea.input__text::placeholder {
 
     .section-title {
         display: flex;
+        margin-top: 16px;
+        margin-bottom: 16px;
+        margin-right: 12px;
         align-items: center;
+    }
+
+    .section-title h2 {
+        margin-bottom: 13px;
     }
 
     .post-body .container {
@@ -3131,24 +3156,27 @@ textarea.input__text::placeholder {
         width: auto;
     }
 
+    .post-body {
+        margin-right: 16px;
+    }
 
     .post-head {
-        padding-top: 20px;
         margin: 0;
         width: auto;
-        justify-content: space-between;
+        justify-content: start;
         align-items: center;
-        /* margin-top: 20px; */
+        margin-top: 20px;
     }
 
-    .post-head .add button {
-        height: 36px;
+    .post-head .add {
+        margin-left: 125px;
     }
+
 
     .post-desc .img-title{
         margin: 0;
         padding: 0;
-        /* margin-top: 100px; */
+        margin-top: 100px;
     }
 
     .post {
@@ -3162,29 +3190,27 @@ textarea.input__text::placeholder {
     }
 
     footer {
+        width: 375px;
         justify-content: start;
+        height: 60px;
         overflow: hidden;
         position: fixed; 
+        
         background-color: #ffffff; 
+    }
+
+    footer .container {
+        justify-content: start;
+    }
+
+    .btn-group button {
+        margin-right: 43px;
     }
 
     section .post-head .followed{
         margin-left: 60px;
     }
-    .lk-head .container{
-        margin-top: 16px;
-    }
-    .tabs__lk{
-        margin-top: 0;
-    }
-    .logo-title{
-        align-items: center;
-    }
-    .posts__wrapper .container{
-        padding: 0;
-    }
-    .posts .container{
-        padding: 0;
-    }
+
+    
 }
 

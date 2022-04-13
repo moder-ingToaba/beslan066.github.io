@@ -17,7 +17,7 @@
 
             <div class="header">
                 <div class="menu">
-                    <div class="burger-menu cur-point" onclick="popShowUpwards('mod-menu', popHideModMenu, 0, 1)">
+                    <div class="burger-menu cur-point" onclick="popShowUpwards('mod-menu', popHideModMenu, '50vw', 1)">
                         <span></span>
                         <span></span>
                         <span></span>
@@ -28,14 +28,12 @@
                     <a href="../home/index.html">
                         <img src="../../img/gargalo.png" alt="">
                     </a>
-                    
                 </div>
         
                 <div class="profile-icon">
-                    <a href="../settings/settings.html">
+                    <a href="../settings/lk.html">
                         <img src="../../img/Ellipse 56.png" alt="">
                     </a>
-                    
                 </div>
             </div>
             
@@ -50,13 +48,13 @@
         <div class="container">
             <div class="posts__wrapper">
             <div class="section-title">
-                <div class="create-post" onclick="popShowUpwards('create-post', popHideCreatePost, 0, 1)">
+                <div class="create-post" onclick="popShowUpwards('create-post', popHideCreatePost, '20vw', 1)">
                     <button><img src="../../img/plus.png" alt=""></button>
                 </div>
                 <div class="post__text">
                     <h2>ПОСТЫ</h2>
                 </div>
-                <div class="filter-new" onclick="popShowUpwards('filter-pop', popHideFilter, '45%', 1)">
+                <div class="filter-new" onclick="popShowDownwards('filter-pop', popHideFilter, '55%', 1)">
                     <button>		
                         <svg width="20" height="14" viewBox="0 0 20 14" fill="none" xmlns="http://www.w3.org/2000/svg">
                             <path d="M11.875 11.1243L1.75 11.1243" stroke="#7A969C" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
@@ -72,7 +70,7 @@
 
             <hr>
 
-            <div class="post-body my-post-body">
+            <div class="post-body">
                     <div class="post-head">
                         <div class="logo-title">
                             <div class="logo">
@@ -80,10 +78,7 @@
                             </div>
     
                             <div class="post-title">
-                                <a href="../home/post-show.html">
-                                    <h3>ПОДСЛУШАНО!</h3>
-                                </a>
-                                
+                                <h3>ПОДСЛУШАНО!</h3>
                                 <h4>Сегодня в 14:00</h4>
                             </div>
                         </div>
@@ -111,7 +106,7 @@
                                     3.46336C8.26797 2.03882 5.54163 -0.169205 2.71481 2.39496C-0.112011 
                                     4.95912 1.87349 8.80536 3.2196 10.408C4.22918 11.6544 6.85456 14.361  
                                     9.27755 15.2158C11.7005 14.361 14.3254 11.6544 15.335 10.408C16.6811 
-                                    8.80536 18.6666 4.95912 15.8398 2.39496Z" 
+                                    8.80536 18.6666 4.95912 15.8398 2.39496Z" stroke="#7A969C" 
                                     stroke-width="2" stroke-linejoin="round"/>
                                 </svg>234</span></button>
                             <button><a href="post-show.html"><span><img src="../../img/Vector.png" alt="">14</span></a></button>
@@ -124,7 +119,7 @@
 
             <hr>
 
-            <div class="post-body my-post-body">
+            <div class="post-body">
                     <div class="post-head">
 
                         <div class="logo-title">
@@ -139,10 +134,9 @@
                         </div>
                         
                         <div class="add">
-                            <button onclick="popShowUpwards('sub-pop', popHideSub, '35%', 1)" style="height: 36px;">
-                                <img src="../../img/add.png" alt="">
-                            </button>
+                            <button><img style="margin-left: 40px;" src="../../img/add.png" alt=""></button>
                         </div>
+
                     </div>
                     
                     <div class="post-desc">
@@ -162,7 +156,7 @@
                                     3.46336C8.26797 2.03882 5.54163 -0.169205 2.71481 2.39496C-0.112011 
                                     4.95912 1.87349 8.80536 3.2196 10.408C4.22918 11.6544 6.85456 14.361  
                                     9.27755 15.2158C11.7005 14.361 14.3254 11.6544 15.335 10.408C16.6811 
-                                    8.80536 18.6666 4.95912 15.8398 2.39496Z" 
+                                    8.80536 18.6666 4.95912 15.8398 2.39496Z" stroke="#7A969C" 
                                     stroke-width="2" stroke-linejoin="round"/>
                                 </svg>234</span></button>
 
@@ -196,16 +190,16 @@
         <div class="filter-default">
             <div class="mod-container">
                 <div class="filter-item">
-                    <input type="checkbox" id="chb-filter-posts">
-                    <label for="chb-filter-posts">Посты</label>
+                    <input type="checkbox">
+                    <span>Посты</span>
                 </div>
                 <div class="filter-item">
-                    <input type="checkbox" id="chb-filter-address">
-                    <label for="chb-filter-address">Обращения</label>
+                    <input type="checkbox">
+                    <span>Обращения</span>
                 </div>
                 <div class="filter-item">
-                    <input type="checkbox" id="chb-filter-polls">
-                    <label for="chb-filter-polls">Опросы</label>
+                    <input type="checkbox">
+                    <span>Опросы</span>
                 </div>
             </div>
         </div>
@@ -471,24 +465,20 @@
                 </li>
                 <li class="menu-footer">
                     <img src="../../img/modals/SignOut.png" alt="">
-                    <a href="../../index.html">Выйти из аккаунта</a>
+                    <a href="">Выйти из аккаунта</a>
                 </li>
             </ul>
         </div>
     </div>
 
-
     
-    <div class="pop-appear" id="mod-result">
-        <div class="filter-default bg-white pads">
-            <div class="mod-container">
-                <h4>Спасибо Вам за внимательность!</h4><br>
-                <p>Мы уже рассматриваем вашу жалобу!</p><br>
-                <button class="dg-button dark-button" onclick="popHideModResult();">Закрыть</button>
-            </div>
+    <div class="mod-result pop-appear" id="mod-result">
+        <div class="mod-container">
+            <h4>Спасибо Вам за внимательность!</h4>
+            <p>Мы уже рассматриваем вашу жалобу!</p>
+            <button class="dg-button dark-button" onclick="popHideModResult();">Закрыть</button>
         </div>
     </div>
-    
 
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
