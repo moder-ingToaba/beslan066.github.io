@@ -85,5 +85,8 @@ window.onload= function() {
     })
 }
 
-
-
+function removeBottom() {
+    var f = document.getElementsByTagName("footer")[0];
+    var p = f.parentElement;
+    p.removeChild(f);
+}
