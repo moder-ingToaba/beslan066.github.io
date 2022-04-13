@@ -8,7 +8,6 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="../../css/style.css">
-    <link rel="stylesheet" href="../../css/style2.css">
     <link rel="stylesheet" href="../../css/modals.css">
     <title>События</title>
 </head>
@@ -18,7 +17,7 @@
 
             <div class="header">
                 <div class="menu">
-                    <div class="burger-menu">
+                    <div class="burger-menu cur-point" onclick="popShowUpwards('mod-menu', popHideModMenu, '50vw', 1)">
                         <span></span>
                         <span></span>
                         <span></span>
@@ -26,13 +25,11 @@
                 </div>
         
                 <div class="logo">
-                    <img src="../../img/gargalo.png" alt="">
+                    <a href="../home/index.html"><img src="../../img/gargalo.png" alt=""></a>
                 </div>
         
                 <div class="profile-icon">
-                    <a href="../settings/my-settings.html">
-                        <img src="../../img/lk/Setings-active.png" alt="">
-                    </a>
+                    <a href="../settings/settings.html"><img src="../../img/post/Setings.png" alt=""></a>
                 </div>
             </div>
             
@@ -44,14 +41,12 @@
         <div class="container">
             <div class="teipprofile__wrapper">
                 <div class="add-search">
-                    <button class="btn-clear" onclick="popShowUpwards('add-event', popHideAddEvent, 0, 1)">
+                    <a href="../events/add-event.html">
                         <img class="plus-btn" src="../../img/plus.png" alt="">
-                    </button>
+                    </a>
                     
                     <h2 class="communinty__text">СОБЫТИЯ</h2>
-                    <button class="btn-clear" onclick="popShowUpwards('filter-event', popHideFilterEvent, 0, 1)">
-                        <img class="search-btn" src="../../img/search/filter.png" alt="">
-                    </button>
+                    <img class="search-btn" src="../../img/search/filter.png" alt="">
                 </div>
                 <div class="strip"></div>
                 <div class="event">
@@ -85,12 +80,15 @@
                                     <img src="../../img/teip-profile/Notify.png" alt="" class="Notify-pic inactive-notify">
                                 </div>
                                 <div class="event__icon2">
-                                    <img src="../../img/teip-profile/Comment.png" alt="" class="commentteip-pic">
-                                    <h3>23</h3>
+                                    
+                                    <a href="../events/in-event.html" style="display: flex;">
+                                        <img src="../../img/teip-profile/Comment.png" alt="" class="commentteip-pic">
+                                        <h3>23</h3>
+                                    </a>
                                 </div>
                                 <div class="event__icon3">
                                     <img src="../../img/teip-profile/Clock.png" alt="" class="clockteip-pic">
-                                    <h3>01.06.2021</h3>
+                                    <h3>1.06.2021</h3>
                                 </div>
                             </div>
                             <div class="event__teip color__event"></div>
@@ -115,9 +113,7 @@
                                 </div>
                            </div>
                            <div>
-                                <button class="no-border bg-white" onclick="popShowUpwards('events-menu', popHideEventsMenu, '35%', 1)" style="height: 36px;">
-                                    <img src="../../img/teip-profile/add.png" alt="">
-                                </button>
+                                <img src="../../img/teip-profile/add.png" alt="" class="addteip-pic">
                            </div>
                         </div>
                         <div class="event__wrap2">
@@ -140,7 +136,7 @@
                                 </div>
                                 <div class="event__icon3">
                                     <img src="../../img/teip-profile/Clock.png" alt="" class="clockteip-pic">
-                                    <h3>11.06.2021</h3>
+                                    <h3>1.06.2021</h3>
                                 </div>
                             </div>
                             <div class="event__teip color__event1"></div>
@@ -331,7 +327,6 @@
         </div>
     </div>
 
-
     <script>
         var imgs = ["../../img/teip-profile/Notify.png", "../../img/teip-profile/NotifyActive.png"];
         // var allNotifs = document.getElementsByTagName("img");
@@ -353,28 +348,5 @@
         }
     </script>
     <script src="../../js/modals.js"></script>
-    <script src="../../js/inputValidation.js"></script>
-    <script>
-        var allGhostTabs = document.getElementsByClassName("ghost-tab");
-        var ghostTabFuneral = document.getElementById("ghost-tab-funeral");
-        var ghostTabBirth = document.getElementById("ghost-tab-birth");
-        function hideGhostTabs() {
-            Array.from(allGhostTabs).forEach(function(ghostTab) {
-                ghostTab.style.display = "none";
-            })
-        }
-        function eventSelect(sender) {
-            // alert(sender);
-            hideGhostTabs();
-            switch(sender.value) {
-                case "funeral":
-                    ghostTabFuneral.style.display = "initial";
-                    break;
-                case "birth":
-                    ghostTabBirth.style.display = "initial";
-                    break;
-            }
-        }
-    </script>
 </body>
 </html>

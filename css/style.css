@@ -14,7 +14,7 @@ body {
 
 .container {
     margin: 0 auto;
-    width: 1120px;
+    max-width: 1120px;
     padding-left: 16px;
 }
 
@@ -200,6 +200,16 @@ header hr {
     justify-content: space-between;
     align-items: center;
     color: #567F88;
+}
+
+.likes[aria-pressed="true"] span svg {
+    fill: #042026;
+    stroke: #042026;
+}
+
+.likes[aria-pressed="false"] span svg {
+    fill: #fff;
+    stroke: #7A969C;
 }
 
 .like-btn button{
@@ -796,16 +806,25 @@ button.active {
 
 
 
-
 /* Стили личного кабинета */
-
 
 .lk-head .container{
     display: flex;
+    flex-direction: column;
+    margin-top: 12px;
+}
+.lk__wrapper{
+    display: flex;
+    align-items: center;
+    margin-bottom: 12px;
 }
 
 .lk-photo {
     margin-right: 12px;
+}
+.lk-photo img{
+    width: 82px;
+    height: 82px;
 }
 
 .my-info {
@@ -813,21 +832,112 @@ button.active {
     flex-direction: column;
 }
 
-.my-personal-data span:first-child {
+.my-personal-data span{
     font-weight: 600;
     font-size: 14px;
     line-height: 16px;
     color: #042026;
 }
 
-.my-personal-data span:last-child  {
-    font-weight: 400;
-    font-size: 13px;
-    line-height: 150%;
-    margin-top: 4px;
-    color: #7A969C;
-  }
+.my-post-body{
+    margin-bottom: 20px;
+}
+.lk__info{
+    border: none;
+    background-color: white;
+    width: 360px;
+    height: 30px;
+    align-items: center;
+    justify-content: center;
+    display: flex;
+    cursor: pointer;
+    margin-bottom: 12px;
+}
+.lk__info h2{
+    font-weight: 600;
+    font-size: 14px;
+    line-height: 16px;
+    color: #054857;
+    margin-right: 20px;
+}
+.lk-info{
+    transform: rotate(270deg);
+    transition: .5s;
+}
+.container__tabs{
+    overflow: hidden;
+    height: 0px;
+    margin-bottom: 10px;
+}
+.container__tabs.active{
+    height: auto;
+}
 
+.tabs__lk{
+    width: 360px;
+    display: flex;
+    justify-content: center;
+    margin-top: 24px;
+    transform: translateY(-150%);
+    transition: .5s;
+}
+.tabs__lk.active{
+    transform: translateY(0);
+}
+.tabs-info__wrapper{
+    width: 328px;
+    height: 350px;
+    display: flex;
+    flex-direction:column;
+    justify-content: space-between;
+    font-weight: 600;
+    font-size: 14px;
+    line-height: 16px;
+    color: #567F88;
+    margin-top: 47px;
+    margin: 0 auto;
+}
+.tabs-info__wrap{
+    width: 328px;
+    height: 72px;
+    background: #FFFFFF;
+    border: 1px solid #E3EFF1;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 10px;
+}
+.tabs-info__blok{
+    height: 40px;
+    display: flex;
+    flex-direction:column;
+    justify-content: space-between;
+}
+
+.tabs-info__name{
+    font-weight: 500;
+    font-size: 13px;
+    line-height: 16px;
+    color: #567F88;
+}
+.tabs-info__name1{
+    font-weight: 600;
+    font-size: 14px;
+    line-height: 16px;
+    color: #054857;
+}
+.tabs-parents__img{
+    display: flex;
+}
+.tabs-parents-pic{
+    width: 60px;
+    height: 60px;
+    margin-right: 8px;
+    margin-top: 13px;
+    background: #DDEBED;
+    border-radius: 60px;
+}
 .my-personal-data {
     display: flex;
     flex-direction: column;
@@ -898,7 +1008,38 @@ button.active {
 
     color: #7A969C;
 }
+.my-publication {
+    display: flex;
+    flex-direction: column;
+    margin-left: 17px;
+}
 
+.my-publication span:first-child {
+    font-weight: 600;
+    font-size: 16px;
+    line-height: 16px;
+    display: flex;
+    align-items: center;
+    text-align: center;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    color: #042026;
+}
+
+.my-publication span:last-child {
+    font-weight: 400;
+    font-size: 13px;
+    line-height: 150%;
+    /* identical to box height, or 20px */
+
+    display: flex;
+    align-items: center;
+    text-align: center;
+
+    /* off */
+
+    color: #7A969C;
+}
 .subscriptions {
     display: flex;
 }
@@ -1069,7 +1210,6 @@ button.active {
     margin-top: -10px;
 }
 
-
 /*  Стили для страницы Мои Личные настройки */
 
 .my-settings input{
@@ -1146,6 +1286,38 @@ button.active {
 }
 
 
+.security h3 {
+    width: 132px;
+    height: 16px;
+    left: 0px;
+    top: 0px;
+    font-weight: 600;
+    font-size: 14px;
+    line-height: 16px;
+    display: flex;
+    align-items: center;
+    color: #567F88;
+    margin-bottom: 12px;
+
+}
+
+.security input {
+    width: 160px;
+    height: 40px;
+    left: 168px;
+    top: 28px;
+    background: #FFFFFF;
+    border: 1px solid #CFE3E7;
+    box-sizing: border-box;
+    border-radius: 6px;
+    margin-right: 8px;
+    color: #567F88;
+    padding: 8px ;
+}
+
+.security input::placeholder {
+    color: #567F88;;
+}
 
 /* Стили для уведомлений */
 
@@ -2787,6 +2959,7 @@ textarea.input__text::placeholder {
         margin: 0;
         padding: 0;
         margin-top: 100px;
+        margin-left: -20px;
     }
 
     .post {
@@ -2990,19 +3163,20 @@ textarea.input__text::placeholder {
     .post-head {
         margin: 0;
         width: auto;
-        justify-content: space-between;
+        justify-content: start;
         align-items: center;
-        /* margin-top: 20px; */
+        margin-top: 20px;
     }
 
-    .post-head .add button {
-        height: 36px;
+    .post-head .add {
+        margin-left: 125px;
     }
+
 
     .post-desc .img-title{
         margin: 0;
         padding: 0;
-        /* margin-top: 100px; */
+        margin-top: 100px;
     }
 
     .post {
