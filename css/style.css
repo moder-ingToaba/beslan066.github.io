@@ -7,6 +7,11 @@ html {
     padding: 0;
     box-sizing: border-box;
 }
+
+*:focus {
+    outline: none;
+}
+
 body {
     font-family: 'Montserrat', sans-serif;
     height: auto;
