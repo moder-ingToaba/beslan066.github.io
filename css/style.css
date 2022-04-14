@@ -3374,5 +3374,9 @@ textarea.input__text::placeholder {
          width: 409px;
          justify-content: space-between;
      }
+
+     .answer__com {
+        padding-right: 120px;
+    }
 }
 
