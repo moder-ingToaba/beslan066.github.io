@@ -2936,7 +2936,7 @@ textarea.input__text::placeholder {
         margin-top: 10px;
     }
 
-    .section-title h2 {
+    .chat_title {
         margin-left: -100px;
     }
 
@@ -3256,7 +3256,7 @@ textarea.input__text::placeholder {
          width: 95%;
      }
 
-     .section-title h2 {
+     .chat_title {
          margin-left: 100px;
      }
 
