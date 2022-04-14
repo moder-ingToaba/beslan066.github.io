@@ -3055,6 +3055,7 @@ textarea.input__text::placeholder {
         justify-content: start;
         width: auto;
         margin: 0;
+        padding: 0;
         
     }
 
@@ -3067,6 +3068,7 @@ textarea.input__text::placeholder {
     .section-title {
         display: flex;
         align-items: center;
+        margin-top: 20px;
     }
 
     .post-body .container {
@@ -3098,6 +3100,7 @@ textarea.input__text::placeholder {
         display: flex;
         align-items: center;
         text-align: center;
+        margin-bottom: 10px;
     }
 
     footer {
@@ -3128,6 +3131,8 @@ textarea.input__text::placeholder {
     .eventApp .conatiner {
         padding: 0;
         margin: 0;
+        display: flex;
+        justify-content: space-between;
     }
 
     .search .container {
@@ -3161,146 +3166,201 @@ textarea.input__text::placeholder {
 
     .my-settings .container {
         padding: 10px;
+    }
+
+    .container {
+        padding-left: 0;
+    }
+
+    .teipprofile__wrapper {
+        width: 400px;
+    }
+
+    .add-search {
+        width: 375px;
+    }
+
+    .community__wrapper {
+        padding-left: 12px;
+        width: 409px;
+        justify-content: space-between;
     }
 }
 
 @media screen and (max-width: 480px) {
     
     body {
-       display: flex;
-       flex-direction: column;
-    }
-
-    .container {
-        width: auto;
-        
-    }
-
-    .app .conatiner {
-        margin-top: 40px;
-    }
-
-    .eventApp .container{
-        margin-top: 10px;
-    }
-
-    
-    header .container {
-        justify-content: start;
-        width: auto;
-        margin: 0;
-        
-    }
-
-    .posts .container {
-        width: auto;
-        margin: 0;
-        
-    }
-
-    .section-title {
         display: flex;
-        align-items: center;
+        flex-direction: column;
+     }
+ 
+     .container {
+         width: auto;
+     }
+ 
+     .app .conatiner {
+         margin-top: 40px;
+     }
+ 
+     .eventApp .container{
+         margin-top: 10px;
+     }
+     
+     header .container {
+         justify-content: start;
+         width: auto;
+         margin: 0;
+         padding: 0;
+         
+     }
+ 
+     .posts .container {
+         width: auto;
+         margin: 0;
+         
+     }
+ 
+     .section-title {
+         display: flex;
+         align-items: center;
+         margin-top: 20px;
+     }
+ 
+     .post-body .container {
+         margin: 0;
+         padding: 0;
+         width: auto;
+     }
+ 
+ 
+     .post-head {
+         margin: 0;
+         width: auto;
+         
+         justify-content: space-between;
+         align-items: center;
+     }
+ 
+     .post-desc .img-title{
+         margin: 0;
+         padding: 0;
+     }
+
+     .event{
+         justify-content: start;
+         padding-left: 10px;
+         width: 95%;
+     }
+
+     .event__teip {
+        margin-left: 100px;
     }
 
-    .post-body .container {
-        margin: 0;
-        padding: 0;
-        width: auto;
-    }
+     .event__wrap {
+        width: 100%
+     }
 
-
-    .post-head {
+     .event__wrap1 {
+        width: 100%;
+     }
+     .post {
+         height: auto;
+     }
+ 
+     .post-info {
+         display: flex;
+         align-items: center;
+         text-align: center;
+         margin-bottom: 10px;
+     }
+ 
+     footer {
+         justify-content: start;
+         overflow: hidden;
+         position: fixed; 
+         background-color: #ffffff; 
+     }
+     section .post-head .followed{
+         margin-left: 60px;
+     }
+     .lk-head .container{
+         margin-top: 16px;
+     }
+     .tabs__lk{
+         margin-top: 0;
+     }
+     .logo-title{
+         align-items: center;
+     }
+     .posts__wrapper .container{
+         padding: 0;
+     }
+     .posts .container{
+         padding: 0;
+     }
+ 
+     .eventApp .conatiner {
+         padding: 0;
+         margin: 0;
+         display: flex;
+         justify-content: space-between;
+         width: 100%;
+     }
+ 
+     .search .container {
+         margin-top: 30px;
+     }
+ 
+     .search nav {
+         display: flex;
+     }
+ 
+     .search__list {
+         margin-left: 10px;
+     }
+     .search__item {
+         margin-right: 10px;
+     }
+ 
+     .profile {
+         padding-left: 10px;
+     }
+ 
+     
+ 
+     .chat-container {
+         padding: 5px;
+     }
+ 
+     .settings .container {
+         padding: 5px;
+     }
+ 
+     .my-settings .container {
+         padding: 10px;
+     }
+ 
+     .container {
+         padding-left: 0;
+     }
+ 
+     .teipprofile__wrapper {
+         width: 100%;
+     }
+ 
+     .add-search {
+        width: 94%;
         
-        margin: 0;
-        margin-top: 20px;
-        width: auto;
-        justify-content: space-between;
-        align-items: center;
-        /* margin-top: 20px; */
-    }
+     }
 
-    .post-head .add button {
-        height: 36px;
-    }
-
-    .post-desc .img-title{
-        margin: 0;
-        padding: 0;
-        /* margin-top: 100px; */
-    }
-
-    .post {
-        height: auto;
-    }
-
-    .post-info {
-        display: flex;
-        align-items: center;
-        text-align: center;
-    }
-
-    footer {
-        justify-content: start;
-        overflow: hidden;
-        position: fixed; 
-        background-color: #ffffff; 
-    }
-    section .post-head .followed{
-        margin-left: 60px;
-    }
-    .lk-head .container{
-        margin-top: 16px;
-    }
-    .tabs__lk{
-        margin-top: 0;
-    }
-    .logo-title{
-        align-items: center;
-    }
-    .posts__wrapper .container{
-        padding: 0;
-    }
-    .posts .container{
-        padding: 0;
-    }
-
-    .eventApp .conatiner {
-        padding: 0;
-        margin: 0;
-    }
-
-    .search .container {
-        margin-top: 30px;
-    }
-
-    .search nav {
-        display: flex;
-    }
-
-    .search__list {
-        margin-left: 10px;
-    }
-    .search__item {
-        margin-right: 10px;
-    }
-
-    .profile {
-        padding-left: 10px;
-    }
-
-    
-
-    .chat-container {
-        padding: 5px;
-    }
-
-    .settings .container {
-        padding: 5px;
-    }
-
-    .my-settings .container {
-        padding: 10px;
-    }
+     .strip {
+         width: 100%;
+     }
+ 
+     .community__wrapper {
+         padding-left: 12px;
+         width: 409px;
+         justify-content: space-between;
+     }
 }
 
