@@ -266,6 +266,15 @@ color: #567F88;
     
 }
 
+.like-btn button span {
+    display: flex;
+    align-items: center;
+}
+
+.like-btn button span svg {
+    margin-right: 7px;
+}
+
 .view {
     display: flex;
     align-items: center;
@@ -1225,6 +1234,75 @@ button.active {
     align-items: center;
 
     color: #054857;
+}
+
+.setting-img { 
+    display: flex; 
+    justify-content: center; 
+    width: 100%; 
+    margin-top: 20px; 
+} 
+ 
+ 
+.setting-user-title { 
+    display: flex; 
+    justify-content: center; 
+    width: 100%; 
+    margin-top: 16px; 
+     
+} 
+ 
+.setting-user-title div { 
+    display: flex; 
+    flex-direction: column; 
+} 
+ 
+.setting-user-title div h3 { 
+    font-weight: 600; 
+    font-size: 14px; 
+    line-height: 16px; 
+    display: flex; 
+    align-items: center; 
+    color: #054857; 
+} 
+ 
+.setting-user-title div span { 
+    font-weight: 500; 
+    font-size: 13px; 
+    line-height: 16px; 
+    color: #567F88; 
+    margin-top: 4px; 
+} 
+ 
+.setting-login p { 
+    margin-top: 12px; 
+    font-weight: 400; 
+    font-size: 12px; 
+    line-height: 15px; 
+    display: flex; 
+    align-items: center; 
+    color: #567F88; 
+    width: 308px; 
+    height: 45px; 
+} 
+ 
+.edit-settings-btn { 
+    display: flex; 
+    flex-direction: column; 
+    justify-content: center; 
+    align-items: center; 
+    padding: 12px 0px; 
+    width: 328px; 
+    height: 40px; 
+    background: #054857; 
+    border-radius: 6px; 
+    margin-bottom: 50px; 
+    margin-top: 28px; 
+    border: none; 
+    color: #fff; 
+    font-weight: 600; 
+    font-size: 14px; 
+    line-height: 16px; 
 }
 
 .logout {
