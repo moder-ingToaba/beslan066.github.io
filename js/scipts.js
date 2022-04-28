@@ -1,21 +1,5 @@
 /*  Кнопка подписаться */
-
-$('.subscribe').click(function() {
-        $('.subsc-text').replaceWith('<div class="subsc-true"><img src="img/Check.png" alt="">Вы подписаны</div>');
-})
-
-/*  Добавить Адрессата */
-
-$('.add_adress').click(function() {
-    $('.addressee__list').append('<input type="text">');
-})
-
-/*  Добавить вариант ответа */
-    
-
-$('.add-survey-btn').click(function() {
-    $('.survey-select-items').append('<input type="text" placeholder="Вариант *">');
-})
+console.log('ddsdssdsfsfsdfsgfsfsfsfsffsf');
 
 
 /* Табы */
@@ -45,6 +29,39 @@ tabsBtn.forEach(function(item) {
         currentTab.classList.add('active');
     })
 })
+
+
+$('.subscribe').click(function() {
+        $('.subsc-text').replaceWith('<div class="subsc-true"><img src="img/Check.png" alt="">Вы подписаны</div>');
+})
+
+/*  Добавить Адрессата */
+
+$('.add_adress').click(function() {
+    $('.addressee__list').append('<input type="text">');
+})
+
+/*  Добавить вариант ответа */
+    
+
+$('.add-survey-btn').click(function() {
+    $('.survey-select-items').append('<input type="text" placeholder="Вариант *">');
+})
+
+
+
+
+
+
+/* Состояния для кнопок  */
+
+$('.footer-item').click( function() {
+    $('.footer-item').removeClass("active");
+    $(this).toggleClass("active");
+});
+
+
+
 
 
 /*  Регистрация */

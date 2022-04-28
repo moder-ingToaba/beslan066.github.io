@@ -48,6 +48,15 @@ header .header{
     padding: 0 15px;
 }
 
+.event-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 18px;
+    margin-bottom: 18px;
+    padding: 0 15px;
+}
+
 
 
 .burger-menu {
@@ -88,6 +97,11 @@ header hr {
 .create-post button {
     background-color: #ffffff;
     border: none;
+}
+
+.add-icon {
+    height: 18px;
+    width: 18px;
 }
 
 
@@ -135,6 +149,19 @@ header hr {
 .logo-title {
     display: flex;
     justify-content: space-between;
+}
+
+.logo-title .logo {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+}
+
+.logo-title .logo img {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    object-fit: cover;
 }
 
 .post-title {
@@ -575,6 +602,11 @@ button.active {
     border-left: 2px solid #daeef1 ;
     margin-top: 5px;
     margin-left: 4px;
+}
+
+.add-post-icon {
+    width: 18px;
+    height: 18px;
 }
 
 .appeal {
@@ -1259,6 +1291,88 @@ button.active {
     margin-top: 16px;
 }
 
+
+.my-settings .setting-img{
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    display: flex; 
+    justify-content: center; 
+    margin-top: 20px;
+    margin-left: 35%; 
+}
+
+.my-settings .setting-img img{
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+
+ 
+ 
+.setting-user-title { 
+    display: flex; 
+    justify-content: center; 
+    width: 100%; 
+    margin-top: 16px; 
+     
+} 
+ 
+.setting-user-title div { 
+    display: flex; 
+    flex-direction: column; 
+} 
+ 
+.setting-user-title div h3 { 
+    font-weight: 600; 
+    font-size: 14px; 
+    line-height: 16px; 
+    display: flex; 
+    align-items: center; 
+    color: #054857; 
+} 
+ 
+.setting-user-title div span { 
+    font-weight: 500; 
+    font-size: 13px; 
+    line-height: 16px; 
+    color: #567F88; 
+    margin-top: 4px; 
+} 
+ 
+.setting-login p { 
+    margin-top: 12px; 
+    font-weight: 400; 
+    font-size: 12px; 
+    line-height: 15px; 
+    display: flex; 
+    align-items: center; 
+    color: #567F88; 
+    width: 308px; 
+    height: 45px; 
+} 
+ 
+.edit-settings-btn { 
+    display: flex; 
+    flex-direction: column; 
+    justify-content: center; 
+    align-items: center; 
+    padding: 12px 0px; 
+    width: 328px; 
+    height: 40px; 
+    background: #054857; 
+    border-radius: 6px; 
+    margin-bottom: 50px; 
+    margin-top: 28px; 
+    border: none; 
+    color: #fff; 
+    font-weight: 600; 
+    font-size: 14px; 
+    line-height: 16px; 
+}
+
 .fields-rus {
     display: flex;
     flex-direction: column;
@@ -1497,6 +1611,41 @@ button.active {
 
 .profile__info {
     margin-right: 50px;
+}
+
+ .profile-avatar{
+    box-sizing: border-box;
+    width: 32px;
+    height: 32px;
+    border: 2px solid #567F88;
+    border-radius: 50%;
+    background: #FFFFFF;
+    
+}
+
+ .profile-avatar img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    background: #FFFFFF;
+    border-radius: 50%;
+    
+}
+
+.setting-icon {
+    box-sizing: border-box;
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    background: #FFFFFF;
+}
+
+.setting-icon img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    background: #FFFFFF;
+    border-radius: 50%;
 }
 
 .search__list{
@@ -2924,6 +3073,8 @@ textarea.input__text::placeholder {
         padding: 0;
     }
 
+    
+
     .posts .container {
         
         margin: 0;
@@ -3021,7 +3172,10 @@ textarea.input__text::placeholder {
         padding-left: 10px;
     }
 
-    
+    .teipprofile__wrapper {
+        padding-left: 16px;
+        padding-right: 16px;
+    }
 
     .chat-container {
         padding: 5px;
@@ -3035,6 +3189,7 @@ textarea.input__text::placeholder {
         padding: 10px;
     }
 }
+
 
 @media screen and (max-width: 410px) {
     
@@ -3191,6 +3346,8 @@ textarea.input__text::placeholder {
     }
 }
 
+
+
 @media screen and (max-width: 480px) {
     
     body {
@@ -3228,6 +3385,7 @@ textarea.input__text::placeholder {
          display: flex;
          align-items: center;
          margin-top: 20px;
+         padding: 0;
      }
  
      .post-body .container {
@@ -3252,16 +3410,16 @@ textarea.input__text::placeholder {
 
      .event{
          justify-content: start;
-         padding-left: 10px;
+         padding-left: 17px;
          width: 95%;
      }
 
      .chat_title {
-         margin-left: 100px;
+         margin-left: 0px;
      }
 
      .event__teip {
-        margin-left: 100px;
+        margin-left: 0px;
     }
 
      .event__wrap {
@@ -3306,9 +3464,14 @@ textarea.input__text::placeholder {
      .posts .container{
          padding: 0;
      }
+
+     .posts .section-title {
+         justify-content: center;
+     }
  
      .eventApp .conatiner {
-         padding: 0;
+         padding-left: 16px;
+         padding-right: 16px;
          margin: 0;
          display: flex;
          justify-content: space-between;
@@ -3324,28 +3487,45 @@ textarea.input__text::placeholder {
      }
  
      .search__list {
-         margin-left: 10px;
+         margin-left: 17px;
      }
      .search__item {
          margin-right: 10px;
      }
  
      .profile {
-         padding-left: 10px;
+         padding-left: 17px;
      }
  
      
  
+     .settings {
+         padding-left: 16px;
+         padding-right: 16px;
+     }
+
+     .logout {
+        padding-left: 16px;
+         padding-right: 16px;
+     }
+
      .chat-container {
-         padding: 5px;
+         padding: 0  17px;
      }
  
      .settings .container {
         padding: 10px;
     }
+
+
  
-     .my-settings .container {
-         padding: 10px;
+     .my-settings  {
+        padding-left: 16px;
+        
+     }
+
+     .add-event {
+        padding-left: 16px;
      }
  
      .container {
@@ -3357,17 +3537,21 @@ textarea.input__text::placeholder {
      }
  
      .add-search {
-        width: 94%;
+        width: 100%;
+        margin-top: 20px;
         
      }
+
+     .teipprofile__wrapper {
+        padding-left: 16px;
+        padding-right: 16px;
+    }
 
      .strip {
          width: 100%;
      }
 
-     .logout {
-         padding: 10px;
-     }
+    
  
      .community__wrapper {
          padding-left: 12px;
@@ -3378,5 +3562,14 @@ textarea.input__text::placeholder {
      .answer__com {
         padding-right: 120px;
     }
+
+    .section-title {
+        padding-left: 16px;
+        padding-right: 16px;
+    }
 }
+
+
+
+
 

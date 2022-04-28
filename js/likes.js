@@ -21,3 +21,17 @@ document.addEventListener("click", ({ target }) => {
         
     
 })
+
+
+document.addEventListener("click", ({ target }) => {
+    const likeBtn = target.closest(".com-likes")
+
+
+    if (!likeBtn) return;
+    likeBtn.ariaPressed = likeBtn.ariaPressed === "true" ? "false" : "true";
+    likeBtn.ariaLabel = aria.label[likeBtn.ariaPressed];
+
+    console.log(`Отправляю запрос, что кто-то лайкнул пост с id ${likeBtn.dataset.id}`)
+        
+    
+})
