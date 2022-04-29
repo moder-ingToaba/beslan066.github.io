@@ -24,7 +24,6 @@ button {
 .auth-page {
     top: 35%;
     position: absolute;
-    margin-left:  40%;
 }
 
 .auth-page .wrapper {
@@ -33,6 +32,7 @@ button {
     align-items: center;
     justify-content: center;
     flex-direction: column;
+    width: 400px;
     
 }
 
@@ -737,7 +737,11 @@ hr {
 
 
 
-
+@media screen and (max-width: 410px) {
+    .auth-page {
+        margin: 0 auto;
+    }
+}
 
 
 @media screen and (max-width: 410px) {

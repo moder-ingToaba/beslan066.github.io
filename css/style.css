@@ -7,6 +7,13 @@ html {
     padding: 0;
     box-sizing: border-box;
 }
+
+
+button {
+    outline: none;
+    background-color: #fff;
+}
+
 body {
     font-family: 'Montserrat', sans-serif;
     height: auto;
@@ -97,6 +104,7 @@ header hr {
 .create-post button {
     background-color: #ffffff;
     border: none;
+    outline: none;
 }
 
 .add-icon {
@@ -130,6 +138,23 @@ header hr {
     font-weight: 600;
     font-size: 14px;
     line-height: 16px;
+    color: #567F88;
+}
+
+.post__text h2 {
+    font-weight: 600;
+    font-size: 14px;
+    line-height: 16px;
+    /* identical to box height, or 114% */
+
+    display: flex;
+    align-items: center;
+    text-align: center;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+
+    /* off */
+
     color: #567F88;
 }
 
@@ -497,6 +522,7 @@ border-radius: 6px;
 
 .tab-items.active {
     display: flex;
+    flex-direction: column;
 }
 
 .tabs-content {
@@ -538,6 +564,7 @@ button.active {
     display: flex;
     justify-content: center;
     margin-right: 20px;
+    flex-direction: column;
 }
 
 .add-photo-video input {
@@ -696,23 +723,42 @@ button.active {
 
 .photo-video-view {
     display: flex;
-    flex-direction: column;
-    margin-top: 28px;
+    flex-direction: row;
+    margin-top: 24px;
     justify-content: center;;
     align-items: center;
     margin-right: 200px;
+    margin: 0 auto;
     
 }
 
 .add-media-section {
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
+    margin: 0 auto;
+    padding-top: 24px;
+    margin-left: 30px;
 }
 
-.photo-video-view .add-show-media {
+.photo-video-view {
     display: flex;
-    margin-top: 12px;
+    margin-top: 24px;
 }
+
+.add-show-media {
+    display: flex;
+}
+
+.media-view {
+    margin-right: 8px;
+}
+
+.create-section-footer {
+    display: flex;
+    justify-content: space-between;
+    
+}
+
 
 .add-show-media .add-media {
     width: 58px;
@@ -724,6 +770,7 @@ button.active {
     margin-left: 8px;
     display: flex;
     align-items: center;
+    flex-direction: row;
     
 }
 
@@ -1712,8 +1759,8 @@ button.active {
 
 .setting-icon {
     box-sizing: border-box;
-    width: 32px;
-    height: 32px;
+    width: 23px;
+    height: 23px;
     border-radius: 50%;
     background: #FFFFFF;
 }
@@ -2082,7 +2129,7 @@ button.active {
 .community__wrap{
     display: flex;
     flex-wrap:wrap;
-    width: 360px;
+    width: auto;
 }
 .adding__img{
     width: 328px;
@@ -2230,7 +2277,7 @@ textarea.input__text::placeholder {
 .community__wrap{
     display: flex;
     flex-wrap:wrap;
-    width: 360px;
+    width: auto;
 }
 .adding__img{
     width: 328px;
@@ -2378,7 +2425,6 @@ textarea.input__text::placeholder {
     display: flex;
     flex-wrap:wrap;
     width: 360px;
-    height: 46px;
     border-bottom: 1px solid #E3EFF1;
 }
 .add-search{
@@ -3616,7 +3662,7 @@ textarea.input__text::placeholder {
  
      .add-search {
         width: 100%;
-        margin-top: 20px;
+        padding-top: 20px;
         
      }
 
@@ -3633,8 +3679,12 @@ textarea.input__text::placeholder {
  
      .community__wrapper {
          padding-left: 12px;
-         width: 409px;
+         width: 96%;
          justify-content: space-between;
+     }
+
+     .dictionary-container {
+         margin-top: 30px;
      }
 
      .answer__com {
@@ -3644,6 +3694,10 @@ textarea.input__text::placeholder {
     .section-title {
         padding-left: 16px;
         padding-right: 16px;
+    }
+
+    header {
+        height: 48px;
     }
 }
 

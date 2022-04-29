@@ -95,6 +95,8 @@ window.onload=function(){
 window.onload= function() {
     let sendComment = document.getElementsByClassName('.send__com');
 
+    console.log(sendComment)
+
     sendComment.addEventListener('click', function() {
         let commentFieldVal = document.getElementsByClassName('.send__input').value();
 
