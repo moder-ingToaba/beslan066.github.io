@@ -7,10 +7,7 @@ html {
     cursor: pointer;
 }
 
-.msg-ave {
-    display: flex;
-    align-items: center;
-}
+
 
 .msg-body {
     display: flex;
@@ -40,8 +37,7 @@ html {
     color: #fff;
 }
 
-.msg-sent img, .msg-sent p {    border-radius: 10px 10px 0px 10px;    }
-.msg-received img, .msg-received p {    border-radius: 10px 10px 10px 0px;    }
+
 
 .msg-received p {
     background-color: #e3eff1;

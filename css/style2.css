@@ -3,14 +3,7 @@
     /* padding: 6px 0; */
 }
 
-.chat-ave {
-    display: flex;
-    align-items: center;
-    /* border-radius: 50%; */
-    /* flex: 1 1 0; */
-    /* background: url("../img/Ellipse\ 56.png"); */
-    /* padding: 6px; */
-}
+
 
 .chat-body {
     display: flex;
@@ -101,7 +94,7 @@ input {
 }
 
 .inputWide, .selectWide {
-    width: 100%;
+    width: 70%;
 }
 
 .textareaNote, .textareaBio {

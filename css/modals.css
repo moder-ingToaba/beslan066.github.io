@@ -285,6 +285,7 @@ a, a:visited, a:hover, a:active {
 
 #add-event .container {
     margin-top: 16px;
+    padding-left: 10px;
 }
 
 .uph3 {
@@ -305,8 +306,7 @@ a, a:visited, a:hover, a:active {
 .stick-to-bottom {
     position: absolute;
     bottom: 32px;
-    /* width: calc(100% - 32px);
-    margin: 0 16px; */
+    padding-right: 17px;
 }
 
 

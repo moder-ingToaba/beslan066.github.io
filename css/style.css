@@ -9,9 +9,19 @@ html {
 }
 
 
-button {
+button:focus {
+    outline: none !important;
+    box-shadow: none;
+  }
+button::-moz-focus-inner {
+    border: 0;
+}
+a {
     outline: none;
-    background-color: #fff;
+}
+
+img {
+    outline: none;
 }
 
 body {
@@ -737,7 +747,17 @@ button.active {
     flex-direction: row;
     margin: 0 auto;
     padding-top: 24px;
-    margin-left: 30px;
+    margin-left: 25px;
+    padding-right: 27px;
+    margin-bottom: 24px
+}
+
+.add-media-desc {
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 18px;
+    color: #054857;
+    margin-left: 24px;
 }
 
 .photo-video-view {
@@ -755,8 +775,100 @@ button.active {
 
 .create-section-footer {
     display: flex;
-    justify-content: space-between;
     
+}
+
+.appeal-peoples {
+    display: flex;
+    flex-direction: column;
+    margin-top: 24px;
+    margin-bottom: 8px;
+
+    /* 2 */
+
+    
+    border-radius: 6px;
+}
+
+.appeal-item {
+    display: flex;
+    justify-content: start;
+    align-items: center;
+    margin-bottom: 8px;
+    background: #EFF5F5;
+    padding: 8px 12px;
+    border-radius: 6px;
+}
+
+.appeal-item p{
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 18px;
+    display: flex;
+    align-items: center;
+    color: #054857;
+
+}
+
+.appeal-man-icon {
+    width: 20px;
+    height: 20px;
+    margin-right: 10px;
+}
+
+.appeal-man-icon img {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    object-fit: cover;
+
+}
+
+.footer-tab-container {
+    margin-left: 32px;
+    margin-top: 130px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.footer-tab-container .create-post-btn {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    background: #054857;
+    border-radius: 6px; 
+    padding: 12px 16px;
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 16px;
+    display: flex;
+    align-items: center;
+    color: #FFFFFF;
+}
+
+.footer-tab-container button:first-child {
+    margin-right: 166px;
+}
+
+.third-tab-container button:first-child{
+    border: none;
+    background-color: #fff;
+}
+
+.third-tab-container button:last-child{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    padding: 12px 16px;
+    left: 57.32%;
+    right: 0%;
+    top: 0%;
+    bottom: 0%;
+    background: #054857;
+    border-radius: 6px;
+    border: none;
 }
 
 
@@ -790,6 +902,7 @@ button.active {
     margin-right: 130px;
     margin-left: -3px;
     cursor: pointer;
+    margin-left: 22%;
 
 }
 
@@ -824,6 +937,7 @@ button.active {
     justify-content: center;;
     align-items: center;
     margin-top: 25px;
+    padding-left: 17px;
 }
 
 .survey-title span{
@@ -3140,6 +3254,24 @@ textarea.input__text::placeholder {
 }
 
 
+.chat-ave {
+    width: 48px;
+    height: 48px;
+}
+
+.chat-ave img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 50%;
+}
+
+.chat-page-container {
+    padding-left: 10px;
+}
+
+
+
 
 
 
@@ -3170,149 +3302,7 @@ textarea.input__text::placeholder {
 
 /* Media for PostPage*/
 
-@media screen and (max-width: 375px) {
-    
-    body {
-       display: flex;
-       flex-direction: column;
-    }
 
-    .container {
-        width: auto;
-        padding-left: 0;
-    }
-
-    .app .conatiner {
-        margin-top: 40px;
-    }
-
-    .eventApp .container{
-        margin-top: 10px;
-    }
-
-    
-    header .container {
-        justify-content: start;
-        margin: 0;
-        padding: 0;
-    }
-
-    
-
-    .posts .container {
-        
-        margin: 0;
-        
-    }
-
-    .section-title {
-        display: flex;
-        align-items: center;
-        margin-top: 10px;
-    }
-
-    .chat_title {
-        margin-left: -100px;
-    }
-
-    .post-body .container {
-        margin: 0;
-        padding: 0;
-        
-    }
-
-    .post-head {
-        margin: 0;
-        margin-top: 30px;
-        justify-content: space-between;
-        align-items: center;
-    }
-
-
-
-    .post-desc .img-title{
-        margin: 0;
-        padding: 0;
-        margin-top: 100px;
-    }
-
-    .post {
-        height: auto;
-    }
-
-    .post-info {
-        display: flex;
-        align-items: center;
-        text-align: center;
-        margin-bottom: 5px;
-    }
-
-    footer {
-        justify-content: start;
-        overflow: hidden;
-        position: fixed; 
-        background-color: #ffffff; 
-    }
-    section .post-head .followed{
-        margin-left: 60px;
-    }
-    .lk-head .container{
-        margin-top: 16px;
-    }
-    .tabs__lk{
-        margin-top: 0;
-    }
-    .logo-title{
-        align-items: center;
-    }
-    .posts__wrapper .container{
-        padding: 0;
-    }
-    .posts .container{
-        padding: 0;
-    }
-
-    .eventApp .conatiner {
-        padding: 0;
-        margin: 0;
-    }
-
-    .search .container {
-        margin-top: 30px;
-    }
-
-    .search nav {
-        display: flex;
-    }
-
-    .search__list {
-        margin-left: 10px;
-    }
-    .search__item {
-        margin-right: 10px;
-    }
-
-    .profile {
-        padding-left: 10px;
-    }
-
-    .teipprofile__wrapper {
-        padding-left: 16px;
-        padding-right: 16px;
-    }
-
-    .chat-container {
-        padding: 5px;
-    }
-
-    .settings .container {
-        padding: 10px;
-    }
-
-    .my-settings .container {
-        padding: 10px;
-    }
-}
 
 
 @media screen and (max-width: 410px) {
@@ -3437,10 +3427,16 @@ textarea.input__text::placeholder {
         padding-left: 10px;
     }
 
+
+    
     
 
     .chat-container {
-        padding: 5px;
+        padding:12px 17px;
+    }
+
+    .chat-page-container {
+        padding-left: 10px;
     }
 
     .settings .container {
@@ -3534,13 +3530,17 @@ textarea.input__text::placeholder {
 
      .event{
          justify-content: start;
-         padding-left: 17px;
+         
          width: 95%;
      }
 
      .chat_title {
          margin-left: 0px;
      }
+
+     .chat-page-container {
+        padding-left: 10px;
+    }
 
      .event__teip {
         margin-left: 0px;
@@ -3575,6 +3575,7 @@ textarea.input__text::placeholder {
      }
      .lk-head .container{
          margin-top: 16px;
+         padding-left: 17px;
      }
      .tabs__lk{
          margin-top: 0;
@@ -3634,7 +3635,7 @@ textarea.input__text::placeholder {
      }
 
      .chat-container {
-         padding: 0  17px;
+         padding: 12px  17px;
      }
  
      .settings .container {
@@ -3662,7 +3663,7 @@ textarea.input__text::placeholder {
  
      .add-search {
         width: 100%;
-        padding-top: 20px;
+        padding-top: 10px;
         
      }
 
@@ -3698,6 +3699,177 @@ textarea.input__text::placeholder {
 
     header {
         height: 48px;
+    }
+
+    
+}
+
+@media screen and (max-width: 375px) {
+    
+    body {
+       display: flex;
+       flex-direction: column;
+    }
+
+    .container {
+        width: auto;
+        padding-left: 0;
+    }
+
+    .app .conatiner {
+        margin-top: 40px;
+    }
+
+    .eventApp .container{
+        margin-top: 10px;
+    }
+
+    
+    header .container {
+        justify-content: start;
+        margin: 0;
+        padding: 0;
+    }
+
+    
+
+    .posts .container {
+        
+        margin: 0;
+        
+    }
+
+    .section-title {
+        display: flex;
+        align-items: center;
+        margin-top: 10px;
+    }
+
+    .chats-title {
+        margin-top: 20px;
+    }
+
+    .posts-section-title {
+        margin-top: 20px;
+    }
+
+    .chat_title {
+        
+    }
+
+    .chat-page-container {
+        padding-left: 10px;
+    }
+
+    .post-body .container {
+        margin: 0;
+        padding: 0;
+        
+    }
+
+    .post-head {
+        margin: 0;
+        margin-top: 30px;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+
+
+    .post-desc .img-title{
+        margin: 0;
+        padding: 0;
+    
+    }
+
+    .post {
+        height: auto;
+    }
+
+    .post-info {
+        display: flex;
+        align-items: center;
+        text-align: center;
+        margin-bottom: 5px;
+    }
+
+    footer {
+        justify-content: start;
+        overflow: hidden;
+        position: fixed; 
+        background-color: #ffffff; 
+    }
+    section .post-head .followed{
+        margin-left: 60px;
+    }
+    .lk-head .container{
+        margin-top: 16px;
+    }
+    .tabs__lk{
+        margin-top: 0;
+    }
+    .logo-title{
+        align-items: center;
+    }
+    .posts__wrapper .container{
+        padding: 0;
+    }
+    .posts .container{
+        padding: 0;
+    }
+
+    .eventApp .conatiner {
+        padding: 0;
+        margin: 0;
+    }
+
+    .search .container {
+        margin-top: 40px;
+    }
+
+    .search nav {
+        display: flex;
+    }
+
+    .search__list {
+        margin-left: 10px;
+    }
+    .search__item {
+        margin-right: 7px;
+    }
+
+    .profile {
+        padding-left: 10px;
+        padding-right: 18px;
+    }
+
+    .teipprofile__wrapper {
+        padding-left: 16px;
+        padding-right: 16px;
+    }
+
+    .chat-container {
+        padding: 12px  17px;
+     }
+
+    .settings .container {
+        padding: 10px;
+    }
+
+    .my-settings .container {
+        padding: 10px;
+    }
+
+    .setting-login-input {
+        display: flex;
+    }
+
+    .my-settings .fields-rus div:first-child {
+        display: flex;
+    }
+
+    .contact-info-fields {
+        display: flex;
     }
 }
 
