@@ -1,0 +1,19 @@
+textarea#txtarMomentDesc {
+    width: 100%;
+    height: 100px !important;
+    font-family: 'Montserrat', Arial, Helvetica, sans-serif;
+    font-size: 13px;
+    background-color: #fff;
+    border: 1px solid #CFE3E7;
+    box-sizing: border-box;
+    border-radius: 6px;
+    margin-right: 8px;
+    padding: 8px;
+}
+
+textarea#txtarMomentDesc::placeholder {
+    font-weight: 500;
+    font-size: 13px;
+    line-height: 16px;
+    color: #7A969C;
+}

@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600&display=swap" rel="stylesheet">
+    <!-- <link rel="stylesheet" href="css/auth.css"> -->
+    <link rel="stylesheet" href="../../css/style_tj.css">
+    <title>Лента</title>
+</head>
+<body class="s-maxW1100" style="max-height: 580px;">
+    <div class="s-pad14">
+        <form style="display: flex; flex-direction: column;">
+            <div id="dragLine" class="part-of-col-flex s-marginAuto"></div>
+            <div class="part-of-col-flex">
+                <div class="wide primeHs s-textCenter s-pad14" style="color: var(--secGreyBlue);">
+                    ДОБАВИТЬ МОМЕНТ
+                </div>
+            </div>
+            <div id="divPreviewBig" style="display: none;">
+                <img id="imgPreviewBig" src="" alt="">
+            </div>
+            <label id="lbUploadMedia" for="uploadMedia" class="s-marginAuto s-curPointer part-of-col-flex">
+                <div id="cameraCont">
+                    <img src="../../img/post/camera.svg" alt="Добавить медиа">
+                    <span class="font1">Добавить медиа</span>
+                    <input type="file" name="uploadMedia" id="uploadMedia" style="display: none;" onchange="showPreview(event);">
+                </div>
+            </label>
+            <div class="part-of-col-flex">
+                <div style="margin-top: 70px;">
+                    <span>Описание момента...</span>
+                </div>
+            </div>
+            <div class="part-of-col-flex">
+                <div style="margin-top: 25px;">
+                    <a id="addPoll" class="s-curPointer">Добавить опрос</a>
+                </div>
+            </div>
+            <div class="part-of-col-flex s-flex" style="justify-content: space-between;">
+                <div class="wide s-flex" style="margin-top: 80px; justify-content: space-between; align-items: center;">
+                    <a id="add-post-settings" class="s-curPointer">
+                        <img src="../../img/post/Settings.svg" alt="">
+                    </a>
+                    <a id="add-post-publish" href="">
+                        Опубликовать
+                    </a>
+                </div>
+            </div>
+        </form>
+    </div>
+    <script>
+        function showPreview(event) {
+            if (event.target.files.length > 0) {
+                var src = URL.createObjectURL(event.target.files[0]);
+                var previewDiv = document.getElementById("divPreviewBig");
+                var preview = document.getElementById("imgPreviewBig");
+                preview.src = src;
+                document.getElementById("lbUploadMedia").style.display = "none";
+                previewDiv.style.display = "block";
+            }
+        }
+    </script>
+</body>
+</html>
