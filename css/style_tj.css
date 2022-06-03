@@ -96,7 +96,8 @@ a {
 } */
 
 #divPreviewBig {
-    width: var(--bigPreviewWidth);
+    /* width: var(--bigPreviewWidth); */
+    width: 100%;
     height: var(--bigPreviewHeight);
     overflow: hidden;
 }

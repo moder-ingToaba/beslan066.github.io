@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600&display=swap" rel="stylesheet">
+    <!-- <link rel="stylesheet" href="css/auth.css"> -->
+    <!-- <link rel="stylesheet" href="../../css/style_tj.css"> -->
+    <link rel="stylesheet" href="../../css/swiper-bundle.min.css">
+    <script src="../../js/swiper-bundle.min.js"></script>
+
+    <style>
+        html,
+        body {
+          position: relative;
+          height: 100%;
+        }
+  
+        body {
+          background: #eee;
+          font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
+          font-size: 14px;
+          color: #000;
+          margin: 0;
+          padding: 0;
+        }
+  
+        .swiper {
+          width: 100%;
+          padding-top: 50px;
+          padding-bottom: 50px;
+        }
+  
+        .swiper-slide {
+          background-position: center;
+          background-size: cover;
+          width: 300px;
+          height: 300px;
+        }
+  
+        .swiper-slide img {
+          display: block;
+          width: 100%;
+        }
+
+    </style>
+    <title>Лента</title>
+</head>
+<body>
+    <div style="height: 600px;">
+    <div class="swiper mySwiper">
+        <div class="swiper-wrapper">
+          <div class="swiper-slide">
+            <img src="../../img/walls/BonifacioCorsica.jpg" />
+          </div>
+          <div class="swiper-slide">
+            <img src="../../img/walls/ManitobaSky.jpg" />
+          </div>
+          <div class="swiper-slide">
+            <img src="../../img/walls/photo-1650943574955-ac02c65cfc71.jpg" />
+          </div>
+          <div class="swiper-slide">
+            <img src="../../img/walls/sunset-sky-wallpaper.jpg" />
+          </div>
+          <div class="swiper-slide">
+            <img src="../../img/walls/WhitbyLights.jpg" />
+          </div>
+        </div>
+        <div class="swiper-pagination"></div>
+        <div class="swiper-button-prev"></div>
+        <div class="swiper-button-next"></div>
+    </div>
+    </div>
+    <script src="../../js/moments.js"></script>
+    <script>
+    /*
+        const swiper = new Swiper('.swiper', {
+            // Optional parameters
+            effect: 'coverflow',
+            direction: 'horizontal',
+            loop: true,
+            
+            // If we need pagination
+            pagination: {
+                el: '.swiper-pagination',
+            },
+            
+            // Navigation arrows
+            navigation: {
+                nextEl: '.swiper-button-next',
+                prevEl: '.swiper-button-prev',
+            },
+            
+            // And if we need scrollbar
+            scrollbar: {
+                el: '.swiper-scrollbar',
+            },
+        });*/
+
+
+        
+      var swiper = new Swiper(".mySwiper", {
+        effect: "coverflow",
+        // autoHeight: true,
+        longSwipes: true,
+        // height: 600,
+        grabCursor: true,
+        centeredSlides: true,
+        // slidesPerView: "auto",
+        slidesPerView: 2,
+        loop: true,
+        spaceBetween: 50,
+        coverflowEffect: {
+          rotate: 30,
+          stretch: 1,
+          depth: 5,
+          modifier: 1,
+          scale: 1,
+          slideShadows: false,
+        },
+        pagination: {
+          el: ".swiper-pagination",
+        },
+        navigation: {
+            nextEl: '.swiper-button-next',
+            prevEl: '.swiper-button-prev',
+        }
+      });
+    
+
+    </script>
+</body>
+</html>
