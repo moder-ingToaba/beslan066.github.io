@@ -8,12 +8,20 @@
     --padMid: 12px;
     --bigPreviewWidth: 227px;
     --bigPreviewHeight: 227px;
+
+    --font2: normal 500 11px/18px 'Montserrat';
+    --font2Bigger: normal 500 16px/19px 'Montserrat';
+}
+
+* {
+    scrollbar-width: none;
 }
 
 html {
     -moz-osx-font-smoothing: grayscale;
     -webkit-font-smoothing: antialiased;
     overflow-x: hidden;
+    scrollbar-width: none;
 }
 
 body {
@@ -37,6 +45,14 @@ a {
     font-family: 'Montserrat', sans-serif;
     font-weight: 400;
     font-size: 14px;
+    line-height: 18px;
+}
+
+.font2 {
+    font-family: 'Montserrat', sans-serif;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 11px;
     line-height: 18px;
 }
 
@@ -88,6 +104,13 @@ a {
     width: 60px;
 }
 
+.form-main-container {
+    display: flex;
+    flex-direction: column;
+    max-height: 520px;
+    overflow-x: hidden;
+    overflow-y: scroll;
+}
 
 
 
@@ -179,4 +202,29 @@ a {
     height: 22px;
 }
 
+#moment-polls-wrapper input {
+    background-color: var(--greyBack, #EFF5F5);
+    border: none;
+    border-radius: 6px;
+    color: var(--greySub, #AAC0C5);
+    font: var(--font2Bigger);
+    width: 100%;
+    padding: 8px;
+}
 
+#moment-polls-wrapper input::placeholder {
+    color: var(--greySub, #AAC0C5);
+    font: var(--font2Bigger);
+}
+
+#moment-polls-wrapper .input-container {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin: 6px 0;
+}
+
+#moment-polls-wrapper .input-container img {
+    position: absolute;
+    right: 30px;
+}
