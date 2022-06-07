@@ -25,6 +25,10 @@ function addFileSmall(event) {
         var img = document.createElement("img");
         divGalleryImgWrap.appendChild(img);
         img.src = src;
+        img.classList.add('s-curPointer');
+        img.addEventListener('click', function(event) {
+            previewMedia(event);
+        });
         if (momentsGallery.getElementsByClassName("gallery-item").length > 8) {
             lbUploadMedia2.style.display = "none";
         }

@@ -10,10 +10,11 @@
     <!-- <link rel="stylesheet" href="css/auth.css"> -->
     <link rel="stylesheet" href="../../css/style_tj.css">
     <link rel="stylesheet" href="../../css/moments_tj.css">
+    <script src="../../js/scipts_tj.js"></script>
     <title>Лента</title>
 </head>
-<body class="s-maxW1100">
-    <div class="s-pad14"><div class="formMomentWrapper">
+<body>
+    <div style="margin: 0 auto;" class="s-pad14 s-maxW1100"><div class="formMomentWrapper">
         <form id="formMoment" name="formMomentName" style="display: flex; flex-direction: column;">
             <div class="form-main-container">
             <div id="dragLine" class="part-of-col-flex s-marginAuto"></div>
@@ -33,7 +34,6 @@
                 </div>
             </label>
             <div id="moments-gallery" class="part-of-col-flex" style="margin-top: 16px;">
-                
                 <label id="lbUploadMedia2" for="uploadMedia2" class="s-curPointer" style="display: none;">
                     <input type="file" name="uploadMedia2" id="uploadMedia2" 
                                 onchange="addFileSmall(event);" style="display: none;">
@@ -42,7 +42,7 @@
                     </div>
                 </label>
             </div>
-            <div class="part-of-col-flex">
+            <div class="part-of-col-flex" style="padding: 2px;">
                 <div style="margin-top: 10px;">
                     <span id="spanMomentDesc" class="s-curPointer" onclick="momentDescShow(event)">
                         Описание момента...
@@ -53,23 +53,29 @@
             </div>
             <div class="part-of-col-flex">
                 <div style="margin-top: 25px;">
-                    <a id="addPoll" class="s-curPointer">Добавить опрос</a>
+                    <a id="addPoll" class="s-curPointer" onclick="addPoll();" style="margin-left: 6px;">
+                        Добавить опрос
+                    </a>
                 </div>
             </div>
             <div class="part-of-col-flex " id="moment-polls-wrapper">
-                <div class="wide" style="margin-top: 25px;">
-                    <input type="text" name="poll-v1" id="poll-v1" placeholder="1 вариант">
+                <div id="moment-pollvs-container" class="wide" style="margin-top: 25px;">
+                    <div class="wide input-container" style="display: flex; align-items: center;">
+                        <input type="text" name="poll-v1" id="poll-v1" placeholder="1 вариант">
+                        <img src="../../img/X.svg" alt="" style="visibility: hidden;">
+                    </div>
                     <div class="wide input-container" style="display: flex; align-items: center;">
                         <input type="text" name="poll-v2" id="poll-v2" placeholder="2 вариант">
-                        <img src="../../img/X.svg" alt="">
+                        <img src="../../img/X.svg" alt="" style="visibility: hidden;">
                     </div>
-                    <input type="text" name="poll-v3" id="poll-v3" placeholder="3 вариант">
-                    <input type="text" name="poll-v4" id="poll-v4" placeholder="4 вариант">
-                    <input type="text" name="poll-v5" id="poll-v5" placeholder="5 вариант">
-                    <input type="text" name="poll-v6" id="poll-v6" placeholder="6 вариант">
-                    <input type="text" name="poll-v7" id="poll-v7" placeholder="7 вариант">
-                    <input type="text" name="poll-v8" id="poll-v8" placeholder="8 вариант">
-                    <input type="text" name="poll-v9" id="poll-v9" placeholder="9 вариант">
+                </div>
+                <div style="display: flex; justify-content: space-between;">
+                    <a id="addPollV" class="s-curPointer" onclick="addPollV()">
+                        Добавить вариант ответа
+                    </a>
+                    <a id="delPoll" class="s-curPointer" onclick="delPoll()">
+                        Удалить опрос
+                    </a>
                 </div>
             </div>
             </div>
@@ -92,5 +98,65 @@
         </form>
     </div></div>
     <script src="../../js/moments.js"></script>
+    <script>
+        function addPollV() {
+            var El = document.createElement('div');
+            El.classList.add('wide');
+            El.classList.add('input-container');
+            El.style.display = "flex";
+            El.style.alignItems = "center";
+            var I = document.createElement('input');
+            I.setAttribute('type', 'text');
+            I.setAttribute('placeholder', '');
+            var Img = document.createElement('img');
+            Img.setAttribute('src', '../../img/X.svg');
+            Img.setAttribute('alt', '');
+            Img.addEventListener('click', deletePollVar);
+            document.getElementById('moment-pollvs-container').append(El);
+            El.append(I);
+            El.append(Img);
+            loopThroughPollVs();
+            var fmc = document.querySelector('.form-main-container');
+            fmc.scroll(0, fmc.scrollHeight);
+            I.focus();
+        }
+
+        function loopThroughPollVs() {
+            var mpc = document.getElementById('moment-pollvs-container');
+            var ics = mpc.querySelectorAll('div');
+            var i = 1; 
+            ics.forEach(element => {
+                var ip = element.querySelector('input');
+                ip.name = 'poll-v' + i.toString();
+                ip.id = 'poll-v' + i.toString();
+                ip.placeholder = i.toString() + ' вариант';
+                i++;
+            });
+        }
+
+        function deletePollVar(event) {
+            var p = event.target.parentElement.remove();
+            loopThroughPollVs();
+        }
+
+        function delPoll() {
+            document.getElementById("moment-polls-wrapper").style.visibility = "hidden";
+        }
+        
+        function addPoll() {
+            document.getElementById("moment-polls-wrapper").style.visibility = null;
+            document.getElementById("poll-v1").focus();
+            var fmc = document.querySelector('.form-main-container');
+            fmc.scroll(0, fmc.scrollHeight);
+        }
+
+        function previewMedia(event) {
+            var sender = event.target;
+            var bigPreview = j('#imgPreviewBig');
+            let buf = bigPreview.getAttribute('src');
+            bigPreview.setAttribute('src', sender.getAttribute('src'));
+            sender.setAttribute('src', buf);
+        }
+    </script>
 </body>
 </html>

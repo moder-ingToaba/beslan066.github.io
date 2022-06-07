@@ -22,6 +22,7 @@ html {
     -webkit-font-smoothing: antialiased;
     overflow-x: hidden;
     scrollbar-width: none;
+    scroll-behavior: smooth;
 }
 
 body {
@@ -89,6 +90,10 @@ a {
     max-width: 1100px;
 }
 
+.s-noShrink {
+    flex-shrink: 0;
+}
+
 .gallery-img-wrap img, #imgPreviewBig {
     max-width: 100%;
     width: 100%;
@@ -110,6 +115,7 @@ a {
     max-height: 520px;
     overflow-x: hidden;
     overflow-y: scroll;
+    scroll-behavior: smooth;
 }
 
 
@@ -123,6 +129,7 @@ a {
     width: 100%;
     height: var(--bigPreviewHeight);
     overflow: hidden;
+    flex-shrink: 0;
 }
 
 #cameraCont {
@@ -150,14 +157,14 @@ a {
     border-radius: 22px;
 }
 
-#addPoll {
+#addPoll, #delPoll, #addPollV {
     color: var(--greySub);
     padding: var(--padMid);
     background-color: var(--greyBack);
     border-radius: 8px;
 
     font-weight: 500;
-    font-size: 11px;
+    font-size: 13px;
     line-height: 18px;
 }
 
@@ -170,11 +177,13 @@ a {
 }
 
 #moments-gallery {
-    overflow-x: scroll;
-    overflow-y: hidden;
     display: flex;
     flex-direction: row;
     flex-wrap: nowrap;
+    flex-shrink: 0;
+    justify-content: center;
+    overflow-x: scroll;
+    overflow-y: hidden;
 }
 
 #moments-gallery .gallery-img-wrap { 
@@ -185,11 +194,14 @@ a {
 
 #moments-gallery .gallery-item {
     margin-right: 10px;
+    flex-shrink: 0;
 }
+
 #cameraCont2 {
     display: flex;
     align-items: center;
     justify-content: center;
+    flex-shrink: 0;
     width: 60px;
     height: 60px;
     border: 1px dashed var(--greySub);
@@ -200,6 +212,13 @@ a {
     /* margin: auto; */
     width: 22px;
     height: 22px;
+}
+
+#moment-polls-wrapper>div:last-child {
+    margin-bottom: 12px;
+    margin-top: 15px;
+    margin-left: 6px;
+    margin-right: 6px;
 }
 
 #moment-polls-wrapper input {
@@ -221,10 +240,13 @@ a {
     display: flex;
     flex-direction: row;
     align-items: center;
-    margin: 6px 0;
+    margin: 6px;
 }
 
 #moment-polls-wrapper .input-container img {
-    position: absolute;
+    position: relative;
     right: 30px;
+    cursor: pointer;
 }
+
+/* #moment-pollvs-container */
