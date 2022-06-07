@@ -49,3 +49,63 @@ function momentDescUnfocused(event) {
         span.style.display = null;
     }
 }
+
+
+function addPollV() {
+    var El = document.createElement('div');
+    El.classList.add('wide');
+    El.classList.add('input-container');
+    El.style.display = "flex";
+    El.style.alignItems = "center";
+    var I = document.createElement('input');
+    I.setAttribute('type', 'text');
+    I.setAttribute('placeholder', '');
+    var Img = document.createElement('img');
+    Img.setAttribute('src', '../../img/X.svg');
+    Img.setAttribute('alt', '');
+    Img.addEventListener('click', deletePollVar);
+    document.getElementById('moment-pollvs-container').append(El);
+    El.append(I);
+    El.append(Img);
+    loopThroughPollVs();
+    var fmc = document.querySelector('.form-main-container');
+    fmc.scroll(0, fmc.scrollHeight);
+    I.focus();
+}
+
+function loopThroughPollVs() {
+    var mpc = document.getElementById('moment-pollvs-container');
+    var ics = mpc.querySelectorAll('div');
+    var i = 1; 
+    ics.forEach(element => {
+        var ip = element.querySelector('input');
+        ip.name = 'poll-v' + i.toString();
+        ip.id = 'poll-v' + i.toString();
+        ip.placeholder = i.toString() + ' вариант';
+        i++;
+    });
+}
+
+function deletePollVar(event) {
+    var p = event.target.parentElement.remove();
+    loopThroughPollVs();
+}
+
+function delPoll() {
+    document.getElementById("moment-polls-wrapper").style.visibility = "hidden";
+}
+
+function addPoll() {
+    document.getElementById("moment-polls-wrapper").style.visibility = null;
+    document.getElementById("poll-v1").focus();
+    var fmc = document.querySelector('.form-main-container');
+    fmc.scroll(0, fmc.scrollHeight);
+}
+
+function previewMedia(event) {
+    var sender = event.target;
+    var bigPreview = j('#imgPreviewBig');
+    let buf = bigPreview.getAttribute('src');
+    bigPreview.setAttribute('src', sender.getAttribute('src'));
+    sender.setAttribute('src', buf);
+}

@@ -15,6 +15,11 @@
 
 * {
     scrollbar-width: none;
+    -webkit-tap-highlight-color: transparent;
+}
+
+*::-webkit-scrollbar {
+    display: none;
 }
 
 html {
@@ -118,6 +123,10 @@ a {
     scroll-behavior: smooth;
 }
 
+.tall {
+    height: 100%;
+}
+
 
 
 /* .part-of-col-flex {
@@ -126,6 +135,7 @@ a {
 
 #divPreviewBig {
     /* width: var(--bigPreviewWidth); */
+    position: relative;
     width: 100%;
     height: var(--bigPreviewHeight);
     overflow: hidden;

@@ -98,69 +98,80 @@
             </div>
         </form>
     </div></div>
+
+
+    <div id="popAddPerson" class="wide tall">
+        <div class="add-person-wrapper wide tall s-flexCol">
+            <div class="s-flexCol" style="flex-grow: 1;">
+                <div class="part-of-col-flex" style="padding: 12px 12px 0 12px;">
+                    <input type="search" name="add-person-search"
+                    class="wide" id="add-person-search" placeholder="Поиск">
+                </div>
+                <div id="add-person-gallery" class="part-of-col-flex s-flex">
+                    <div class="slide-wrap">
+                        <img class="slide-preview" src="../../img/walls/BonifacioCorsica.jpg" alt=""
+                                    onclick="addPersonOnClick(event);">
+                        <img class="slide-person" src="../../img/profile.svg" alt="" 
+                        onclick="addConnection(event)">
+                    </div>
+                    <div class="slide-wrap">
+                        <img class="slide-preview" src="../../img/walls/ManitobaSky.jpg" alt="">
+                        <img class="slide-person" src="../../img/profile.svg" alt="">
+                    </div>
+                </div>
+            </div>
+            <div id="add-person-buttons">
+                <a id="add-person-cancel" class="s-curPointer" onclick="momentAddPersonHide();">Назад</a>
+                <a id="add-person-submit" class="s-curPointer" onclick="momentAddPersonHide();">Отметить</a>
+            </div>
+        </div>
+    </div>
+
+
     <script src="../../js/moments.js"></script>
+    <script src="../../js/modals.js"></script>
     <script>
-        function addPollV() {
-            var El = document.createElement('div');
-            El.classList.add('wide');
-            El.classList.add('input-container');
-            El.style.display = "flex";
-            El.style.alignItems = "center";
-            var I = document.createElement('input');
-            I.setAttribute('type', 'text');
-            I.setAttribute('placeholder', '');
-            var Img = document.createElement('img');
-            Img.setAttribute('src', '../../img/X.svg');
-            Img.setAttribute('alt', '');
-            Img.addEventListener('click', deletePollVar);
-            document.getElementById('moment-pollvs-container').append(El);
-            El.append(I);
-            El.append(Img);
-            loopThroughPollVs();
-            var fmc = document.querySelector('.form-main-container');
-            fmc.scroll(0, fmc.scrollHeight);
-            I.focus();
-        }
-
-        function loopThroughPollVs() {
-            var mpc = document.getElementById('moment-pollvs-container');
-            var ics = mpc.querySelectorAll('div');
-            var i = 1; 
-            ics.forEach(element => {
-                var ip = element.querySelector('input');
-                ip.name = 'poll-v' + i.toString();
-                ip.id = 'poll-v' + i.toString();
-                ip.placeholder = i.toString() + ' вариант';
-                i++;
-            });
-        }
-
-        function deletePollVar(event) {
-            var p = event.target.parentElement.remove();
-            loopThroughPollVs();
-        }
-
-        function delPoll() {
-            document.getElementById("moment-polls-wrapper").style.visibility = "hidden";
-        }
-        
-        function addPoll() {
-            document.getElementById("moment-polls-wrapper").style.visibility = null;
-            document.getElementById("poll-v1").focus();
-            var fmc = document.querySelector('.form-main-container');
-            fmc.scroll(0, fmc.scrollHeight);
-        }
-
-        function previewMedia(event) {
-            var sender = event.target;
-            var bigPreview = j('#imgPreviewBig');
-            let buf = bigPreview.getAttribute('src');
-            bigPreview.setAttribute('src', sender.getAttribute('src'));
-            sender.setAttribute('src', buf);
-        }
 
         function momentAddPerson(event) {
-            //
+            j('#popAddPerson').style.bottom = 0;
+        }
+
+        function momentAddPersonHide() {
+            j('#popAddPerson').style.bottom = '-120%';
+        }
+
+        function addConnection(event) {
+            noop;
+        }
+        
+        function addPersonOnClick(e) {
+            var x = event.clientX;
+            var y = event.clientY;
+            var b = _apMakeBulb(e);
+            var par = event.target.parentElement;
+            var pers = par.querySelector('.slide-person');
+            let persRect = pers.getBoundingClientRect();
+            // let
+            console.log('x = ' + x);
+            console.log('y = ' + y);
+            console.log('persRect.left = ' + persRect.left);
+            console.log('persRect.top = ' + persRect.top);
+            
+            b.style.left = x + "px";
+            b.style.top = y + "px";
+
+            // b.style.left   = persRect.left + "px";
+            // b.style.top    = y + "px";
+            // b.style.width  = (x - persRect.left) + "px";
+            // b.style.height = (persRect.top - y) + "px";
+            par.appendChild(b);
+            
+        }
+
+        function _apMakeBulb(e) {
+            var b = document.createElement('div');
+            b.classList.add('pers-bulb');
+            return b;
         }
     </script>
 </body>

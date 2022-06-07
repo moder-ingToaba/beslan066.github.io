@@ -1,3 +1,19 @@
+:root {
+    --primeDarkBlue: #054857;
+    --secGreyBlue: #567F88;
+    --greyBack: #EFF5F5;
+    --greySub: #AAC0C5;
+    --blueLight: #2199CC;
+    --padNorm: 8px;
+    --padMid: 12px;
+    --bigPreviewWidth: 227px;
+    --bigPreviewHeight: 227px;
+    --inputBGColor: #e3eff1;
+
+    --font2: normal 500 11px/18px 'Montserrat';
+    --font2Bigger: normal 500 16px/19px 'Montserrat';
+}
+
 textarea#txtarMomentDesc {
     width: 100%;
     height: 100px !important;
@@ -16,4 +32,100 @@ textarea#txtarMomentDesc::placeholder {
     font-size: 13px;
     line-height: 16px;
     color: #7A969C;
+}
+
+#moment_add_person {
+    position: absolute;
+    right: 15px;
+    bottom: 15px;
+}
+
+#add-person-search {
+    background-color: var(--inputBGColor, #e3eff1);
+    border: none;
+    border-radius: 6px;
+    padding: 6px;
+}
+
+#add-person-search::placeholder {
+    color: var(--greySub);
+    font: var(--font2Bigger);
+}
+
+#add-person-gallery {
+    flex-direction: row;
+    align-items: center;
+    overflow-x: scroll;
+    scroll-behavior: smooth;
+}
+
+#add-person-gallery .slide-wrap {
+    display: flex;
+    flex-direction: column;
+    position: relative;
+}
+
+#add-person-gallery img.slide-preview {
+    width: 324px;
+    height: 324px;
+    object-fit: cover;
+    margin: 12px;
+    border-radius: 6px;
+    cursor: pointer;
+}
+
+#add-person-gallery img.slide-person {
+    width: 37px;
+    height: 37px;
+    object-fit: cover;
+    border: none;
+    border-radius: 50%;
+    margin: 12px;
+}
+
+#add-person-buttons {
+    display: flex;
+    justify-content: space-between;
+    padding: 0 16px;
+    margin-top: 20px;
+    margin-bottom: 30px;
+}
+
+#add-person-buttons a {
+    padding: var(--padNorm) 14vw;
+    font: var(--font2Bigger);
+    border-radius: 6px;
+}
+
+#add-person-cancel {
+    color: #000;
+    border: 1px solid var(--primeDarkBlue);
+}
+
+#add-person-submit {
+    color: #fff;
+    background-color: var(--primeDarkBlue);
+}
+
+#popAddPerson {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    border-radius: 10px;
+    left: 0;
+    bottom: -100%;
+    background-color: #fff;
+    transition: bottom 0.3s ease-out;
+}
+
+/* add person on img */
+
+.pers-bulb {
+    position: absolute;
+
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    border-left: 3px solid var(--blueLight);
+    background-color: var(--blueLight);
 }
