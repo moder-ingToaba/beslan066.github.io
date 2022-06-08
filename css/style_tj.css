@@ -224,6 +224,10 @@ a {
     height: 22px;
 }
 
+#moment-polls-wrapper {
+    visibility: hidden;
+}
+
 #moment-polls-wrapper>div:last-child {
     margin-bottom: 12px;
     margin-top: 15px;

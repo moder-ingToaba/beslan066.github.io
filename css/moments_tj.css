@@ -81,6 +81,7 @@ textarea#txtarMomentDesc::placeholder {
     border: none;
     border-radius: 50%;
     margin: 12px;
+    z-index: 9;
 }
 
 #add-person-buttons {
@@ -123,9 +124,17 @@ textarea#txtarMomentDesc::placeholder {
 .pers-bulb {
     position: absolute;
 
-    width: 8px;
-    height: 8px;
+    width: 12px;
+    height: 12px;
     border-radius: 50%;
     border-left: 3px solid var(--blueLight);
     background-color: var(--blueLight);
+    z-index: 10;
+}
+
+.pers-conn-line {
+    border-left: 3px solid var(--primeDarkBlue);
+    border-top: 3px solid var(--primeDarkBlue);
+    border-radius: 8px 0 0 0;
+    position: absolute;
 }

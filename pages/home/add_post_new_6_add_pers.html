@@ -111,8 +111,7 @@
                     <div class="slide-wrap">
                         <img class="slide-preview" src="../../img/walls/BonifacioCorsica.jpg" alt=""
                                     onclick="addPersonOnClick(event);">
-                        <img class="slide-person" src="../../img/profile.svg" alt="" 
-                        onclick="addConnection(event)">
+                        <img class="slide-person" src="../../img/profile.svg" alt="">
                     </div>
                     <div class="slide-wrap">
                         <img class="slide-preview" src="../../img/walls/ManitobaSky.jpg" alt="">
@@ -131,7 +130,40 @@
     <script src="../../js/moments.js"></script>
     <script src="../../js/modals.js"></script>
     <script>
+        var lastPersonId = 0;
+        var mousedown = false;
+        var touched = false;
+        var bulbToMove = null;
+        var connLineToMove = null;
+        var x = 0;
+        var y = 0;
 
+        document.querySelector('#popAddPerson').addEventListener('mouseup', function (e) {
+            mousedown = false;
+        }, true);
+        document.querySelector('#popAddPerson').addEventListener('touchend', function (e) {
+            touched = false;
+        }, true);
+
+        document.querySelector('#popAddPerson').addEventListener('mousemove', function (e) {
+            if (mousedown) {
+                // console.log(e.clientX, e.clientY, x, y);
+                bulbToMove.style.left = e.clientX + x + 'px';
+                bulbToMove.style.top = e.clientY + y + 'px';
+                _clSet(connLineToMove, bulbToMove, bulbToMove.parentElement);
+            }
+        }, true);
+
+        document.querySelector('#popAddPerson').addEventListener('touchmove', function (e) {
+            if (touched && e.touches.length == 1) {
+                e.preventDefault();
+                // console.log(e.touches[0].pageX);
+                bulbToMove.style.left = e.changedTouches[0].clientX + 'px';
+                bulbToMove.style.top = e.changedTouches[0].clientY + 'px';
+                _clSet(connLineToMove, bulbToMove, bulbToMove.parentElement);
+            }
+        }, true);
+        
         function momentAddPerson(event) {
             j('#popAddPerson').style.bottom = 0;
         }
@@ -139,39 +171,84 @@
         function momentAddPersonHide() {
             j('#popAddPerson').style.bottom = '-120%';
         }
-
-        function addConnection(event) {
-            noop;
-        }
         
         function addPersonOnClick(e) {
-            var x = event.clientX;
-            var y = event.clientY;
+            var x = e.clientX;
+            var y = e.clientY;
             var b = _apMakeBulb(e);
-            var par = event.target.parentElement;
-            var pers = par.querySelector('.slide-person');
-            let persRect = pers.getBoundingClientRect();
-            // let
-            console.log('x = ' + x);
-            console.log('y = ' + y);
-            console.log('persRect.left = ' + persRect.left);
-            console.log('persRect.top = ' + persRect.top);
+            var par = e.target.parentElement;
+            let parRect = par.getBoundingClientRect();
             
-            b.style.left = x + "px";
-            b.style.top = y + "px";
+            b.style.left = (x - parRect.x) + "px";
+            b.style.top = (y - parRect.y) + "px";
 
-            // b.style.left   = persRect.left + "px";
-            // b.style.top    = y + "px";
-            // b.style.width  = (x - persRect.left) + "px";
-            // b.style.height = (persRect.top - y) + "px";
             par.appendChild(b);
             
+            var cl = _apMakeConnLine(e);
+            _clSet(cl, b, par);
+
+            par.appendChild(cl);
+
+            b.id = 'bulb' + lastPersonId;
+            cl.id = 'conn-line-' + lastPersonId;
+            lastPersonId++;
         }
 
         function _apMakeBulb(e) {
+            // var mousedown = false;
+            // var x = 0;
+            // var y = 0;
             var b = document.createElement('div');
             b.classList.add('pers-bulb');
+
+            b.addEventListener('mousedown', function(e) {
+                bulbToMove = b;
+                connLineToMove = document.querySelector('#conn-line-' + b.id.substring(4));
+                mousedown = true;
+                x = b.offsetLeft - e.clientX;
+                y = b.offsetTop - e.clientY;
+            }, true);
+
+            b.addEventListener('touchstart', function(e) {
+                bulbToMove = b;
+                connLineToMove = document.querySelector('#conn-line-' + b.id.substring(4));
+                touched = true;
+                x = b.offsetLeft - e.clientX;
+                y = b.offsetTop - e.clientY;
+            }, true);
+
+            b.addEventListener('mouseup', function (e) { mousedown = false; }, true);
+            b.addEventListener('touchend', function (e) { mousedown = false; }, true);
+
+            /* b.addEventListener('mousemove', function (e) {
+                if (mousedown) {
+                    b.style.left = e.clientX + x + 'px';
+                    b.style.top = e.clientY + y + 'px';
+                }
+            }, true); */
+
             return b;
+        }
+
+        function _apMakeConnLine(e) {
+            var cl = document.createElement('div');
+            cl.classList.add('pers-conn-line');
+            cl.setAttribute('onclick', 'addPersonOnClick(event);');
+            return cl;
+        }
+
+        function _clSet(cl, b, parent) {
+            let bRect = b.getBoundingClientRect();
+            let parRect = parent.getBoundingClientRect();
+            let persRect = parent.querySelector('.slide-person').getBoundingClientRect();
+            cl.style.left = ((persRect.left - parRect.left) + Math.floor(persRect.width / 2)) + "px";
+            cl.style.top  = (bRect.top - parRect.top + 4) + "px";
+            // cl.style.top  = (y - parRect.y + 3) + "px";
+            cl.style.height = (persRect.top - bRect.top) + "px";
+            // cl.style.height = (persRect.top - y) + "px";
+            cl.style.width = (bRect.left - (persRect.left - parRect.left) - 
+                             Math.floor(persRect.width / 2)) + "px";
+            // cl.style.width  = ((x - parRect.x) - parRect.x - Math.floor(persRect.width / 2) - 12) + "px";
         }
     </script>
 </body>
