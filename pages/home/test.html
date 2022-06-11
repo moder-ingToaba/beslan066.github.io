@@ -12,27 +12,103 @@
     <link rel="stylesheet" href="../../css/moments_tj.css">
     <script src="../../js/scipts_tj.js"></script>
     <title>Лента</title>
+    <style>
+        label {
+            display: block;
+        }
+    </style>
 </head>
 <body>
     <div style="margin: 0 auto;" class="s-pad14 s-maxW1100"><div class="formMomentWrapper">
-    <button onclick="checkTouch();">bnhj ghjghjgh</button> 
+    <!-- <button onclick="checkTouch();">bnhj ghjghjgh</button>  -->
     </div></div>
 
     <script>
         function checkTouch() {
-            alert('ontouchstart' in window);
-            alert(navigator.maxTouchPoints > 0);
-            alert(navigator.msMaxTouchPoints > 0);
+            // alert('ontouchstart' in window);
+            // alert(navigator.maxTouchPoints > 0);
+            // alert(navigator.msMaxTouchPoints > 0);
             return ('ontouchstart' in window) ||
                    (navigator.maxTouchPoints > 0) ||
                    (navigator.msMaxTouchPoints > 0);
         }
     </script>
-
-
+    <div style="width: 320px; height: 320px; margin: auto; position: relative;">
+        <div id="myDiv" style="border: 1px solid black; border-radius: 8px;
+                    width: 320px; height: 320px; text-align: center;
+                    background-color: brown; cursor: pointer; position: absolute;
+                    top: 0px; left: 0px;">
+            div
+        </div>
+        <label id="X" for="">___</label>
+        <label id="Y" for="">___</label>
+        <label id="clientX" for="">___</label>
+        <label id="clientY" for="">___</label>
+        <label id="pageX" for="">___</label>
+        <label id="pageY" for="">___</label>
+        <label id="myStartClientX" for="">___</label>
+        <label id="myStartClientY" for="">___</label>
+        <label id="myStartPageX" for="">___</label>
+        <label id="myStartPageY" for="">___</label>
+        <label id="" for="">___</label>
+    </div>
 
     <script src="../../js/moments.js"></script>
     <script src="../../js/modals.js"></script>
-    
+    <script src="../../js/scipts_tj.js"></script>
+    <script>
+        var touched = false;
+        var touchstartX = 0;
+        var touchstartY = 0;
+        var divStartX   = 0;
+        var divStartY   = 0;
+
+        window.onload = function() {
+            j('#myDiv').addEventListener('touchstart', function (e) {
+                touch = e.touches[0];
+                touched = true;
+                touchstartX = touch.clientX;
+                touchstartY = touch.clientY;
+                divStartX = parseInt(j('#myDiv').style.left);
+                divStartY = parseInt(j('#myDiv').style.top);
+                // alert('d');
+                // var cX = j('#clientX');
+                // alert(cX.innerHTML);
+                // j('#clientX').textContent = 'e.touches.length: ';
+                // j('#clientX').textContent = 'e.touches.length: ' + e.touches.length;
+                // j('').textContent = '' + ;
+                j('#myStartClientX').textContent = 'Start clientX: ' + touch.clientX;
+                j('#myStartClientY').textContent = 'Start clientY: ' + touch.clientY;
+                j('#myStartPageX').textContent = 'Start pageX: ' + touch.pageX;
+                j('#myStartPageY').textContent = 'Start pageY: ' + touch.pageY;
+                e.preventDefault();
+                // alert(touch.clientX);
+            }, false);
+            
+            j('body').addEventListener('touchmove', function (e) {
+                if (touched && e.touches.length === 1) {
+                    let div = j('#myDiv');
+                    touch = e.touches[0];
+                    let offsetX = touch.clientX - touchstartX;
+                    let offsetY = touch.clientY - touchstartY;
+                    // l(offsetX);
+                    // l(offsetY);
+                    // let dX = parseInt(div.style.left);
+                    // let dY = parseInt(div.style.top);
+                    div.style.left = divStartX + offsetX + 'px';
+                    div.style.top  = divStartY + offsetY + 'px';
+                    // l(parseInt(div.style.left))
+                    e.preventDefault();
+                    // alert(touch.clientX);
+                }
+            }, false);
+
+            j('body').addEventListener('touchend', function (e) {
+                touched = false;
+                e.preventDefault();
+                // alert(touch.clientX);
+            }, false);
+        }
+    </script>
 </body>
 </html>

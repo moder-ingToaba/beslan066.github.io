@@ -15,7 +15,7 @@
 </head>
 <body>
     <div style="margin: 0 auto;" class="s-pad14 s-maxW1100"><div class="formMomentWrapper">
-        <form id="formMoment" name="formMomentName" style="display: flex; flex-direction: column;">
+        <form id="formMoment" name="formMomentName">
             <div class="form-main-container">
             <div id="dragLine" class="part-of-col-flex s-marginAuto"></div>
             <div class="part-of-col-flex">
@@ -24,19 +24,22 @@
                 </div>
             </div>
             <div id="divPreviewBig" class="part-of-col-flex s-marginAuto s-curPointer" style="display: none;">
-                <img id="imgPreviewBig" src="" alt="">
+                <img id="imgPreviewBig" src="" alt="" style="display: none;">
+                <video id="vidPreviewBig" style="display: none;" controls>
+                    <source src="" type='video/mp4; codecs="avc1.42E01E, mp4a.40.2"'>
+                </video>
                 <img id="moment_add_person" onclick="momentAddPerson(event);" src="../../img/moments/add_person.svg" alt="">
             </div>
             <label id="lbUploadMedia" for="uploadMedia" class="s-marginAuto s-curPointer part-of-col-flex">
                 <div id="cameraCont">
                     <img src="../../img/post/camera.svg" alt="Добавить медиа">
                     <span class="font1">Добавить медиа</span>
-                    <input type="file" name="uploadMedia" id="uploadMedia" style="display: none;" onchange="showPreview(event);">
+                    <input type="file" accept=".jpg,.jpeg,.png,.mp4,.avi" name="uploadMedia" id="uploadMedia" style="display: none;" onchange="showPreview(event);">
                 </div>
             </label>
             <div id="moments-gallery" class="part-of-col-flex" style="margin-top: 16px;">
                 <label id="lbUploadMedia2" for="uploadMedia2" class="s-curPointer" style="display: none;">
-                    <input type="file" name="uploadMedia2" id="uploadMedia2" 
+                    <input type="file" accept=".jpg,.jpeg,.png,.mp4,.avi" name="uploadMedia2" id="uploadMedia2"
                                 onchange="addFileSmall(event);" style="display: none;">
                     <div id="cameraCont2">
                         <img src="../../img/post/camera.svg" alt="Добавить медиа">
@@ -91,7 +94,7 @@
                     <a id="add-post-settings" class="s-curPointer">
                         <img src="../../img/post/Settings.svg" alt="">
                     </a>
-                    <a id="add-post-publish" href="">
+                    <a class="disabled" id="add-post-publish" href="">
                         Опубликовать
                     </a>
                 </div>
@@ -111,12 +114,14 @@
                     <div class="slide-wrap">
                         <img class="slide-preview" src="../../img/walls/BonifacioCorsica.jpg" alt=""
                                     onclick="addPersonOnClick(event);">
+                        <!-- <img class="slide-person" src="../../img/profile.svg" alt="">
                         <img class="slide-person" src="../../img/profile.svg" alt="">
+                        <img class="slide-person" src="../../img/profile.svg" alt=""> -->
                     </div>
-                    <div class="slide-wrap">
+                    <!-- <div class="slide-wrap">
                         <img class="slide-preview" src="../../img/walls/ManitobaSky.jpg" alt="">
                         <img class="slide-person" src="../../img/profile.svg" alt="">
-                    </div>
+                    </div> -->
                 </div>
             </div>
             <div id="add-person-buttons">
@@ -128,50 +133,53 @@
 
 
     <script src="../../js/moments.js"></script>
+    <script src="../../js/moments_move_persons.js"></script>
     <script src="../../js/modals.js"></script>
     <script>
         var lastPersonId = 0;
-        var mousedown = false;
-        var touched = false;
-        var bulbToMove = null;
-        var connLineToMove = null;
-        var x = 0;
-        var y = 0;
-
-        document.querySelector('#popAddPerson').addEventListener('mouseup', function (e) {
-            mousedown = false;
-        }, true);
-        document.querySelector('#popAddPerson').addEventListener('touchend', function (e) {
-            touched = false;
-        }, true);
-
-        document.querySelector('#popAddPerson').addEventListener('mousemove', function (e) {
-            if (mousedown) {
-                // console.log(e.clientX, e.clientY, x, y);
-                bulbToMove.style.left = e.clientX + x + 'px';
-                bulbToMove.style.top = e.clientY + y + 'px';
-                _clSet(connLineToMove, bulbToMove, bulbToMove.parentElement);
-            }
-        }, true);
-
-        document.querySelector('#popAddPerson').addEventListener('touchmove', function (e) {
-            if (touched && e.touches.length == 1) {
-                e.preventDefault();
-                // console.log(e.touches[0].pageX);
-                bulbToMove.style.left = e.changedTouches[0].clientX + 'px';
-                bulbToMove.style.top = e.changedTouches[0].clientY + 'px';
-                _clSet(connLineToMove, bulbToMove, bulbToMove.parentElement);
-            }
-        }, true);
         
         function momentAddPerson(event) {
-            j('#popAddPerson').style.bottom = 0;
+            var imgs = [];
+            if (j('#imgPreviewBig').style.display != 'none') {
+                imgs.push(j('#imgPreviewBig'));
+            }
+            var imgsSmall = document.querySelectorAll('.gallery-img-wrap');
+            if (imgsSmall.length > 0) {
+                imgsSmall.forEach(function(item, index) {
+                    imgs.push(item.querySelector('img'));
+                })
+            }
+            var divAddPersonGallery = j('#add-person-gallery');
+            if (imgs.length > 0) {
+                // divAddPersonGallery.innerHTML = '';
+                imgs.forEach(function(item, index) {
+                    divAddPersonGallery.appendChild(_apMakeSlide(item.src));
+                })
+                j('#popAddPerson').style.bottom = 0;
+            }
         }
 
         function momentAddPersonHide() {
             j('#popAddPerson').style.bottom = '-120%';
         }
         
+        function _apMakeSlide(imgSrc) {
+            // var divAddPersonGallery = j('#add-person-gallery');
+
+            var divSlideWrap = document.createElement('div');
+            divSlideWrap.classList.add('slide-wrap');
+            // divAddPersonGallery.appendChild(divSlideWrap);
+
+            var imgSlidePreview = document.createElement('img');
+            imgSlidePreview.classList.add('slide-preview');
+            imgSlidePreview.setAttribute('onclick', 'addPersonOnClick(event)');
+            if (imgSrc != '') {
+                imgSlidePreview.src = imgSrc;
+            }
+            divSlideWrap.appendChild(imgSlidePreview);
+            return divSlideWrap;
+        }
+
         function addPersonOnClick(e) {
             var x = e.clientX;
             var y = e.clientY;
@@ -181,75 +189,43 @@
             
             b.style.left = (x - parRect.x) + "px";
             b.style.top = (y - parRect.y) + "px";
-
+            b.id = 'bulb' + lastPersonId;
             par.appendChild(b);
             
+            var sp = _apMakeSlidePerson(e);
+            sp.id = 'slide-person-' + lastPersonId;
+            par.appendChild(sp);
+            
             var cl = _apMakeConnLine(e);
-            _clSet(cl, b, par);
-
+            _clSet(cl, b, sp, par);
+            cl.id = 'conn-line-' + lastPersonId;
             par.appendChild(cl);
 
-            b.id = 'bulb' + lastPersonId;
-            cl.id = 'conn-line-' + lastPersonId;
             lastPersonId++;
         }
 
-        function _apMakeBulb(e) {
-            // var mousedown = false;
-            // var x = 0;
-            // var y = 0;
-            var b = document.createElement('div');
-            b.classList.add('pers-bulb');
+        function countImgs() {
+            let imgs = document.querySelectorAll('.gallery-img-wrap');
+            return imgs.length;
+        }
 
-            b.addEventListener('mousedown', function(e) {
-                bulbToMove = b;
-                connLineToMove = document.querySelector('#conn-line-' + b.id.substring(4));
-                mousedown = true;
-                x = b.offsetLeft - e.clientX;
-                y = b.offsetTop - e.clientY;
-            }, true);
+        /* upload validation */
 
-            b.addEventListener('touchstart', function(e) {
-                bulbToMove = b;
-                connLineToMove = document.querySelector('#conn-line-' + b.id.substring(4));
-                touched = true;
-                x = b.offsetLeft - e.clientX;
-                y = b.offsetTop - e.clientY;
-            }, true);
+        var validImgs = ['jpg', 'jpeg', 'bmp', 'png'];
+        var validVids = ['mp4', 'avi'];
 
-            b.addEventListener('mouseup', function (e) { mousedown = false; }, true);
-            b.addEventListener('touchend', function (e) { mousedown = false; }, true);
-
-            /* b.addEventListener('mousemove', function (e) {
-                if (mousedown) {
-                    b.style.left = e.clientX + x + 'px';
-                    b.style.top = e.clientY + y + 'px';
+        function checkFileExt(input) {
+            let ext = input.value.split('.').pop();
+            if (validImgs.includes(ext)) {
+                return 'img';
+            } else {
+                if (validVids.includes(ext)) {
+                    return 'vid';
                 }
-            }, true); */
-
-            return b;
+            }
+            return '';
         }
 
-        function _apMakeConnLine(e) {
-            var cl = document.createElement('div');
-            cl.classList.add('pers-conn-line');
-            cl.setAttribute('onclick', 'addPersonOnClick(event);');
-            return cl;
-        }
-
-        function _clSet(cl, b, parent) {
-            let bRect = b.getBoundingClientRect();
-            let parRect = parent.getBoundingClientRect();
-            let persRect = parent.querySelector('.slide-person').getBoundingClientRect();
-            cl.style.left = ((persRect.left - parRect.left) + Math.floor(persRect.width / 2)) + "px";
-            cl.style.top  = (bRect.top - parRect.top + 4) + "px";
-            // cl.style.top  = (y - parRect.y + 3) + "px";
-            cl.style.height = (persRect.top - bRect.top) + "px";
-            // cl.style.height = (persRect.top - y) + "px";
-            cl.style.width = (bRect.left - (persRect.left - parRect.left) - 
-                             Math.floor(persRect.width / 2)) + "px";
-            // cl.style.width  = ((x - parRect.x) - parRect.x - Math.floor(persRect.width / 2) - 12) + "px";
-        }
     </script>
 </body>
 </html>
