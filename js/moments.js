@@ -154,7 +154,7 @@ function previewMedia(event) {
     sender.setAttribute('src', buf);
 }
 
-function _clSet(cl, b, sp, parent) {
+function _clSet(cl, b, sp) {
     let persRect = sp.getBoundingClientRect();
 
     cl.style.left = (sp.offsetLeft + Math.floor(persRect.width / 2)) + 'px';

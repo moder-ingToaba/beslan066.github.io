@@ -31,10 +31,10 @@ function onMouseDownForBulb(e) {
 }
 
 function onMouseMoveForBulb(e) {
-    if (mousedown) {
+    if (mousedown && _apCheckMouseInBounds(e, targetSlide.getBoundingClientRect())) {
         bulbToMove.style.left = e.clientX + x + 'px';
         bulbToMove.style.top = e.clientY  + y + 'px';
-        _clSet(connLineToMove, bulbToMove, slidePersonToConnect, bulbToMove.parentElement);
+        _clSet(connLineToMove, bulbToMove, slidePersonToConnect);
     }
 }
 
@@ -63,11 +63,11 @@ function onTouchStartForBulb(e) {
 }
 
 function onTouchMoveForBulb(e) {
-    if (touched && e.touches.length === 1) {
+    if (touched && e.touches.length === 1 && _apCheckTouchInBounds(e, targetSlide.getBoundingClientRect())) {
         let touch = e.touches[0];
         bulbToMove.style.left = (targetStartX + touch.clientX - touchStartX) + 'px';
         bulbToMove.style.top  = (targetStartY + touch.clientY - touchStartY) + 'px';
-        _clSet(connLineToMove, bulbToMove, slidePersonToConnect, bulbToMove.parentElement);
+        _clSet(connLineToMove, bulbToMove, slidePersonToConnect);
         e.preventDefault();
     }
 }
@@ -102,4 +102,25 @@ function _apMakeSlidePerson(e) {
     sp.setAttribute('src', '../../img/profile.svg');
     // ToDo sp.setAttribute('onclick', '');
     return sp;
+}
+
+function _apCheckMouseInBounds(e, rect) {
+    let res = false;
+    if (e.clientX > rect.left && e.clientX < (rect.left + rect.width)) {
+        if (e.clientY > rect.top && e.clientY < (rect.top + rect.height)) {
+            res = true;
+        }
+    }
+    return res;
+}
+
+function _apCheckTouchInBounds(e, rect) {
+    let res = false;
+    let touch = e.touches[0];
+    if (touch.clientX > (rect.left + 6) && touch.clientX < (rect.left + rect.width - 6)) {
+        if (touch.clientY > (rect.top + 6) && touch.clientY < (rect.top + rect.height - 6)) {
+            res = true;
+        }
+    }
+    return res;
 }

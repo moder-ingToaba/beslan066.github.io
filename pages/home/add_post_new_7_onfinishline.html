@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600&display=swap" rel="stylesheet">
+    <!-- <link rel="stylesheet" href="css/auth.css"> -->
+    <link rel="stylesheet" href="../../css/style_tj.css">
+    <link rel="stylesheet" href="../../css/moments_tj.css">
+    <script src="../../js/scipts_tj.js"></script>
+    <title>Лента</title>
+</head>
+<body>
+    <div style="margin: 0 auto;" class="s-pad14 s-maxW1100"><div class="formMomentWrapper">
+        <form id="formMoment" name="formMomentName">
+            <div class="form-main-container">
+            <div id="dragLine" class="part-of-col-flex s-marginAuto"></div>
+            <div class="part-of-col-flex">
+                <div class="wide primeHs s-textCenter s-pad14" style="color: var(--secGreyBlue);">
+                    ДОБАВИТЬ МОМЕНТ
+                </div>
+            </div>
+            <div id="divPreviewBig" class="part-of-col-flex s-marginAuto s-curPointer" style="display: none;">
+                <img id="imgPreviewBig" src="" alt="" style="display: none;">
+                <video id="vidPreviewBig" style="display: none;" controls>
+                    <source src="" type='video/mp4; codecs="avc1.42E01E, mp4a.40.2"'>
+                </video>
+                <img id="moment_add_person" onclick="momentAddPerson(event);" src="../../img/moments/add_person.svg" alt="">
+            </div>
+            <label id="lbUploadMedia" for="uploadMedia" class="s-marginAuto s-curPointer part-of-col-flex">
+                <div id="cameraCont">
+                    <img src="../../img/post/camera.svg" alt="Добавить медиа">
+                    <span class="font1">Добавить медиа</span>
+                    <input type="file" accept=".jpg,.jpeg,.png,.mp4,.avi" name="uploadMedia" id="uploadMedia" style="display: none;" onchange="showPreview(event);">
+                </div>
+            </label>
+            <div id="moments-gallery" class="part-of-col-flex" style="margin-top: 16px;">
+                <label id="lbUploadMedia2" for="uploadMedia2" class="s-curPointer" style="display: none;">
+                    <input type="file" accept=".jpg,.jpeg,.png,.mp4,.avi" name="uploadMedia2" id="uploadMedia2"
+                                onchange="addFileSmall(event);" style="display: none;">
+                    <div id="cameraCont2">
+                        <img src="../../img/post/camera.svg" alt="Добавить медиа">
+                    </div>
+                </label>
+            </div>
+            <div class="part-of-col-flex" style="padding: 2px;">
+                <div style="margin-top: 10px;">
+                    <span id="spanMomentDesc" class="s-curPointer" onclick="momentDescShow(event)">
+                        Описание момента...
+                    </span>
+                    <textarea name="txtarMomentDescName" id="txtarMomentDesc" cols="30" rows="10"
+                    form="formMoment" style="display: none;" onblur="momentDescUnfocused(event);"></textarea>
+                </div>
+            </div>
+            <div class="part-of-col-flex">
+                <div style="margin-top: 25px;">
+                    <a id="addPoll" class="s-curPointer" onclick="addPoll();" style="margin-left: 6px;">
+                        Добавить опрос
+                    </a>
+                </div>
+            </div>
+            <div class="part-of-col-flex " id="moment-polls-wrapper">
+                <div id="moment-pollvs-container" class="wide" style="margin-top: 25px;">
+                    <div class="wide input-container" style="display: flex; align-items: center;">
+                        <input type="text" name="poll-v1" id="poll-v1" placeholder="1 вариант">
+                        <img src="../../img/X.svg" alt="" style="visibility: hidden;">
+                    </div>
+                    <div class="wide input-container" style="display: flex; align-items: center;">
+                        <input type="text" name="poll-v2" id="poll-v2" placeholder="2 вариант">
+                        <img src="../../img/X.svg" alt="" style="visibility: hidden;">
+                    </div>
+                </div>
+                <div style="display: flex; justify-content: space-between;">
+                    <a id="addPollV" class="s-curPointer" onclick="addPollV()">
+                        Добавить вариант ответа
+                    </a>
+                    <a id="delPoll" class="s-curPointer" onclick="delPoll()">
+                        Удалить опрос
+                    </a>
+                </div>
+            </div>
+            </div>
+
+
+
+
+
+            
+            <div class="part-of-col-flex s-flex" style="justify-content: space-between;">
+                <div class="wide s-flex" style="margin-top: 40px; justify-content: space-between; align-items: center;">
+                    <a id="add-post-settings" class="s-curPointer">
+                        <img src="../../img/post/Settings.svg" alt="">
+                    </a>
+                    <a class="disabled" id="add-post-publish" href="">
+                        Опубликовать
+                    </a>
+                </div>
+            </div>
+        </form>
+    </div></div>
+
+
+    <div id="popAddPerson" class="wide tall">
+        <div class="add-person-wrapper wide tall s-flexCol">
+            <div class="s-flexCol" style="flex-grow: 1;">
+                <div class="part-of-col-flex" style="padding: 12px 12px 0 12px;">
+                    <input type="search" name="add-person-search"
+                    class="wide" id="add-person-search" placeholder="Поиск">
+                </div>
+                <div id="add-person-gallery" class="part-of-col-flex s-flex">
+                    <div class="slide-wrap">
+                        <img class="slide-preview" src="../../img/walls/BonifacioCorsica.jpg" alt=""
+                                    onclick="addPersonOnClick(event);">
+                        <!-- <img class="slide-person" src="../../img/profile.svg" alt="">
+                        <img class="slide-person" src="../../img/profile.svg" alt="">
+                        <img class="slide-person" src="../../img/profile.svg" alt=""> -->
+                    </div>
+                    <!-- <div class="slide-wrap">
+                        <img class="slide-preview" src="../../img/walls/ManitobaSky.jpg" alt="">
+                        <img class="slide-person" src="../../img/profile.svg" alt="">
+                    </div> -->
+                </div>
+            </div>
+            <div id="add-person-buttons">
+                <a id="add-person-cancel" class="s-curPointer" onclick="momentAddPersonHide();">Назад</a>
+                <a id="add-person-submit" class="s-curPointer" onclick="momentAddPersonHide();">Отметить</a>
+            </div>
+        </div>
+    </div>
+
+
+    <script src="../../js/moments.js"></script>
+    <script src="../../js/moments_move_persons.js"></script>
+    <script src="../../js/modals.js"></script>
+    <script>
+        var lastPersonId = 0;
+        
+        function momentAddPerson(event) {
+            var imgs = [];
+            if (j('#imgPreviewBig').style.display != 'none') {
+                imgs.push(j('#imgPreviewBig'));
+            }
+            var imgsSmall = document.querySelectorAll('.gallery-img-wrap');
+            if (imgsSmall.length > 0) {
+                imgsSmall.forEach(function(item, index) {
+                    imgs.push(item.querySelector('img'));
+                })
+            }
+            var divAddPersonGallery = j('#add-person-gallery');
+            if (imgs.length > 0) {
+                // divAddPersonGallery.innerHTML = '';
+                imgs.forEach(function(item, index) {
+                    divAddPersonGallery.appendChild(_apMakeSlide(item.src));
+                })
+                j('#popAddPerson').style.bottom = 0;
+            }
+        }
+
+        function momentAddPersonHide() {
+            j('#popAddPerson').style.bottom = '-120%';
+        }
+        
+        function _apMakeSlide(imgSrc) {
+            // var divAddPersonGallery = j('#add-person-gallery');
+
+            var divSlideWrap = document.createElement('div');
+            divSlideWrap.classList.add('slide-wrap');
+            // divAddPersonGallery.appendChild(divSlideWrap);
+
+            var imgSlidePreview = document.createElement('img');
+            imgSlidePreview.classList.add('slide-preview');
+            imgSlidePreview.setAttribute('onclick', 'addPersonOnClick(event)');
+            if (imgSrc != '') {
+                imgSlidePreview.src = imgSrc;
+            }
+            divSlideWrap.appendChild(imgSlidePreview);
+            return divSlideWrap;
+        }
+
+        function addPersonOnClick(e) {
+            var x = e.clientX;
+            var y = e.clientY;
+            alert(e);
+
+            // если клик за пределами слайда, то не реагировать
+            var par = e.target.parentElement;
+            var slidePreviewRect = par.querySelector('img.slide-preview');
+            var coordsInBounds = false;
+
+            if (e.touches.length > 0) {
+                coordsInBounds = _apCheckTouchInBounds(e, slidePreviewRect);
+            } else {
+                coordsInBounds = _apCheckTouchInBounds(e, slidePreviewRect);
+            }
+            if (!coordsInBounds) { return; }
+            let parRect = par.getBoundingClientRect();
+            var b = _apMakeBulb(e);
+            
+            b.style.left = (x - parRect.x) + "px";
+            b.style.top = (y - parRect.y) + "px";
+            b.id = 'bulb' + lastPersonId;
+            par.appendChild(b);
+            
+            var sp = _apMakeSlidePerson(e);
+            sp.id = 'slide-person-' + lastPersonId;
+            par.appendChild(sp);
+            
+            var cl = _apMakeConnLine(e);
+            _clSet(cl, b, sp);
+            cl.id = 'conn-line-' + lastPersonId;
+            par.appendChild(cl);
+
+            lastPersonId++;
+        }
+
+        function countImgs() {
+            let imgs = document.querySelectorAll('.gallery-img-wrap');
+            return imgs.length;
+        }
+
+        /* upload validation */
+
+        var validImgs = ['jpg', 'jpeg', 'bmp', 'png'];
+        var validVids = ['mp4', 'avi'];
+
+        function checkFileExt(input) {
+            let ext = input.value.split('.').pop();
+            if (validImgs.includes(ext)) {
+                return 'img';
+            } else {
+                if (validVids.includes(ext)) {
+                    return 'vid';
+                }
+            }
+            return '';
+        }
+
+    </script>
+</body>
+</html>

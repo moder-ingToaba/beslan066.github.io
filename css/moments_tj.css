@@ -140,4 +140,5 @@ textarea#txtarMomentDesc::placeholder {
     border-top: 3px solid var(--primeDarkBlue);
     border-radius: 8px 0 0 0;
     position: absolute;
+    cursor: pointer;
 }
