@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600&display=swap" rel="stylesheet">
+    <!-- <link rel="stylesheet" href="css/auth.css"> -->
+    <link rel="stylesheet" href="../../css/style_tj.css">
+    <link rel="stylesheet" href="../../css/moments_tj.css">
+    <script src="../../js/scipts_tj.js"></script>
+    <title>Лента</title>
+</head>
+<body><div id="search-div-wrapper">
+    <div id="searchDiv" style="background-color: #fff;">
+        <div class="pers-list-wrapper s-flex">
+            <img src="../../img/settings-img.png" alt="">
+            <div class="pers-list-body s-flexCol">
+                <div class="pers-list-fio wide">Алиев Ризван Саид-Магомедович</div>
+                <div class="pers-list-birthdate wide">18.02.1968</div>
+            </div>
+        </div>
+        <div class="pers-list-wrapper s-flex">
+            <img src="../../img/settings-img.png" alt="">
+            <div class="pers-list-body s-flexCol">
+                <div class="pers-list-fio wide">Алиев Ризван Саид-Магомедович</div>
+                <div class="pers-list-birthdate wide">18.02.1968</div>
+            </div>
+        </div>
+        <div class="pers-list-wrapper s-flex">
+            <img src="../../img/settings-img.png" alt="">
+            <div class="pers-list-body s-flexCol">
+                <div class="pers-list-fio wide">Алиев Ризван Саид-Магомедович</div>
+                <div class="pers-list-birthdate wide">18.02.1968</div>
+            </div>
+        </div>
+    </div>
+    </div>
+
+
+    <script src="../../js/moments.js"></script>
+    <script src="../../js/moments_search_pers.js"></script>
+    <script src="../../js/moments_move_persons.js"></script>
+    <script src="../../js/modals.js"></script>
+    <script>
+        var lastPersonId = 0;
+        var lastVideoId = 0;
+        var searchDiv = j('#searchDiv');
+        var searchDivIsActive = false;
+        
+        function momentAddPerson(event) {
+            var imgs = [];
+            if (j('#imgPreviewBig').style.display != 'none') {
+                imgs.push(j('#imgPreviewBig'));
+            }
+            var imgsSmall = document.querySelectorAll('.gallery-img-wrap');
+            if (imgsSmall.length > 0) {
+                imgsSmall.forEach(function(item, index) {
+                    imgs.push(item.querySelector('img'));
+                })
+            }
+            var divAddPersonGallery = j('#add-person-gallery');
+            if (imgs.length > 0) {
+                // divAddPersonGallery.innerHTML = '';
+                imgs.forEach(function(item, index) {
+                    divAddPersonGallery.appendChild(_apMakeSlide(item.src));
+                })
+                j('#popAddPerson').style.bottom = 0;
+            }
+        }
+
+        function momentAddPersonHide() {
+            j('#popAddPerson').style.bottom = '-120%';
+        }
+        
+        function _apMakeSlide(imgSrc) {
+            // var divAddPersonGallery = j('#add-person-gallery');
+
+            var divSlideWrap = document.createElement('div');
+            divSlideWrap.classList.add('slide-wrap');
+            // divAddPersonGallery.appendChild(divSlideWrap);
+
+            var imgSlidePreview = document.createElement('img');
+            imgSlidePreview.classList.add('slide-preview');
+            imgSlidePreview.setAttribute('onclick', 'addPersonOnClick(event)');
+            if (imgSrc != '') {
+                imgSlidePreview.src = imgSrc;
+            }
+            divSlideWrap.appendChild(imgSlidePreview);
+            return divSlideWrap;
+        }
+
+        function addPersonOnClick(e) {
+            var x = e.clientX;
+            var y = e.clientY;
+
+            // если клик за пределами слайда, то не реагировать
+            var par = e.target.parentElement;
+            var slidePreviewRect = par.querySelector('img.slide-preview');
+
+            if (!_apCheckMouseInBounds(e, slidePreviewRect.getBoundingClientRect())) {
+                return;
+            }
+            let parRect = par.getBoundingClientRect();
+            var b = _apMakeBulb(e);
+            
+            b.style.left = (x - parRect.x) + "px";
+            b.style.top = (y - parRect.y) + "px";
+            b.id = 'bulb' + lastPersonId;
+            par.appendChild(b);
+            
+            var sp = _apMakeSlidePerson(e);
+            sp.id = 'slide-person-' + lastPersonId;
+            par.appendChild(sp);
+            
+            var cl = _apMakeConnLine(e);
+            _clSet(cl, b, sp);
+            cl.id = 'conn-line-' + lastPersonId;
+            par.appendChild(cl);
+
+            lastPersonId++;
+        }
+
+        function videoplay(v) {
+            let vids = document.querySelectorAll('video');
+            vids.forEach(function (item, index) {
+                if (v.id != item.id) {
+                    l(item)
+                    item.pause();
+                    item.currentTime = 0;
+                }
+            })
+        }
+
+        function countImgs() {
+            let imgs = document.querySelectorAll('.gallery-img-wrap');
+            return imgs.length;
+        }
+
+        /* upload validation */
+
+        var validImgs = ['jpg', 'jpeg', 'bmp', 'png'];
+        var validVids = ['mp4', 'avi'];
+
+        function checkFileExt(input) {
+            let ext = input.value.split('.').pop();
+            if (validImgs.includes(ext)) {
+                return 'img';
+            } else {
+                if (validVids.includes(ext)) {
+                    return 'vid';
+                }
+            }
+            return '';
+        }
+
+        function showPersons(e) {
+            // if (searchDivIsActive) {
+            //     return;
+            // }
+            // l(searchDiv);
+            searchDiv.style.display = 'unset';
+            l('show')
+            // searchDivIsActive = true;
+        }
+        
+        function hidePersons(e) {
+            l('hide')
+            searchDiv.style.display = 'none';
+        }
+
+        function searchDivInput(e) {
+            let str = j('#add-person-search').value;
+            if (str.length < 3) {
+                return
+            }
+            let searchRes = searchPersons(str, personsList);
+            if (searchRes.length > 0) {
+                // l('Search result: ')
+                // l(searchRes)
+                // console.log(searchRes)
+            }
+        }
+
+        function _apMakeFoundPerson() {
+            let res = document.createElement('div');
+            
+        }
+
+    </script>
+</body>
+</html>

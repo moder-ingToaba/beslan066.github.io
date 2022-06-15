@@ -25,7 +25,7 @@
             </div>
             <div id="divPreviewBig" class="part-of-col-flex s-marginAuto s-curPointer" style="display: none;">
                 <img id="imgPreviewBig" src="" alt="" style="display: none;">
-                <video id="vidPreviewBig" style="display: none;" controls>
+                <video id="vidPreviewBig" style="display: none;" controls="controls" onplay="videoplay(this);">
                     <source src="" type='video/mp4; codecs="avc1.42E01E, mp4a.40.2"'>
                 </video>
                 <img id="moment_add_person" onclick="momentAddPerson(event);" src="../../img/moments/add_person.svg" alt="">
@@ -107,17 +107,15 @@
         <div class="add-person-wrapper wide tall s-flexCol">
             <div class="s-flexCol" style="flex-grow: 1;">
                 <div class="part-of-col-flex" style="padding: 12px 12px 0 12px;">
-                    <input type="search" name="add-person-search"
-                    class="wide" id="add-person-search" placeholder="Поиск">
+                    <input type="search" name="add-person-search" class="wide" 
+                    id="add-person-search" placeholder="Поиск" onfocus="showPersons(event)"
+                    onblur="hidePersons(event)" oninput="searchDivOnInput(event)">
                 </div>
                 <div id="add-person-gallery" class="part-of-col-flex s-flex">
-                    <div class="slide-wrap">
+                    <!-- <div class="slide-wrap">
                         <img class="slide-preview" src="../../img/walls/BonifacioCorsica.jpg" alt=""
                                     onclick="addPersonOnClick(event);">
-                        <!-- <img class="slide-person" src="../../img/profile.svg" alt="">
-                        <img class="slide-person" src="../../img/profile.svg" alt="">
-                        <img class="slide-person" src="../../img/profile.svg" alt=""> -->
-                    </div>
+                    </div> -->
                     <!-- <div class="slide-wrap">
                         <img class="slide-preview" src="../../img/walls/ManitobaSky.jpg" alt="">
                         <img class="slide-person" src="../../img/profile.svg" alt="">
@@ -130,13 +128,24 @@
             </div>
         </div>
     </div>
+    <div id="search-div-wrapper">
+        <div id="searchDiv" style="background-color: #fff;">
+        
+        </div>
+    </div>
 
 
     <script src="../../js/moments.js"></script>
+    <script src="../../js/moments_search_pers.js"></script>
     <script src="../../js/moments_move_persons.js"></script>
     <script src="../../js/modals.js"></script>
     <script>
         var lastPersonId = 0;
+        var lastVideoId = 0;
+        var searchDivWrapper = j('#search-div-wrapper');
+        var searchDiv = j('#searchDiv');
+        var searchDivIsActive = false;
+        var searchInput = j('#add-person-search');
         
         function momentAddPerson(event) {
             var imgs = [];
@@ -183,19 +192,14 @@
         function addPersonOnClick(e) {
             var x = e.clientX;
             var y = e.clientY;
-            alert(e);
 
             // если клик за пределами слайда, то не реагировать
             var par = e.target.parentElement;
             var slidePreviewRect = par.querySelector('img.slide-preview');
-            var coordsInBounds = false;
 
-            if (e.touches.length > 0) {
-                coordsInBounds = _apCheckTouchInBounds(e, slidePreviewRect);
-            } else {
-                coordsInBounds = _apCheckTouchInBounds(e, slidePreviewRect);
+            if (!_apCheckMouseInBounds(e, slidePreviewRect.getBoundingClientRect())) {
+                return;
             }
-            if (!coordsInBounds) { return; }
             let parRect = par.getBoundingClientRect();
             var b = _apMakeBulb(e);
             
@@ -214,6 +218,19 @@
             par.appendChild(cl);
 
             lastPersonId++;
+            sp.click();
+            // l('Имитирован клик на slide-person')
+        }
+
+        function videoplay(v) {
+            let vids = document.querySelectorAll('video');
+            vids.forEach(function (item, index) {
+                if (v.id != item.id) {
+                    l(item)
+                    item.pause();
+                    item.currentTime = 0;
+                }
+            })
         }
 
         function countImgs() {
@@ -238,6 +255,50 @@
             return '';
         }
 
+        function showPersons(e) {
+            // if (searchDivIsActive) {
+            //     return;
+            // }
+            // l(searchDiv);
+            searchDivWrapper.style.display = 'unset';
+            l('show')
+            // searchDivIsActive = true;
+        }
+        
+        function hidePersons(e) {
+            l('hide')
+            if (searchInput.value.length < 3) {
+                searchDivWrapper.style.display = 'none';
+            }
+        }
+
+        function searchDivOnInput(e) {
+            searchDiv.innerHTML = ''
+            let str = searchInput.value;
+            if (str.length < 3) {
+                return
+            }
+            let searchRes = searchPersons(str, personsList);
+            if (searchRes.length > 0) {
+                searchRes.forEach(element => {
+                    searchDiv.appendChild(_apMakeFoundPerson(element));
+                })
+                // l('Search result: ')
+                // l(searchRes)
+                // console.log(searchRes)
+            }
+        }
+
+        function slidePersonOnClick(e) {
+            let pers = e.currentTarget;
+
+            // снять выделение со всех других
+            document.querySelectorAll('.slide-person-active').forEach(element => {
+                element.classList.remove('slide-person-active');
+            })
+            pers.classList.add('slide-person-active');
+            searchInput.focus();
+        }
     </script>
 </body>
 </html>

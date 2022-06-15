@@ -55,7 +55,7 @@ textarea#txtarMomentDesc::placeholder {
 
 #add-person-gallery {
     flex-direction: row;
-    align-items: center;
+    align-items: flex-start;
     overflow-x: scroll;
     scroll-behavior: smooth;
 }
@@ -84,7 +84,13 @@ textarea#txtarMomentDesc::placeholder {
     border: none;
     border-radius: 50%;
     margin: 12px 0 12px 12px;
+    cursor: pointer;
     z-index: 9;
+}
+
+#add-person-gallery img.slide-person.slide-person-active {
+    /* border: 2px solid var(--blueLight); */
+    box-shadow: 0px 0px 5px 2px var(--blueLight);
 }
 
 #add-person-buttons {
@@ -122,6 +128,28 @@ textarea#txtarMomentDesc::placeholder {
     transition: bottom 0.3s ease-out;
 }
 
+#search-div-wrapper {
+    display: flex;
+    flex-direction: column;
+    position: fixed;
+    left: 12px;
+    top: 52px;
+    max-height: 75vh;
+}
+
+#searchDiv {
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+    /* width: 100%; */
+    max-height: 334px;
+    overflow-x: hidden;
+    overflow-y: scroll;
+    /* margin: 12px; */
+    /* border-radius: 6px; */
+    padding: 0 var(--padNorm);
+}
+
 /* add person on img */
 
 .pers-bulb {
@@ -142,3 +170,40 @@ textarea#txtarMomentDesc::placeholder {
     position: absolute;
     cursor: pointer;
 }
+
+.pers-conn-line-left {
+    border-left: none;
+    border-right: 3px solid var(--primeDarkBlue);
+    border-radius: 0 8px 0 0;
+}
+
+/* persons search */
+
+.pers-list-wrapper {
+    border-bottom: 2px solid var(--inputBGColor);
+    cursor: pointer;
+}
+
+.pers-list-wrapper img {
+    width: 48px;
+    height: 48px;
+    object-fit: cover;
+    border: none;
+    border-radius: 50%;
+    margin: 12px 12px 12px 0;
+}
+
+.pers-list-fio {
+    font-family: 'Montserrat', sans-serif;
+    color: var(--primeDarkBlue);
+    font-weight: 600;
+}
+
+.pers-list-body {
+    padding: var(--padMid);
+}
+
+.pers-list-birthdate {
+    color: var(--secGreyBlue);
+}
+

@@ -100,6 +100,7 @@ function _apMakeSlidePerson(e) {
     var sp = document.createElement('img');
     sp.classList.add('slide-person');
     sp.setAttribute('src', '../../img/profile.svg');
+    sp.setAttribute('onclick', 'slidePersonOnClick(event)');
     // ToDo sp.setAttribute('onclick', '');
     return sp;
 }

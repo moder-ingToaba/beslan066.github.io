@@ -58,6 +58,7 @@ function addFileSmall(event) {
                 divGalleryItem.appendChild(divGalleryVidWrap);
                 var vid = document.createElement("video");
                 vid.setAttribute('controls', 'controls');
+                vid.id = 'video-' + lastVideoId;
                 divGalleryVidWrap.appendChild(vid);
                 var source = document.createElement("source");
                 source.src = src;
@@ -67,6 +68,7 @@ function addFileSmall(event) {
                 // vid.addEventListener('click', function(event) {
                 //     previewMedia(event);
                 // });
+                lastVideoId++;
                 break;
         }
         if (momentsGallery.getElementsByClassName("gallery-item").length > 8) {
@@ -156,9 +158,25 @@ function previewMedia(event) {
 
 function _clSet(cl, b, sp) {
     let persRect = sp.getBoundingClientRect();
+    // let halfPersLeft = Math.floor(persRect.width / 2);
+    let x1 = b.offsetLeft;
+    let x2 = sp.offsetLeft + Math.floor(persRect.width / 2);
 
-    cl.style.left = (sp.offsetLeft + Math.floor(persRect.width / 2)) + 'px';
+    if (x1 > x2) {
+        cl.classList.remove('pers-conn-line-left')
+        cl.style.left = x2 + 'px';
+        cl.style.width  = (x1 - x2) + 'px';
+    } else {
+        cl.classList.add('pers-conn-line-left')
+        cl.style.left = x1 + 'px';
+        cl.style.width  = (x2 - x1) + 'px';
+    }
     cl.style.top  = (b.offsetTop + 4) + 'px';
     cl.style.height = (sp.offsetTop - b.offsetTop) + 'px';
-    cl.style.width  = (b.offsetLeft - sp.offsetLeft - Math.floor(persRect.width / 2)) + 'px';
+
+
+    // cl.style.left = (sp.offsetLeft + halfPersLeft) + 'px';
+    // cl.style.top  = (b.offsetTop + 4) + 'px';
+    // cl.style.height = (sp.offsetTop - b.offsetTop) + 'px';
+    // cl.style.width  = (b.offsetLeft - sp.offsetLeft - halfPersLeft) + 'px';
 }
