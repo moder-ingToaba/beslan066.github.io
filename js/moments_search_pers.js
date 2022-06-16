@@ -28,6 +28,11 @@ var personsList = [
         FIO: 'Евлоев Ахмед Шарпуддинович',
         path: '../../img/chat-car.jpg',
         birth: '12.12.1977'
+    },
+    {
+        FIO: 'Зурабов Магомед-Башир Асланович',
+        path: '../../img/Rectangle 10.png',
+        birth: '01.04.2005'
     }
 ];
 
@@ -109,6 +114,10 @@ function foundPersonOnClick(e) {
     if (persActive !== null) {
         persActive.src = Pers.path;
     }
+    clearSearch();
+}
+
+function clearSearch() {
     searchInput.value = '';
     hidePersons();
     searchDiv.innerHTML = ''

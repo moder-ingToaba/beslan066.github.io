@@ -32,7 +32,7 @@ function addFileSmall(event) {
         let ext = checkFileExt(event.target);
         if (ext == '') { return; }
         var src = URL.createObjectURL(event.target.files[0]);
-        var momentsGallery = document.getElementById("moments-gallery");
+        // var momentsGallery = document.getElementById("moments-gallery");
         var lbUploadMedia2 = document.getElementById("lbUploadMedia2");
         
         var divGalleryItem = document.createElement("div");
@@ -74,6 +74,7 @@ function addFileSmall(event) {
         if (momentsGallery.getElementsByClassName("gallery-item").length > 8) {
             lbUploadMedia2.style.display = "none";
         }
+        adjustGallery();
     }
 }
 
@@ -179,4 +180,18 @@ function _clSet(cl, b, sp) {
     // cl.style.top  = (b.offsetTop + 4) + 'px';
     // cl.style.height = (sp.offsetTop - b.offsetTop) + 'px';
     // cl.style.width  = (b.offsetLeft - sp.offsetLeft - halfPersLeft) + 'px';
+}
+
+function adjustGallery() {
+    let gItems = momentsGallery.querySelectorAll('.gallery-item');
+    if (gItems.length > 0) {
+        // l(gItems.length);
+        if (((gItems.length + 1) * 70 + 20) > momentsGallery.offsetWidth) {
+            l('adjustGallery: меняю на flex-start')
+            momentsGallery.style.justifyContent = 'flex-start';
+        } else {
+            l('adjustGallery: меняю на center')
+            momentsGallery.style.justifyContent = 'center';
+        }
+    }
 }

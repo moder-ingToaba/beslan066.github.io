@@ -12,6 +12,7 @@
 
     --font2: normal 500 11px/18px 'Montserrat';
     --font2Bigger: normal 500 16px/19px 'Montserrat';
+    --searchHoverColor: #6ec8f41c;
 }
 
 textarea#txtarMomentDesc {
@@ -63,9 +64,20 @@ textarea#txtarMomentDesc::placeholder {
 #add-person-gallery .slide-wrap {
     display: flex;
     /* flex-direction: column; */
+    max-width: 348px;
     position: relative;
     flex-wrap: wrap;
     user-select: none;
+}
+
+#add-person-gallery .slide-wrap .slide-number {
+    position: absolute;
+    right: 25px;
+    top: 25px;
+    color: black;
+    background-color: #fff;
+    padding: 1px 5px;
+    border-radius: 50%;
 }
 
 #add-person-gallery img.slide-preview {
@@ -102,7 +114,7 @@ textarea#txtarMomentDesc::placeholder {
 }
 
 #add-person-buttons a {
-    padding: var(--padNorm) 14vw;
+    padding: var(--padNorm) 14%;
     font: var(--font2Bigger);
     border-radius: 6px;
 }
@@ -131,10 +143,17 @@ textarea#txtarMomentDesc::placeholder {
 #search-div-wrapper {
     display: flex;
     flex-direction: column;
-    position: fixed;
     left: 12px;
     top: 52px;
     max-height: 75vh;
+    border-radius: 6px;
+    
+    position: absolute;
+    margin: 0px auto;
+    max-width: 370px;
+    /* box-shadow: 0 0 1px 2px #0000003b; */
+    box-shadow: none;
+    z-index: 10;
 }
 
 #searchDiv {
@@ -146,8 +165,35 @@ textarea#txtarMomentDesc::placeholder {
     overflow-x: hidden;
     overflow-y: scroll;
     /* margin: 12px; */
-    /* border-radius: 6px; */
+    border-radius: 6px;
     padding: 0 var(--padNorm);
+}
+
+#add-person-search-wrap .input-container input {
+    background-color: var(--greyBack, #EFF5F5);
+    border: none;
+    border-radius: 6px;
+    color: var(--greySub, #AAC0C5);
+    font: var(--font2Bigger);
+    width: 100%;
+    padding: 8px;
+}
+
+#add-person-search-wrap .input-container input::placeholder {
+    color: var(--greySub, #AAC0C5);
+    font: var(--font2Bigger);
+}
+
+#add-person-search-wrap .input-container img {
+    position: absolute;
+    right: 0px;
+    padding: 10px;
+    cursor: pointer;
+}
+
+.add-person-wrapper {
+    max-width: 368px;
+    margin: 0 auto;
 }
 
 /* add person on img */
@@ -182,6 +228,14 @@ textarea#txtarMomentDesc::placeholder {
 .pers-list-wrapper {
     border-bottom: 2px solid var(--inputBGColor);
     cursor: pointer;
+}
+
+.pers-list-wrapper:last-child {
+    border-bottom: none;
+}
+
+.pers-list-wrapper:hover {
+    background-color: var(--searchHoverColor);
 }
 
 .pers-list-wrapper img {
