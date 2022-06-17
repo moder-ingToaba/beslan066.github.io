@@ -135,8 +135,8 @@
                 </div>
             </div>
             <div id="add-person-buttons">
-                <a id="add-person-cancel" class="s-curPointer" onclick="momentAddPersonHide(false);">Назад</a>
-                <a id="add-person-submit" class="s-curPointer" onclick="momentAddPersonHide(true);">Отметить</a>
+                <a id="add-person-cancel" class="s-curPointer" onclick="momentAddPersonHide(event, false);">Назад</a>
+                <a id="add-person-submit" class="s-curPointer" onclick="momentAddPersonHide(event, true);">Отметить</a>
             </div>
         </div>
     </div>
@@ -154,7 +154,8 @@
         var searchDivIsActive = false;
         var searchInput = j('#add-person-search');
         var momentsGallery = j('#moments-gallery');
-        var momentsGalleryBackup = '';
+        var divAddPersonGallery = j('#add-person-gallery');
+        var addPersonGalleryBackup = '';
 
         window.addEventListener('resize', function() {
             adjustGallery();
@@ -171,9 +172,8 @@
                     imgs.push(item.querySelector('img'));
                 })
             }
-            var divAddPersonGallery = j('#add-person-gallery');
             if (imgs.length > 0) {
-                momentsGalleryBackup = divAddPersonGallery.innerHTML = '';
+                addPersonGalleryBackup = divAddPersonGallery.innerHTML;
                 // divAddPersonGallery.innerHTML = '';
                 imgs.forEach(function(item, index) {
                     divAddPersonGallery.appendChild(_apMakeSlide(item.src, index));
@@ -182,9 +182,10 @@
             }
         }
 
-        function momentAddPersonHide(accepted) {
-            if (!accepted) {
-                momentsGallery.innerHTML = momentsGalleryBackup;
+        function momentAddPersonHide(e, accepted) {
+            if (accepted == false) {
+                // l('Canceled')
+                divAddPersonGallery.innerHTML = addPersonGalleryBackup;
             }
             j('#popAddPerson').style.bottom = '-120%';
         }
@@ -248,7 +249,6 @@
             let vids = document.querySelectorAll('video');
             vids.forEach(function (item, index) {
                 if (v.id != item.id) {
-                    l(item)
                     item.pause();
                     item.currentTime = 0;
                 }
@@ -283,12 +283,12 @@
             // }
             // l(searchDiv);
             searchDivWrapper.style.display = 'flex';
-            l('show')
+            // l('show')
             // searchDivIsActive = true;
         }
         
         function hidePersons(e) {
-            l('hide')
+            // l('hide')
             if (searchInput.value.length < 3) {
                 searchDivWrapper.style.display = 'none';
                 searchDivWrapper.style.boxShadow = 'none';

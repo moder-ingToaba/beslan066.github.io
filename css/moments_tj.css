@@ -35,6 +35,12 @@ textarea#txtarMomentDesc::placeholder {
     color: #7A969C;
 }
 
+#spanMomentDesc {
+    font-weight: 400;
+    color: var(--primeDarkBlue);
+    padding: var(--padNorm);
+}
+
 #moment_add_person {
     position: absolute;
     right: 15px;
@@ -75,6 +81,7 @@ textarea#txtarMomentDesc::placeholder {
     right: 25px;
     top: 25px;
     color: black;
+    font-family: 'Courier New', Courier, monospace;
     background-color: #fff;
     padding: 1px 5px;
     border-radius: 50%;
@@ -153,7 +160,7 @@ textarea#txtarMomentDesc::placeholder {
     max-width: 370px;
     /* box-shadow: 0 0 1px 2px #0000003b; */
     box-shadow: none;
-    z-index: 10;
+    z-index: 12;
 }
 
 #searchDiv {

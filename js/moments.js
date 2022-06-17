@@ -59,6 +59,7 @@ function addFileSmall(event) {
                 var vid = document.createElement("video");
                 vid.setAttribute('controls', 'controls');
                 vid.id = 'video-' + lastVideoId;
+                vid.setAttribute('onplay', 'videoplay(this);');
                 divGalleryVidWrap.appendChild(vid);
                 var source = document.createElement("source");
                 source.src = src;
