@@ -156,6 +156,7 @@
         var momentsGallery = j('#moments-gallery');
         var divAddPersonGallery = j('#add-person-gallery');
         var addPersonGalleryBackup = '';
+        var slidePreviews = []
 
         window.addEventListener('resize', function() {
             adjustGallery();
@@ -174,9 +175,12 @@
             }
             if (imgs.length > 0) {
                 addPersonGalleryBackup = divAddPersonGallery.innerHTML;
+                slidePreviews = divAddPersonGallery.querySelectorAll('img.slide-preview')
                 // divAddPersonGallery.innerHTML = '';
                 imgs.forEach(function(item, index) {
-                    divAddPersonGallery.appendChild(_apMakeSlide(item.src, index));
+                    if (_slideExists(item.src) < 0) {
+                        divAddPersonGallery.appendChild(_apMakeSlide(item.src));
+                    }
                 })
                 j('#popAddPerson').style.bottom = 0;
             }
@@ -199,7 +203,7 @@
 
             var divSlideNumber = document.createElement('div');
             divSlideNumber.classList.add('slide-number');
-            divSlideNumber.innerHTML = index + 1;
+            divSlideNumber.innerHTML = (index === undefined) ? _nextSlideNumber() : index;
             divSlideWrap.appendChild(divSlideNumber);
 
             var imgSlidePreview = document.createElement('img');
@@ -323,6 +327,22 @@
             pers.classList.add('slide-person-active');
             searchInput.focus();
         }
+
+        function _slideExists(src) {
+            res = -1
+            slidePreviews.forEach(function(item, index) {
+                if (item.src == src) {
+                    res = index
+                }
+            })
+            return res
+        }
+
+        function _nextSlideNumber() {
+            var sw = jj('.slide-wrap')
+            return (sw === null) ? 11 : (sw.length + 1)
+        }
+
     </script>
 </body>
 </html>

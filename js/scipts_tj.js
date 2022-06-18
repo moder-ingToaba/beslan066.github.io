@@ -4,6 +4,12 @@ function j(arg1, arg2) {
     }
 }
 
+function jj(arg1) {
+    if (typeof arg1 === 'string' || arg1 instanceof String) {
+        return document.querySelectorAll(arg1);
+    }
+}
+
 function l(arg1) {
     console.log(arg1);
 }
