@@ -1,35 +1,42 @@
 var personsList = [
     {
+        id: 0,
         FIO: 'Алиев Ризван Саид-Магомедович',
         path: '../../img/settings-img.png',
         birth: '12.11.2001'
     },
     {
+        id: 1,
         FIO: 'Бадиев Адам Алиханович',
         path: '../../img/lk/Ellipse 4.png',
         birth: '01.10.1933'
     },
     {
+        id: 2,
         FIO: 'Накостоев Артур Хавашевич',
         path: '../../img/post/Rectangle 10.png',
         birth: '05.01.1985'
     },
     {
+        id: 3,
         FIO: 'Алтамиров Абдулла Магомедович',
         path: '../../img/teip-profile/Ellipse 56.png',
         birth: '15.05.1964'
     },
     {
+        id: 4,
         FIO: 'Сукиев Джамал Русланович',
         path: '../../img/chat-car.jpg',
         birth: '24.01.1999'
     },
     {
+        id: 5,
         FIO: 'Евлоев Ахмед Шарпуддинович',
         path: '../../img/chat-car.jpg',
         birth: '12.12.1977'
     },
     {
+        id: 6,
         FIO: 'Зурабов Магомед-Башир Асланович',
         path: '../../img/Rectangle 10.png',
         birth: '01.04.2005'

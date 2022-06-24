@@ -10,6 +10,7 @@
     <!-- <link rel="stylesheet" href="css/auth.css"> -->
     <link rel="stylesheet" href="../../css/style_tj.css">
     <link rel="stylesheet" href="../../css/moments_tj.css">
+    <link rel="stylesheet" href="../../css/moment_settings.css">
     <script src="../../js/scipts_tj.js"></script>
     <title>Лента</title>
 </head>
@@ -91,7 +92,7 @@
             
             <div class="part-of-col-flex s-flex" style="justify-content: space-between;">
                 <div class="wide s-flex" style="margin-top: 40px; justify-content: space-between; align-items: center;">
-                    <a id="add-post-settings" class="s-curPointer">
+                    <a id="add-post-settings" class="s-curPointer" onclick="showMomentSettings(event);">
                         <img src="../../img/post/Settings.svg" alt="">
                     </a>
                     <a class="disabled" id="add-post-publish" href="">
@@ -118,20 +119,8 @@
                     
                     </div>
                 </div>
-                <!-- <div class="part-of-col-flex" style="padding: 12px 12px 0 12px;">
-                    <input type="search" name="add-person-search-old" class="wide" 
-                    id="add-person-search-old" placeholder="Поиск" onfocus="showPersons(event)"
-                    onblur="hidePersons(event)" oninput="searchDivOnInput(event)">
-                </div> -->
                 <div id="add-person-gallery" class="part-of-col-flex s-flex">
-                    <!-- <div class="slide-wrap">
-                        <img class="slide-preview" src="../../img/walls/BonifacioCorsica.jpg" alt=""
-                                    onclick="addPersonOnClick(event);">
-                    </div> -->
-                    <!-- <div class="slide-wrap">
-                        <img class="slide-preview" src="../../img/walls/ManitobaSky.jpg" alt="">
-                        <img class="slide-person" src="../../img/profile.svg" alt="">
-                    </div> -->
+                    
                 </div>
             </div>
             <div id="add-person-buttons">
@@ -142,9 +131,123 @@
     </div>
 
 
+
+
+
+
+    
+    <div id="popMomentSettings" class="wide tall">
+        <div class="moment-settings-wrapper wide tall s-flexCol">
+            <div class="s-flexCol" style="flex-grow: 1; position: relative; padding-top: 18px;">
+                <div class="moment-settings-header">
+                    Могут смотреть
+                </div>
+                <div class="moment-settings-input-group">
+                    <div class="moment-settings-row">
+                        <input id="look-all" name="look-all" type="checkbox" checked>
+                        <label for="look-all">Все</label>
+                    </div>
+                    <div class="moment-settings-row">
+                        <input id="look-subs" name="look-subs" type="checkbox">
+                        <label for="look-subs">Только подписчики</label>
+                    </div>
+                    <div class="moment-settings-row">
+                        <input id="look-relatives" name="look-relatives" type="checkbox">
+                        <label for="look-relatives">Только близкие родственники</label>
+                    </div>
+                    <div class="moment-settings-row">
+                        <input id="look-all-except" name="look-all-except" type="checkbox">
+                        <label for="look-all-except">Все, кроме</label>
+                    </div>
+                    <div class="moment-settings-exceptions">
+                        <div class="moment-settings-exceptions-container">
+                            <div class="moment-settings-exception">
+                                Алиев Зураб М.
+                            </div>
+                            <div class="moment-settings-exception">
+                                Зурабов Асхаб А.
+                            </div>
+                            <div class="moment-settings-exception">
+                                Maybe Магомед-Басир Гаракоев
+                            </div>
+                        </div>
+                        <div class="moment-settings-exceptions-filter">
+                            <svg width="20" height="14" viewBox="0 0 20 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M11.875 11.1243L1.75 11.1243" stroke="#7A969C" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+                                <path d="M18.25 11.1243L15.625 11.1243" stroke="#7A969C" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+                                <path d="M13.75 12.9993C14.7855 12.9993 15.625 12.1598 15.625 11.1243C15.625 10.0887 14.7855 9.24927 13.75 9.24927C12.7145 9.24927 11.875 10.0887 11.875 11.1243C11.875 12.1598 12.7145 12.9993 13.75 12.9993Z" stroke="#7A969C" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+                                <path d="M5.875 2.87432L1.75 2.87427" stroke="#7A969C" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+                                <path d="M18.25 2.87427L9.625 2.87432" stroke="#7A969C" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+                                <path d="M7.75 4.74927C8.78553 4.74927 9.625 3.9098 9.625 2.87427C9.625 1.83873 8.78553 0.999268 7.75 0.999268C6.71447 0.999268 5.875 1.83873 5.875 2.87427C5.875 3.9098 6.71447 4.74927 7.75 4.74927Z" stroke="#7A969C" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+                            </svg>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="moment-settings-header">
+                    Могут комментировать
+                </div>
+                <div class="moment-settings-input-group">
+                    <div class="moment-settings-row">
+                        <input id="comment-all" name="comment-all" type="checkbox" checked>
+                        <label for="comment-all">Все</label>
+                    </div>
+                    <div class="moment-settings-row">
+                        <input id="comment-subs" name="comment-subs" type="checkbox">
+                        <label for="comment-subs">Только подписчики</label>
+                    </div>
+                    <div class="moment-settings-row">
+                        <input id="comment-relatives" name="comment-relatives" type="checkbox">
+                        <label for="comment-relatives">Только близкие родственники</label>
+                    </div>
+                    <div class="moment-settings-row">
+                        <input id="comment-all-except" name="comment-all-except" type="checkbox">
+                        <label for="comment-all-except">Все, кроме</label>
+                    </div>
+                    <div class="moment-settings-exceptions">
+                        <div class="moment-settings-exceptions-container">
+                            <div class="moment-settings-exception">
+                                Алиев Харон М.
+                            </div>
+                            <div class="moment-settings-exception">
+                                Зурабов Джамалейл А.
+                            </div>
+                            <div class="moment-settings-exception">
+                                Maybe Мухарбекович Гаракоев
+                            </div>
+                        </div>
+                        <div class="moment-settings-exceptions-filter">
+                            <svg width="20" height="14" viewBox="0 0 20 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M11.875 11.1243L1.75 11.1243" stroke="#7A969C" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+                                <path d="M18.25 11.1243L15.625 11.1243" stroke="#7A969C" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+                                <path d="M13.75 12.9993C14.7855 12.9993 15.625 12.1598 15.625 11.1243C15.625 10.0887 14.7855 9.24927 13.75 9.24927C12.7145 9.24927 11.875 10.0887 11.875 11.1243C11.875 12.1598 12.7145 12.9993 13.75 12.9993Z" stroke="#7A969C" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+                                <path d="M5.875 2.87432L1.75 2.87427" stroke="#7A969C" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+                                <path d="M18.25 2.87427L9.625 2.87432" stroke="#7A969C" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+                                <path d="M7.75 4.74927C8.78553 4.74927 9.625 3.9098 9.625 2.87427C9.625 1.83873 8.78553 0.999268 7.75 0.999268C6.71447 0.999268 5.875 1.83873 5.875 2.87427C5.875 3.9098 6.71447 4.74927 7.75 4.74927Z" stroke="#7A969C" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+                            </svg>
+                        </div>
+                    </div>
+                </div>
+
+                <div id="moment-settings-search-wrapper">
+                    <div id="momentSettingsSearch">
+                    
+                    </div>
+                </div>
+            </div>
+
+            <div id="moment-settings-buttons">
+                <a id="moment-settings-cancel" class="s-curPointer" onclick="momentSettingsHide(event, false);">Отмена</a>
+                <a id="moment-settings-submit" class="s-curPointer" onclick="momentSettingsHide(event, true);">Принять</a>
+            </div>
+        </div>
+    </div>
+
+
     <script src="../../js/moments.js"></script>
     <script src="../../js/moments_search_pers.js"></script>
     <script src="../../js/moments_move_persons.js"></script>
+    <script src="../../js/moments_settings.js"></script>
     <script src="../../js/modals.js"></script>
     <script>
         var lastPersonId = 0;
@@ -157,6 +260,7 @@
         var divAddPersonGallery = j('#add-person-gallery');
         var addPersonGalleryBackup = '';
         var slidePreviews = []
+
 
         window.addEventListener('resize', function() {
             adjustGallery();
@@ -341,7 +445,76 @@
         function _nextSlideNumber() {
             var sw = jj('.slide-wrap')
             return (sw === null) ? 11 : (sw.length + 1)
+    
         }
+
+        /* const result = sendApiRequest('?term=албогачиев&page=2', 'GET')
+        l(1)
+        result.then((response)=>{
+            data = response.result
+            if (response._status == 200) {
+                // window.location.hash = '/chats|/pages/chats/index.html'
+                l('YAY')
+                alert('yay')
+            }
+            
+            if (response._status > 399) { 
+                alert(data.errors)
+            }
+        }) */
+
+        async function sendApiRequest(url, method = "GET", data=null, type='application/x-www-form-urlencoded', data_type = "json"){
+        var result = {}
+        options = {
+            method: method,
+            headers: {
+                'Content-Type': type,
+                'User-Token': '1',
+                // 'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content'),
+                // 'X-CSRF-TOKEN': document.querySelector('meta[name="csrf-token"]').getAtrribute('content'),
+                'X-CSRF-TOKEN': '',
+                // 'Authorization': 'Bearer '+user.token
+                'Authorization': 'Bearer '+''
+            }
+        }
+        if (data){ 
+            options = {
+                method: method,
+                headers: {
+                    'Content-Type': type,
+                    'User-Token': '1',
+                    // 'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content'),
+                    // 'X-CSRF-TOKEN': document.querySelector('meta[name="csrf-token"]').getAtrribute('content'),
+                    'X-CSRF-TOKEN': '',
+                    // 'Authorization': 'Bearer '+user.token
+                    'Authorization': 'Bearer '
+                },
+                body: data_type == "json" ? JSON.stringify(data) : data
+            }
+        }
+        try {
+            let response = await fetch(endpoint+url, options)
+            if (!response.ok) {
+                let answer = await response.json()
+                error = answer.errors ? answer.errors : 'Неизвестная ошибка'
+                throw new Error(error);
+            }
+            let answer = await response.json()
+            return {'_status': response.status, 'result': answer}
+        } catch (error){
+            let answer = false
+            /*if (response.status > 399 && response.status < 500){
+                answer = await response.json()
+            }*/
+            // showErrorBlock(error) 
+            console.log('Возникла проблема с вашим fetch запросом: ', error);
+            return {'_status': 303, 'result': {'errors': 'Ошибка в запросе'}}
+        }
+    }
+
+
+
+
 
     </script>
 </body>

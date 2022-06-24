@@ -112,7 +112,7 @@ textarea#txtarMomentDesc::placeholder {
     box-shadow: 0px 0px 5px 2px var(--blueLight);
 }
 
-#add-person-buttons {
+#add-person-buttons, #moment-settings-buttons {
     display: flex;
     justify-content: space-between;
     padding: 0 16px;
@@ -120,23 +120,23 @@ textarea#txtarMomentDesc::placeholder {
     margin-bottom: 30px;
 }
 
-#add-person-buttons a {
+#add-person-buttons a, #moment-settings-buttons a {
     padding: var(--padNorm) 14%;
     font: var(--font2Bigger);
     border-radius: 6px;
 }
 
-#add-person-cancel {
+#add-person-cancel, #moment-settings-cancel {
     color: #000;
     border: 1px solid var(--primeDarkBlue);
 }
 
-#add-person-submit {
+#add-person-submit, #moment-settings-submit {
     color: #fff;
     background-color: var(--primeDarkBlue);
 }
 
-#popAddPerson {
+#popAddPerson, #popMomentSettings {
     position: fixed;
     width: 100%;
     height: 100%;
@@ -147,7 +147,7 @@ textarea#txtarMomentDesc::placeholder {
     transition: bottom 0.3s ease-out;
 }
 
-#search-div-wrapper {
+#search-div-wrapper, #moment-settings-search-wrapper {
     display: flex;
     flex-direction: column;
     left: 12px;
@@ -163,7 +163,7 @@ textarea#txtarMomentDesc::placeholder {
     z-index: 12;
 }
 
-#searchDiv {
+#searchDiv, #moment-settings-search-wrapper {
     display: flex;
     flex-direction: column;
     flex-grow: 1;
@@ -172,6 +172,7 @@ textarea#txtarMomentDesc::placeholder {
     overflow-x: hidden;
     overflow-y: scroll;
     /* margin: 12px; */
+    background-color: white;
     border-radius: 6px;
     padding: 0 var(--padNorm);
 }
@@ -198,7 +199,11 @@ textarea#txtarMomentDesc::placeholder {
     cursor: pointer;
 }
 
-.add-person-wrapper {
+#add-post-settings {
+    padding: 12px 12px 12px 0;
+}
+
+.add-person-wrapper, .moment-settings-wrapper {
     max-width: 368px;
     margin: 0 auto;
 }
@@ -217,8 +222,10 @@ textarea#txtarMomentDesc::placeholder {
 }
 
 .pers-conn-line {
-    border-left: 3px solid var(--primeDarkBlue);
-    border-top: 3px solid var(--primeDarkBlue);
+    border-left: 3px solid white;
+    border-top: 3px solid white;
+    /* border-left: 3px solid var(--primeDarkBlue);
+    border-top: 3px solid var(--primeDarkBlue); */
     border-radius: 8px 0 0 0;
     position: absolute;
     cursor: pointer;
@@ -226,7 +233,8 @@ textarea#txtarMomentDesc::placeholder {
 
 .pers-conn-line-left {
     border-left: none;
-    border-right: 3px solid var(--primeDarkBlue);
+    /* border-right: 3px solid var(--primeDarkBlue); */
+    border-right: 3px solid white;
     border-radius: 0 8px 0 0;
 }
 
