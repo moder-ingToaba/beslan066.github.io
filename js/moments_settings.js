@@ -1,5 +1,19 @@
+var momentSettingsBackup = {
+    canView: '',
+    viewExceptions: '',
+
+    canComment: '',
+    commentExceptions: ''
+
+    // Использование объекта:
+    // если viewExceptions != '', значит берем челов из .moment-settings-exceptions
+    // иначе смотрим, что в canView {'look-all', 'look-subs', 'look-relatives'}.
+    // А если и canView == '', значит никто не может смотреть.
+    // Кстати, если никто не видит, то зачем настройки комментирования?
+}
+
 var momentSettings = j('#popMomentSettings')
-var momentSettingsBackup = '';
+// var momentSettingsBackup = '';
 
 var momsetGroupLook    = jj('.moment-settings-input-group')[0]
 var momsetGroupComment = jj('.moment-settings-input-group')[1]
@@ -18,15 +32,19 @@ strengthenCheckedRows()
 momsetAddEvents()
 
 function showMomentSettings(event) {
-    momentSettingsBackup = momentSettings.innerHTML;
-    momentSettings.style.bottom = 0;
+    // momentSettingsBackup = momentSettings.innerHTML;
+    // Это плохой способ бэкапа, DOM-привязки сбиваются
+    backupMomentSettings()
+    momentSettings.style.bottom = 0
 }
 
 function momentSettingsHide(e, accepted) {
     if (accepted == false) {
-        momentSettings.innerHTML = momentSettingsBackup;
+        // momentSettings.innerHTML = momentSettingsBackup;
+        // Это плохой способ бэкапа, DOM-привязки сбиваются
+        restoreMomentSettings()
     }
-    momentSettings.style.bottom = '-120%';
+    momentSettings.style.bottom = '-120%'
 }
 
 function momsetAddEvents() {
@@ -91,4 +109,68 @@ function exceptionsVisibilityCheck() {
     } else {
         momsetExceptionsComment.style.display = 'none'
     }
+}
+
+function backupMomentSettings() {
+    if (exceptionCheckboxLook.checked) {
+        momentSettingsBackup.viewExceptions = momsetExceptionsLook.innerHTML
+    } else {
+        l('Делаем canView')
+        l(_momsetCheckedInputID(momsetGroupLook))
+        momentSettingsBackup.canView = _momsetCheckedInputID(momsetGroupLook)
+        l(momentSettingsBackup.canView)
+    }
+
+    if (exceptionCheckboxComment.checked) {
+        momentSettingsBackup.commentExceptions = momsetExceptionsComment.innerHTML
+    } else {
+        momentSettingsBackup.canComment = _momsetCheckedInputID(momsetGroupComment)
+    }
+    l('backed:')
+    l(momentSettingsBackup)
+}
+
+function restoreMomentSettings() {
+    l('restoring:')
+    l(momentSettingsBackup)
+    listenCheckboxOnChange = false
+    momentSettings.querySelectorAll('input').forEach(input => {
+        input.checked = false
+    })
+    listenCheckboxOnChange = true
+
+    if (momentSettingsBackup.viewExceptions != '') {
+        exceptionCheckboxLook.checked = true
+        momsetExceptionsLook.innerHTML = momentSettingsBackup.viewExceptions
+    } else {
+        if (momentSettingsBackup.canView != '') {
+            momsetGroupLook.querySelector('input#' + momentSettingsBackup.canView).checked = true
+        }
+    }
+
+    if (momentSettingsBackup.commentExceptions != '') {
+        exceptionCheckboxComment.checked = true
+        momsetExceptionsComment.innerHTML = momentSettingsBackup.commentExceptions
+    } else {
+        if (momentSettingsBackup.canComment != '') {
+            momsetGroupComment.querySelector('input#' + momentSettingsBackup.canComment).checked = true
+        }
+    }
+
+    strengthenCheckedRows()
+    exceptionsVisibilityCheck()
+}
+
+function _momsetCheckedInputID(inputGroup) {
+    // check, which input of group is checked, & return ID
+    // if none, return ''
+    var res = ''
+    inputGroup.querySelectorAll('input').forEach(input => {
+        if (input.checked) {
+            l('checked id: ')
+            l(input.id)
+            res = input.id
+        }
+    })
+    return res
 }
