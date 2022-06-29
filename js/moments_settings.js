@@ -13,7 +13,6 @@ var momentSettingsBackup = {
 }
 
 var momentSettings = j('#popMomentSettings')
-// var momentSettingsBackup = '';
 
 var momsetGroupLook    = jj('.moment-settings-input-group')[0]
 var momsetGroupComment = jj('.moment-settings-input-group')[1]
@@ -115,10 +114,7 @@ function backupMomentSettings() {
     if (exceptionCheckboxLook.checked) {
         momentSettingsBackup.viewExceptions = momsetExceptionsLook.innerHTML
     } else {
-        l('Делаем canView')
-        l(_momsetCheckedInputID(momsetGroupLook))
         momentSettingsBackup.canView = _momsetCheckedInputID(momsetGroupLook)
-        l(momentSettingsBackup.canView)
     }
 
     if (exceptionCheckboxComment.checked) {
@@ -126,13 +122,9 @@ function backupMomentSettings() {
     } else {
         momentSettingsBackup.canComment = _momsetCheckedInputID(momsetGroupComment)
     }
-    l('backed:')
-    l(momentSettingsBackup)
 }
 
 function restoreMomentSettings() {
-    l('restoring:')
-    l(momentSettingsBackup)
     listenCheckboxOnChange = false
     momentSettings.querySelectorAll('input').forEach(input => {
         input.checked = false
@@ -167,8 +159,6 @@ function _momsetCheckedInputID(inputGroup) {
     var res = ''
     inputGroup.querySelectorAll('input').forEach(input => {
         if (input.checked) {
-            l('checked id: ')
-            l(input.id)
             res = input.id
         }
     })
