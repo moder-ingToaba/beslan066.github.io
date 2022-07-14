@@ -9,6 +9,8 @@
     --bigPreviewWidth: 227px;
     --bigPreviewHeight: 227px;
     --inputBGColor: #e3eff1;
+    --searchedPersonBack: #CFE3E7;
+    --searchedPersonX: rgba(37, 137, 159, 0.81);
 
     --font2: normal 500 11px/18px 'Montserrat';
     --font2Bigger: normal 500 16px/19px 'Montserrat';
@@ -222,10 +224,10 @@ textarea#txtarMomentDesc::placeholder {
 }
 
 .pers-conn-line {
-    border-left: 3px solid white;
-    border-top: 3px solid white;
-    /* border-left: 3px solid var(--primeDarkBlue);
-    border-top: 3px solid var(--primeDarkBlue); */
+    /* border-left: 3px solid white;
+    border-top: 3px solid white; */
+    border-left: 3px solid var(--primeDarkBlue);
+    border-top: 3px solid var(--primeDarkBlue);
     border-radius: 8px 0 0 0;
     position: absolute;
     cursor: pointer;
@@ -233,8 +235,8 @@ textarea#txtarMomentDesc::placeholder {
 
 .pers-conn-line-left {
     border-left: none;
-    /* border-right: 3px solid var(--primeDarkBlue); */
-    border-right: 3px solid white;
+    border-right: 3px solid var(--primeDarkBlue);
+    /* border-right: 3px solid white; */
     border-radius: 0 8px 0 0;
 }
 
@@ -276,3 +278,100 @@ textarea#txtarMomentDesc::placeholder {
     color: var(--secGreyBlue);
 }
 
+
+
+
+
+
+/* moments settings */
+
+.moment-settings-header {
+    padding: 16px 0;
+    font-weight: 500;
+    font-size: 18px;
+    font-style: normal;
+    color: var(--primeDarkBlue);
+}
+
+.moment-settings-row {
+    display: flex;
+
+    padding: 10px 8px;
+    font-weight: 500;
+    font-size: 18px;
+    font-style: normal;
+    color: var(--secGreyBlue);
+}
+
+.moment-settings-row label {
+    flex-grow: 1;
+    margin-left: 6px;
+}
+
+.moment-settings-row, .moment-settings-row input, .moment-settings-row label {
+    cursor: pointer;
+}
+
+.moment-settings-row.checked-row {
+    color: var(--primeDarkBlue);
+}
+
+.moment-settings-row.checked-row input[type='checkbox'] {
+    border-color: var(--primeDarkBlue);
+}
+
+.moment-settings-row input {
+    border: 2px solid var(--secGreyBlue);
+    border-radius: 4px;
+    width: 18px;
+    height: 18px;
+}
+/* 
+.moment-settings-input-group {
+    
+} */
+
+
+.moment-settings-exceptions {
+    /* display: flex; */
+    display: none;
+    justify-content: space-between;
+    border: 2px solid var(--secGreyBlue);
+    border-radius: 14px;
+    padding: 4px;
+    margin: 0px 0px 0px 12px;
+}
+
+.moment-settings-exceptions-container {
+    display: flex;
+    align-items: center;
+    /* justify-content: space-between; */
+    flex-wrap: wrap;
+}
+
+.moment-settings-exception {
+    background-color: var(--secGreyBlue);
+    color: white;
+    padding: 10px;
+    border-radius: 18px;
+    margin: 2px;
+}
+
+.moment-settings-exceptions-filter {
+    cursor: pointer;
+    padding: 10px;
+}
+
+.moment-settings-exception-delete {
+    position: absolute;
+    right: -7px;
+    top: -7px;
+    background-color: red;
+    border: 1px solid white;
+    border-radius: 50%;
+    padding: 1px;
+    width: 14px;
+    height: 14px;
+    text-align: center;
+    /* font-size: 12px; */
+  }

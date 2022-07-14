@@ -228,6 +228,11 @@ a {
     flex-shrink: 0;
 }
 
+/* #moments-gallery .previewed {
+    border: 2px solid var(--blueLight);
+    border-radius: 6px;
+} */
+
 #cameraCont2 {
     display: flex;
     align-items: center;

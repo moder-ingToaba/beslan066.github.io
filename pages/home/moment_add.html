@@ -9,9 +9,9 @@
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600&display=swap" rel="stylesheet">
     <!-- <link rel="stylesheet" href="css/auth.css"> -->
     <link rel="stylesheet" href="../../css/style_tj.css">
-    <link rel="stylesheet" href="../../css/moments_tj.css">
+    <link rel="stylesheet" href="../../css/moments.css">
     <link rel="stylesheet" href="../../css/moment_settings.css">
-    <script src="../../js/scipts_tj.js"></script>
+    <script src="../../js/scripts_tj.js"></script>
     <title>Лента</title>
 </head>
 <body>
@@ -31,7 +31,15 @@
                 </video>
                 <img id="moment_add_person" onclick="momentAddPerson(event);" src="../../img/moments/add_person.svg" alt="">
             </div>
+            <!-- bkup 
             <label id="lbUploadMedia" for="uploadMedia" class="s-marginAuto s-curPointer part-of-col-flex">
+                <div id="cameraCont">
+                    <img src="../../img/post/camera.svg" alt="Добавить медиа">
+                    <span class="font1">Добавить медиа</span>
+                    <input type="file" accept=".jpg,.jpeg,.png,.mp4,.avi" name="uploadMedia" id="uploadMedia" style="display: none;" onchange="showPreview(event);">
+                </div>
+            </label> -->
+            <label id="lbUploadMedia" for="uploadMedia2" class="s-marginAuto s-curPointer part-of-col-flex">
                 <div id="cameraCont">
                     <img src="../../img/post/camera.svg" alt="Добавить медиа">
                     <span class="font1">Добавить медиа</span>
@@ -250,220 +258,8 @@
     <script src="../../js/moments_settings.js"></script>
     <script src="../../js/modals.js"></script>
     <script>
-        var lastPersonId = 0;
-        var lastVideoId = 0;
-        var searchDivWrapper = j('#search-div-wrapper');
-        var searchDiv = j('#searchDiv');
-        var searchDivIsActive = false;
-        var searchInput = j('#add-person-search');
-        var momentsGallery = j('#moments-gallery');
-        var divAddPersonGallery = j('#add-person-gallery');
-        var addPersonGalleryBackup = '';
-        var slidePreviews = []
 
-
-        window.addEventListener('resize', function() {
-            adjustGallery();
-        })
-        
-        function momentAddPerson(event) {
-            var imgs = [];
-            if (j('#imgPreviewBig').style.display != 'none') {
-                imgs.push(j('#imgPreviewBig'));
-            }
-            var imgsSmall = document.querySelectorAll('.gallery-img-wrap');
-            if (imgsSmall.length > 0) {
-                imgsSmall.forEach(function(item, index) {
-                    imgs.push(item.querySelector('img'));
-                })
-            }
-            if (imgs.length > 0) {
-                addPersonGalleryBackup = divAddPersonGallery.innerHTML;
-                slidePreviews = divAddPersonGallery.querySelectorAll('img.slide-preview')
-                // divAddPersonGallery.innerHTML = '';
-                imgs.forEach(function(item, index) {
-                    if (_slideExists(item.src) < 0) {
-                        divAddPersonGallery.appendChild(_apMakeSlide(item.src));
-                    }
-                })
-                j('#popAddPerson').style.bottom = 0;
-            }
-        }
-
-        function momentAddPersonHide(e, accepted) {
-            if (accepted == false) {
-                // l('Canceled')
-                divAddPersonGallery.innerHTML = addPersonGalleryBackup;
-            }
-            j('#popAddPerson').style.bottom = '-120%';
-        }
-        
-        function _apMakeSlide(imgSrc, index) {
-            // var divAddPersonGallery = j('#add-person-gallery');
-
-            var divSlideWrap = document.createElement('div');
-            divSlideWrap.classList.add('slide-wrap');
-            // divAddPersonGallery.appendChild(divSlideWrap);
-
-            var divSlideNumber = document.createElement('div');
-            divSlideNumber.classList.add('slide-number');
-            divSlideNumber.innerHTML = (index === undefined) ? _nextSlideNumber() : index;
-            divSlideWrap.appendChild(divSlideNumber);
-
-            var imgSlidePreview = document.createElement('img');
-            imgSlidePreview.classList.add('slide-preview');
-            imgSlidePreview.setAttribute('onclick', 'addPersonOnClick(event)');
-            if (imgSrc != '') {
-                imgSlidePreview.src = imgSrc;
-            }
-            divSlideWrap.appendChild(imgSlidePreview);
-            return divSlideWrap;
-        }
-
-        function addPersonOnClick(e) {
-            var x = e.clientX;
-            var y = e.clientY;
-
-            // если клик за пределами слайда, то не реагировать
-            var par = e.target.parentElement;
-            var slidePreviewRect = par.querySelector('img.slide-preview');
-
-            if (!_apCheckMouseInBounds(e, slidePreviewRect.getBoundingClientRect())) {
-                return;
-            }
-            let parRect = par.getBoundingClientRect();
-            var b = _apMakeBulb(e);
-            
-            b.style.left = (x - parRect.x) + "px";
-            b.style.top = (y - parRect.y) + "px";
-            b.id = 'bulb' + lastPersonId;
-            par.appendChild(b);
-            
-            var sp = _apMakeSlidePerson(e);
-            sp.id = 'slide-person-' + lastPersonId;
-            par.appendChild(sp);
-            
-            var cl = _apMakeConnLine(e);
-            _clSet(cl, b, sp);
-            cl.id = 'conn-line-' + lastPersonId;
-            par.appendChild(cl);
-
-            lastPersonId++;
-            sp.click();
-            // l('Имитирован клик на slide-person')
-        }
-
-        function videoplay(v) {
-            let vids = document.querySelectorAll('video');
-            vids.forEach(function (item, index) {
-                if (v.id != item.id) {
-                    item.pause();
-                    item.currentTime = 0;
-                }
-            })
-        }
-
-        function countImgs() {
-            let imgs = document.querySelectorAll('.gallery-img-wrap');
-            return imgs.length;
-        }
-
-        /* upload validation */
-
-        var validImgs = ['jpg', 'jpeg', 'bmp', 'png'];
-        var validVids = ['mp4', 'avi'];
-
-        function checkFileExt(input) {
-            let ext = input.value.split('.').pop();
-            if (validImgs.includes(ext)) {
-                return 'img';
-            } else {
-                if (validVids.includes(ext)) {
-                    return 'vid';
-                }
-            }
-            return '';
-        }
-
-        function showPersons(e) {
-            // if (searchDivIsActive) {
-            //     return;
-            // }
-            // l(searchDiv);
-            searchDivWrapper.style.display = 'flex';
-            // l('show')
-            // searchDivIsActive = true;
-        }
-        
-        function hidePersons(e) {
-            // l('hide')
-            if (searchInput.value.length < 3) {
-                searchDivWrapper.style.display = 'none';
-                searchDivWrapper.style.boxShadow = 'none';
-            }
-        }
-
-        function searchDivOnInput(e) {
-            searchDiv.innerHTML = ''
-            let str = searchInput.value;
-            if (str.length < 3) {
-                return
-            }
-            let searchRes = searchPersons(str, personsList);
-            if (searchRes.length > 0) {
-                searchRes.forEach(element => {
-                    searchDiv.appendChild(_apMakeFoundPerson(element));
-                })
-                searchDivWrapper.style.boxShadow = '0 0 1px 2px #0000003b';
-                // l('Search result: ')
-                // l(searchRes)
-                // console.log(searchRes)
-            }
-        }
-
-        function slidePersonOnClick(e) {
-            let pers = e.currentTarget;
-
-            // снять выделение со всех других
-            document.querySelectorAll('.slide-person-active').forEach(element => {
-                element.classList.remove('slide-person-active');
-            })
-            pers.classList.add('slide-person-active');
-            searchInput.focus();
-        }
-
-        function _slideExists(src) {
-            res = -1
-            slidePreviews.forEach(function(item, index) {
-                if (item.src == src) {
-                    res = index
-                }
-            })
-            return res
-        }
-
-        function _nextSlideNumber() {
-            var sw = jj('.slide-wrap')
-            return (sw === null) ? 11 : (sw.length + 1)
-    
-        }
-
-        const result = sendApiRequest('/getid?term=албогачиев&page=2', 'GET')
-        l(1)
-        result.then((response)=>{
-            data = response.result
-            if (response._status == 200) {
-                // window.location.hash = '/chats|/pages/chats/index.html'
-                l('YAY')
-                alert('yay')
-            }
-            
-            if (response._status > 399) { 
-                alert(data.errors)
-            }
-        })
-
-        async function sendApiRequest(url, method = "GET", data=null, type='application/x-www-form-urlencoded', data_type = "json"){
+        /* async function sendApiRequest(url, method = "GET", data=null, type='application/x-www-form-urlencoded', data_type = "json"){
         var result = {}
         options = {
             method: method,
@@ -501,17 +297,14 @@
             return {'_status': response.status, 'result': answer}
         } catch (error){
             let answer = false
-            /*if (response.status > 399 && response.status < 500){
-                answer = await response.json()
-            }*/
+            // if (response.status > 399 && response.status < 500){
+            //     answer = await response.json()
+            // }
             // showErrorBlock(error) 
             console.log('Возникла проблема с вашим fetch запросом: ', error);
             return {'_status': 303, 'result': {'errors': 'Ошибка в запросе'}}
         }
-    }
-
-
-
+    } */
 
 
     </script>
