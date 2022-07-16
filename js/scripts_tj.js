@@ -33,3 +33,38 @@ function getObjComplexRect(argObj) {
     }
     return R;
 }
+
+function findParentRecursive(element, querySelector_, recursionStopCount = 6) {
+    let res = null
+    if (recursionStopCount < 1 || querySelector_ == 'body') {
+        return res
+    }
+    let res2 = element.parentElement
+    q = querySelector_.substring(1)
+    switch(querySelector_[0]) {
+        case '#':
+            // проверяем id элемента
+            if (res2.id == q) {
+                res = res2
+            } else {
+                res = findParentRecursive(res2, querySelector_, recursionStopCount = recursionStopCount - 1)
+            }
+            break
+        case '.':
+            // проверяем classList элемента
+            if (res2.classList.contains(q)) {
+                res = res2
+            } else {
+                res = findParentRecursive(res2, querySelector_, recursionStopCount = recursionStopCount - 1)
+            }
+            break
+        default:
+            // значит проверяем тип элемента
+            if (res2.tagName == querySelector_) {
+                res = res2
+            } else {
+                res = findParentRecursive(res2, querySelector_, recursionStopCount = recursionStopCount - 1)
+            }
+    }
+    return res
+}

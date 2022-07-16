@@ -193,6 +193,7 @@ a {
 }
 
 #add-post-publish {
+    cursor: pointer;
     background-color: var(--blueLight);
     padding: var(--padMid);
     border: none;

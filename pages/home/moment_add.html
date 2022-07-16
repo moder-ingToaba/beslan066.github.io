@@ -74,11 +74,11 @@
             <div class="part-of-col-flex " id="moment-polls-wrapper">
                 <div id="moment-pollvs-container" class="wide" style="margin-top: 25px;">
                     <div class="wide input-container" style="display: flex; align-items: center;">
-                        <input type="text" name="poll-v1" id="poll-v1" placeholder="1 вариант">
+                        <input type="text" name="votes[]" id="poll-v1" placeholder="1 вариант">
                         <img src="../../img/X.svg" alt="" style="visibility: hidden;">
                     </div>
                     <div class="wide input-container" style="display: flex; align-items: center;">
-                        <input type="text" name="poll-v2" id="poll-v2" placeholder="2 вариант">
+                        <input type="text" name="votes[]" id="poll-v2" placeholder="2 вариант">
                         <img src="../../img/X.svg" alt="" style="visibility: hidden;">
                     </div>
                 </div>
@@ -103,7 +103,7 @@
                     <a id="add-post-settings" class="s-curPointer" onclick="showMomentSettings(event);">
                         <img src="../../img/post/Settings.svg" alt="">
                     </a>
-                    <a class="disabled" id="add-post-publish" href="">
+                    <a class="disabled" id="add-post-publish" onclick="momPublishOnClick(event)">
                         Опубликовать
                     </a>
                 </div>
@@ -146,7 +146,7 @@
     
     <div id="popMomentSettings" class="wide tall">
         <div class="moment-settings-wrapper wide tall s-flexCol">
-            <div class="s-flexCol" style="flex-grow: 1; position: relative; padding-top: 18px;">
+            <div class="s-flexCol moment-settings-main-container">
                 <div class="moment-settings-header">
                     Могут смотреть
                 </div>
@@ -169,25 +169,19 @@
                     </div>
                     <div class="moment-settings-exceptions">
                         <div class="moment-settings-exceptions-container">
-                            <div class="moment-settings-exception">
-                                Алиев Зураб М.
-                            </div>
-                            <div class="moment-settings-exception">
-                                Зурабов Асхаб А.
-                            </div>
-                            <div class="moment-settings-exception">
-                                Maybe Магомед-Басир Гаракоев
-                            </div>
+                            <input type="text" placeholder="Введите имя">
                         </div>
-                        <div class="moment-settings-exceptions-filter">
-                            <svg width="20" height="14" viewBox="0 0 20 14" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                <path d="M11.875 11.1243L1.75 11.1243" stroke="#7A969C" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
-                                <path d="M18.25 11.1243L15.625 11.1243" stroke="#7A969C" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
-                                <path d="M13.75 12.9993C14.7855 12.9993 15.625 12.1598 15.625 11.1243C15.625 10.0887 14.7855 9.24927 13.75 9.24927C12.7145 9.24927 11.875 10.0887 11.875 11.1243C11.875 12.1598 12.7145 12.9993 13.75 12.9993Z" stroke="#7A969C" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
-                                <path d="M5.875 2.87432L1.75 2.87427" stroke="#7A969C" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
-                                <path d="M18.25 2.87427L9.625 2.87432" stroke="#7A969C" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
-                                <path d="M7.75 4.74927C8.78553 4.74927 9.625 3.9098 9.625 2.87427C9.625 1.83873 8.78553 0.999268 7.75 0.999268C6.71447 0.999268 5.875 1.83873 5.875 2.87427C5.875 3.9098 6.71447 4.74927 7.75 4.74927Z" stroke="#7A969C" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
-                            </svg>
+                        <div class="moment-settings-exceptions-filter-container">
+                            <div class="moment-settings-exceptions-filter">
+                                <svg width="20" height="14" viewBox="0 0 20 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M11.875 11.1243L1.75 11.1243" stroke="#7A969C" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+                                    <path d="M18.25 11.1243L15.625 11.1243" stroke="#7A969C" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+                                    <path d="M13.75 12.9993C14.7855 12.9993 15.625 12.1598 15.625 11.1243C15.625 10.0887 14.7855 9.24927 13.75 9.24927C12.7145 9.24927 11.875 10.0887 11.875 11.1243C11.875 12.1598 12.7145 12.9993 13.75 12.9993Z" stroke="#7A969C" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+                                    <path d="M5.875 2.87432L1.75 2.87427" stroke="#7A969C" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+                                    <path d="M18.25 2.87427L9.625 2.87432" stroke="#7A969C" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+                                    <path d="M7.75 4.74927C8.78553 4.74927 9.625 3.9098 9.625 2.87427C9.625 1.83873 8.78553 0.999268 7.75 0.999268C6.71447 0.999268 5.875 1.83873 5.875 2.87427C5.875 3.9098 6.71447 4.74927 7.75 4.74927Z" stroke="#7A969C" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+                                </svg>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -214,31 +208,25 @@
                     </div>
                     <div class="moment-settings-exceptions">
                         <div class="moment-settings-exceptions-container">
-                            <div class="moment-settings-exception">
-                                Алиев Харон М.
-                            </div>
-                            <div class="moment-settings-exception">
-                                Зурабов Джамалейл А.
-                            </div>
-                            <div class="moment-settings-exception">
-                                Maybe Мухарбекович Гаракоев
-                            </div>
+                            <input type="text" placeholder="Введите имя">
                         </div>
-                        <div class="moment-settings-exceptions-filter">
-                            <svg width="20" height="14" viewBox="0 0 20 14" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                <path d="M11.875 11.1243L1.75 11.1243" stroke="#7A969C" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
-                                <path d="M18.25 11.1243L15.625 11.1243" stroke="#7A969C" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
-                                <path d="M13.75 12.9993C14.7855 12.9993 15.625 12.1598 15.625 11.1243C15.625 10.0887 14.7855 9.24927 13.75 9.24927C12.7145 9.24927 11.875 10.0887 11.875 11.1243C11.875 12.1598 12.7145 12.9993 13.75 12.9993Z" stroke="#7A969C" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
-                                <path d="M5.875 2.87432L1.75 2.87427" stroke="#7A969C" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
-                                <path d="M18.25 2.87427L9.625 2.87432" stroke="#7A969C" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
-                                <path d="M7.75 4.74927C8.78553 4.74927 9.625 3.9098 9.625 2.87427C9.625 1.83873 8.78553 0.999268 7.75 0.999268C6.71447 0.999268 5.875 1.83873 5.875 2.87427C5.875 3.9098 6.71447 4.74927 7.75 4.74927Z" stroke="#7A969C" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
-                            </svg>
+                        <div class="moment-settings-exceptions-filter-container">
+                            <div class="moment-settings-exceptions-filter">
+                                <svg width="20" height="14" viewBox="0 0 20 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M11.875 11.1243L1.75 11.1243" stroke="#7A969C" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+                                    <path d="M18.25 11.1243L15.625 11.1243" stroke="#7A969C" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+                                    <path d="M13.75 12.9993C14.7855 12.9993 15.625 12.1598 15.625 11.1243C15.625 10.0887 14.7855 9.24927 13.75 9.24927C12.7145 9.24927 11.875 10.0887 11.875 11.1243C11.875 12.1598 12.7145 12.9993 13.75 12.9993Z" stroke="#7A969C" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+                                    <path d="M5.875 2.87432L1.75 2.87427" stroke="#7A969C" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+                                    <path d="M18.25 2.87427L9.625 2.87432" stroke="#7A969C" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+                                    <path d="M7.75 4.74927C8.78553 4.74927 9.625 3.9098 9.625 2.87427C9.625 1.83873 8.78553 0.999268 7.75 0.999268C6.71447 0.999268 5.875 1.83873 5.875 2.87427C5.875 3.9098 6.71447 4.74927 7.75 4.74927Z" stroke="#7A969C" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+                                </svg>
+                            </div>
                         </div>
                     </div>
                 </div>
 
                 <div id="moment-settings-search-wrapper">
-                    <div id="momentSettingsSearch">
+                    <div id="moment-settings-search" style="background-color: #fff;">
                     
                     </div>
                 </div>
@@ -253,60 +241,13 @@
 
 
     <script src="../../js/moments.js"></script>
-    <script src="../../js/moments_search_pers.js"></script>
-    <script src="../../js/moments_move_persons.js"></script>
-    <script src="../../js/moments_settings.js"></script>
+    <!-- <script src="../../js/moments_search_pers.js"></script> -->
+    <!-- <script src="../../js/moments_move_persons.js"></script> -->
+    <!-- <script src="../../js/moments_collect_and_send.js"></script> -->
     <script src="../../js/modals.js"></script>
     <script>
 
-        /* async function sendApiRequest(url, method = "GET", data=null, type='application/x-www-form-urlencoded', data_type = "json"){
-        var result = {}
-        options = {
-            method: method,
-            headers: {
-                'Content-Type': type,
-                'User-Token': '1',
-                // 'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content'),
-                // 'X-CSRF-TOKEN': document.querySelector('meta[name="csrf-token"]').getAtrribute('content'),
-                'X-CSRF-TOKEN': '',
-                'Authorization': 'Bearer '+user.token
-            }
-        }
-        if (data){ 
-            options = {
-                method: method,
-                headers: {
-                    'Content-Type': type,
-                    'User-Token': '1',
-                    // 'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content'),
-                    // 'X-CSRF-TOKEN': document.querySelector('meta[name="csrf-token"]').getAtrribute('content'),
-                    'X-CSRF-TOKEN': '',
-                    'Authorization': 'Bearer '+user.token
-                },
-                body: data_type == "json" ? JSON.stringify(data) : data
-            }
-        }
-        try {
-            let response = await fetch(endpoint+url, options)
-            if (!response.ok) {
-                let answer = await response.json()
-                error = answer.errors ? answer.errors : 'Неизвестная ошибка'
-                throw new Error(error);
-            }
-            let answer = await response.json()
-            return {'_status': response.status, 'result': answer}
-        } catch (error){
-            let answer = false
-            // if (response.status > 399 && response.status < 500){
-            //     answer = await response.json()
-            // }
-            // showErrorBlock(error) 
-            console.log('Возникла проблема с вашим fetch запросом: ', error);
-            return {'_status': 303, 'result': {'errors': 'Ошибка в запросе'}}
-        }
-    } */
-
-
+        
     </script>
 </body>
 </html>

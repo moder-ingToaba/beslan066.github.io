@@ -172,6 +172,7 @@ function addPollV() {
     var I = document.createElement('input');
     I.setAttribute('type', 'text');
     I.setAttribute('placeholder', '');
+    I.setAttribute('name', 'votes[]');
     var Img = document.createElement('img');
     Img.setAttribute('src', '../../img/X.svg');
     Img.setAttribute('alt', '');
@@ -191,7 +192,8 @@ function loopThroughPollVs() {
     var i = 1; 
     ics.forEach(element => {
         var ip = element.querySelector('input');
-        ip.name = 'poll-v' + i.toString();
+        // ip.name = 'poll-v' + i.toString();
+        // ip.name = 'votes[]';
         ip.id = 'poll-v' + i.toString();
         ip.placeholder = i.toString() + ' вариант';
         i++;
@@ -664,6 +666,7 @@ function _apMakeFoundPerson(persObj, onclickAsAttr = 'foundPersonOnClick(event);
     persWrap.classList.add('s-flex');
     // persWrap.setAttribute('onclick', 'foundPersonOnClick(event);');
     persWrap.setAttribute('onclick', onclickAsAttr);
+    persWrap.setAttribute('data-userid', persObj.id);
 
     let img = document.createElement('img');
     img.setAttribute('alt', '')
@@ -704,6 +707,7 @@ function foundPersonOnClick(e) {
         return
     }
     let Pers = {
+        id: persWrap.getAttribute('data-userid'),
         fio: persWrap.querySelector('.pers-list-fio').innerHTML,
         avatar: persWrap.querySelector('img').src,
         born: persWrap.querySelector('.pers-list-birthdate').innerHTML
@@ -711,7 +715,8 @@ function foundPersonOnClick(e) {
         
     let persActive = j('.slide-person-active');
     if (persActive !== null) {
-        persActive.src = Pers.path;
+        persActive.src = Pers.avatar;
+        persActive.setAttribute('data-userid', Pers.id)
     }
     clearSearch();
 }
@@ -762,6 +767,20 @@ var momsetExceptionsLook    = momsetGroupLook.querySelector('.moment-settings-ex
 var momsetExceptionsComment = momsetGroupComment.querySelector('.moment-settings-exceptions')
 
 var listenCheckboxOnChange = true
+var momsetSearchDivWrapper = j('#moment-settings-search-wrapper')
+var momsetSearchDiv = j('#moment-settings-search')
+var momsetActiveExceptions = jj('.moment-settings-exceptions')[0]
+
+jj('.moment-settings-exception-X').forEach(element => {
+    element.setAttribute('onclick', 'momsetExceptionXOnClick(event)')
+});
+jj('.moment-settings-exceptions').forEach(el => {
+    let inp = el.querySelector('input')
+    el.addEventListener('click', function() {
+        momsetFocusOnInput(inp)
+    }, true)
+    inp.setAttribute('oninput', 'momsetSearchPersonOnInput(event, this)')
+})
 
 strengthenCheckedRows()
 momsetAddEvents()
@@ -897,6 +916,194 @@ function _momsetCheckedInputID(inputGroup) {
         if (input.checked) {
             res = input.id
         }
+    })
+    return res
+}
+
+function momsetExceptionXOnClick(event) {
+    event.target.parentElement.remove()
+}
+
+function momsetFocusOnInput(input) {
+    input.focus()
+}
+
+function momsetSearchPersonOnInput(event, sender) {
+    // Переделать под сервер
+
+    momsetActiveExceptions = findParentRecursive(sender, '.moment-settings-exceptions', 8)
+    momsetSearchDivWrapper.style.display = null
+    momsetSearchDivWrapper.style.left = '12px'
+    momsetSearchDivWrapper.style.top  = (sender.getBoundingClientRect().top + 40) + 'px'
+    momsetSearchDiv.innerHTML = ''
+    let str = sender.value;
+    if (str.length < 3) {
+        return
+    }
+    let searchRes = searchPersons(str, personsList);
+    if (searchRes.length > 0) {
+        searchRes.forEach(element => {
+            momsetSearchDiv.appendChild(_apMakeFoundPerson(element, 'momsetFoundPersonOnClick(event)'));
+        })
+        momsetSearchDivWrapper.style.boxShadow = '0 0 1px 2px #0000003b';
+    }
+}
+
+function momsetFoundPersonOnClick(e) {
+    let persWrap = e.currentTarget;
+    if (!persWrap.classList.contains('pers-list-wrapper')) {
+        return
+    }
+    let Pers = {
+        id: persWrap.getAttribute('data-userid'),
+        fio: persWrap.querySelector('.pers-list-fio').innerHTML,
+        avatar: persWrap.querySelector('img').src,
+        born: persWrap.querySelector('.pers-list-birthdate').innerHTML
+    }
+
+    _msMakeExceptionPerson(Pers)
+    momsetClearSearch(momsetActiveExceptions.querySelector('input'));
+}
+
+
+function momsetClearSearch(searchInput) {
+    searchInput.value = '';
+    momsetHidePersons(searchInput);
+    momsetSearchDiv.innerHTML = ''
+}
+
+
+function momsetHidePersons(searchInput) {
+    if (searchInput.value.length < 3) {
+        momsetSearchDivWrapper.style.display = 'none';
+        momsetSearchDivWrapper.style.boxShadow = 'none';
+    }
+}
+
+function _msMakeExceptionPerson(persObj) {
+    let excWrap = momsetActiveExceptions.querySelector('.moment-settings-exceptions-container')
+    
+    let exc = document.createElement('div')
+    exc.classList.add('moment-settings-exception')
+    exc.innerHTML = persObj.fio
+
+    let excX = document.createElement('div')
+    excX.classList.add('moment-settings-exception-X')
+    excX.setAttribute('onclick', 'momsetExceptionXOnClick(event)')
+    excX.innerHTML = 'X'
+    exc.appendChild(excX)
+
+    excWrap.insertBefore(exc, excWrap.querySelector('input'))
+}
+
+
+/* MOMENTS_COLLECT_AND_SEND */
+
+
+
+// main collecting func
+function momPublishOnClick(event) {
+    // var txtarMomentDesc = j('#txtarMomentDesc')
+    // var divPollsWrapper = j('#moment-polls-wrapper')
+    // var divPollVsContainer = j('#moment-pollvs-container')
+    // var pollVs = divPollVsContainer.querySelectorAll('input')
+    var myForm = j('#formMoment')
+    var fd = null
+    var marksArr = []
+
+    // var mContent = ''
+    var votes = []
+    var props = {
+        "width": null,
+        "height": null
+    }
+    // if (txtarMomentDesc.style.display != 'none') {
+    //     mContent = txtarMomentDesc.value
+    // }
+    // if (divPollsWrapper.style.visibility != 'hidden') {
+    //     pollVs.forEach(pollV => {
+    //         votes.push(pollV.value)
+    //     })
+    // }
+    props.width = j('img.slide-preview').offsetWidth
+    props.height = j('img.slide-preview').offsetHeight
+    marksArr = collectAllMarks()
+    // l(marksArr)
+
+    fd = new FormData(myForm)
+    fd.append('marked_users', marksArr)
+    fd.append('proportions', props)
+    // fd.append('content', mContent)
+    fd.append('votes', votes)
+    
+    // $('.loaded-progress-window').show()
+    // e.preventDefault();
+    // var formElement = document.querySelector("#send-form");
+    // var formData = new FormData(formElement);
+    
+    var request = new XMLHttpRequest();
+    
+    request.upload.onprogress = function(event) {
+        // percent = Math.floor((event.loaded*100)/event.total)
+        // //console.log('Загружено ' + event.loaded + ' из ' + event.total);
+        // progress.css('width', percent+'%')
+        // uploaded.text(percent+'%')
+    }
+    request.onload = function() {
+      if (request.status != 200) { // анализируем HTTP-статус ответа, если статус не 200, то произошла ошибка
+        alert(`Ошибка ${request.status}: ${request.statusText}`); // Например, 404: Not Found
+      } else { // если всё прошло гладко, выводим результат
+        // $('.loaded-progress-window').hide()
+        // $('#mask1').click()
+        // importPage('/pages/home/index.html')					
+      }
+    };
+    
+    request.open("POST", "https://gargalo.ru/api/wall/store", true);
+    request.setRequestHeader('Authorization', 'Bearer '+user.token);
+    request.send(fd);
+}
+
+function collectMark(imgSlidePerson, divPersBulb) {
+    // imgSlidePerson - это большой кружок с отмеченным челом
+    // divPersBulb - это маленький кружок - сама отметина чела
+    let res = {
+        "user_id": null,
+        "left": null,
+        "top": null
+    }
+    if (imgSlidePerson.getAttribute('data-userid') !== null) {
+        res.user_id = imgSlidePerson.getAttribute('data-userid')
+        res.left = divPersBulb.offsetLeft
+        res.top = divPersBulb.offsetTop
+    }
+    return res
+}
+
+function collectMarksFor1Img(divSlideWrap) {
+    /// Что будем делать с пустыми отметками? Поставил отметину,
+    /// но забыл выбрать чела
+    // Пустые отметины скорее всего удаляются по нажатию
+    // на кнопку Отметить в выборе отметок
+
+    let res = []
+    let personsHere = divSlideWrap.querySelectorAll('.slide-person')
+    if (personsHere != null) {
+        personsHere.forEach(elem => {
+            res.push(
+                collectMark(elem, elem.parentElement.querySelector('.pers-bulb'))
+            )
+        })
+    }
+    return res
+}
+
+function collectAllMarks() {
+    // Надо пробежаться по всем слайдам
+    let res = []
+    let allSlideWraps = document.querySelectorAll('.slide-wrap')
+    allSlideWraps.forEach(elem => {
+        res.push(collectMarksFor1Img(elem))
     })
     return res
 }

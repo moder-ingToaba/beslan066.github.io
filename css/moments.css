@@ -210,6 +210,13 @@ textarea#txtarMomentDesc::placeholder {
     margin: 0 auto;
 }
 
+.moment-settings-main-container {
+    flex-grow: 1;
+    position: relative;
+    padding-top: 18px;
+    overflow-y: scroll;
+}
+
 /* add person on img */
 
 .pers-bulb {
@@ -235,8 +242,8 @@ textarea#txtarMomentDesc::placeholder {
 
 .pers-conn-line-left {
     border-left: none;
-    border-right: 3px solid var(--primeDarkBlue);
     /* border-right: 3px solid white; */
+    border-right: 3px solid var(--primeDarkBlue);
     border-radius: 0 8px 0 0;
 }
 
@@ -262,6 +269,7 @@ textarea#txtarMomentDesc::placeholder {
     border: none;
     border-radius: 50%;
     margin: 12px 12px 12px 0;
+    flex-shrink: 0;
 }
 
 .pers-list-fio {
@@ -336,7 +344,7 @@ textarea#txtarMomentDesc::placeholder {
     /* display: flex; */
     display: none;
     justify-content: space-between;
-    border: 2px solid var(--secGreyBlue);
+    border: 1px solid var(--secGreyBlue);
     border-radius: 14px;
     padding: 4px;
     margin: 0px 0px 0px 12px;
@@ -349,12 +357,40 @@ textarea#txtarMomentDesc::placeholder {
     flex-wrap: wrap;
 }
 
+.moment-settings-exceptions-container input {
+    border: none;
+    outline: none;
+    padding: 4px;
+    line-height: 1.6;
+    width: 100%;
+    font-size: 14px;
+    margin: 3px;
+}
+
 .moment-settings-exception {
-    background-color: var(--secGreyBlue);
+    /* background-color: var(--secGreyBlue);
     color: white;
     padding: 10px;
-    border-radius: 18px;
+    border-radius: 18px; */
+    background-color: var(--searchedPersonBack);
+    color: var(--secGreyBlue);
+    padding: 4px 6px;
+    border-radius: 8px;
     margin: 2px;
+}
+
+.moment-settings-exception-X {
+    background-color: var(--searchedPersonX);
+    padding: 2px 6px;
+    margin-left: 4px;
+    color: white;
+    display: inline-block;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.moment-settings-exceptions-filter-container {
+    display: none;
 }
 
 .moment-settings-exceptions-filter {
