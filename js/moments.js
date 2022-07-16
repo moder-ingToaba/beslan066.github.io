@@ -302,8 +302,49 @@ function momentAddPersonHide(e, accepted) {
         // l('Canceled')
         divAddPersonGallery.innerHTML = addPersonGalleryBackup;
     }
+    momentClearAllEmptyPersonMarks()
     j('#popAddPerson').style.bottom = '-120%';
 }
+        
+function momentClearAllEmptyPersonMarks() {
+    jj('.slide-person').forEach(sp => {
+        let par = sp.parentElement
+        if (sp.getAttribute('data-userid') == null) {
+            let m = _apGetWholeMarkedPerson(sp)
+            par.removeChild(m.bulb)
+            par.removeChild(m.connLine)
+            par.removeChild(sp)
+        }
+    })
+    _apRealignAllConnLines()
+}
+
+function _apGetWholeMarkedPerson(slidePerson) {
+    if (slidePerson == null) {
+        return null
+    }
+    let res = {
+        'bulb': null,
+        'connLine': null,
+        'slidePerson': slidePerson
+    }
+    let par = slidePerson.parentElement
+    let ind = slidePerson.id.substring(13)
+    res.bulb = par.querySelector('#bulb'+ind)
+    res.connLine = par.querySelector('#conn-line-'+ind)
+    if (res.bulb == null || res.connLine == null) {
+        return null
+    }
+    return res
+}
+
+function _apRealignAllConnLines() {
+    jj('.slide-person').forEach(sp => {
+        let m = _apGetWholeMarkedPerson(sp)
+        _clSet(m.connLine, m.bulb, sp)
+    })
+}
+
 
 function _apMakeSlide(imgSrc, index) {
     // var divAddPersonGallery = j('#add-person-gallery');
@@ -1091,7 +1132,12 @@ function collectMarksFor1Img(divSlideWrap) {
     if (personsHere != null) {
         personsHere.forEach(elem => {
             res.push(
-                collectMark(elem, elem.parentElement.querySelector('.pers-bulb'))
+                collectMark(
+                    elem,
+                    elem.parentElement.querySelector(
+                        '#bulb' + elem.id.substring(13)
+                        )
+                )
             )
         })
     }
