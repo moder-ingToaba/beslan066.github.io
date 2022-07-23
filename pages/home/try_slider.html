@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600&display=swap" rel="stylesheet">
+    <!-- <link rel="stylesheet" href="css/auth.css"> -->
+    <link rel="stylesheet" href="../../css/style_tj.css">
+    <link rel="stylesheet" href="../../css/moments.css">
+    <link rel="stylesheet" href="../../css/moment_settings.css">
+    <script src="../../js/scripts_tj.js"></script>
+    <title>Лента</title>
+    <style>
+        .slide1-wrap {
+            flex-direction: row;
+            align-items: flex-start;
+            overflow-x: scroll;
+            scroll-behavior: smooth;
+        }
+
+        .slide1-cont {
+            max-width: 324px;
+            user-select: none;
+        }
+
+        .slide1-cont img {
+            width: 324px;
+            height: 324px;
+            object-fit: cover;
+            /* margin: 12px; */
+            border-radius: 2px;
+            
+            /* user-drag: none; */
+            -webkit-user-drag: none;
+            user-select: none;
+            -moz-user-select: none;
+            -webkit-user-select: none;
+            -ms-user-select: none;
+        }
+    </style>
+</head>
+<body>
+    <div style="max-width: 324px;">
+        <div class="s-flex slide1-wrap">
+            <div class="slide1-cont">
+                <img class="slide1-slide slide1-slide-img" src="../../img/walls/BonifacioCorsica.jpg" alt="">
+            </div>
+            <div class="slide1-cont">
+                <img class="slide1-slide slide1-slide-img" src="../../img/walls/ManitobaSky.jpg" alt="">
+            </div>
+            <div class="slide1-cont">
+                <img class="slide1-slide slide1-slide-img" src="../../img/walls/WhitbyLights.jpg" alt="">
+            </div>
+            <div class="slide1-cont">
+                <img class="slide1-slide slide1-slide-img" src="../../img/walls/sunset-sky-wallpaper.jpg" alt="">
+            </div>
+        </div>
+    </div>
+    <div id="stats">
+        <p>
+            <span>ScrollLeft: </span>
+            <span>0</span>
+        </p>
+        <p>
+            <span>ScrollLeft: </span>
+            <span>0</span>
+        </p>
+    </div>
+
+
+    <!-- <script src="../../js/moments.js"></script> -->
+    <script src="../../js/modals.js"></script>
+    <script src="../../js/slider_tj.js"></script>
+    <script>
+        initSlider1()
+        /* var mousedown = false
+
+        var clickedImg = null
+        var clickedX = null
+        // var clickedY = null
+
+        document.querySelectorAll('.slide1-slide').forEach(slide1 => {
+            // l('cicling through slide1-slide-s')
+            slide1.addEventListener('mouseup', function(event) {
+                mousedown = false
+            })
+            slide1.addEventListener('mousedown', slide1ImgPressed)
+        })
+
+        window.addEventListener('mousemove', function(event) {
+            // event.preve
+            if (mousedown && clickedImg != null) {
+                // let xx = clickedX - event.x
+                // if (xx < 0)
+                clickedImg.parentElement.parentElement.scrollBy(clickedX - event.x, 0)
+            }
+        })
+        window.addEventListener('mouseup', function(event) {
+            mousedown = false
+        })
+
+        function slide1ImgPressed(event) {
+            // l('imgpressed')
+            clickedImg = event.target
+            clickedX = event.x
+            mousedown = true
+        }
+
+        function slide1ImgMove(event) {
+
+        }
+
+
+
+
+
+        function slide1MoveSlider(sender) {
+            // sender.parentElement.parentElement.querySelectorAll
+            sender.scrollIntoView()
+        } */
+    </script>
+</body>
+</html>

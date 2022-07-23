@@ -13,6 +13,8 @@
     <link rel="stylesheet" href="../../css/moment_settings.css">
     <script src="../../js/scripts_tj.js"></script>
     <title>Лента</title>
+    <style>
+    </style>
 </head>
 <body>
     <div style="margin: 0 auto;" class="s-pad14 s-maxW1100"><div class="formMomentWrapper">
@@ -31,24 +33,16 @@
                 </video>
                 <img id="moment_add_person" onclick="momentAddPerson(event);" src="../../img/moments/add_person.svg" alt="">
             </div>
-            <!-- bkup 
-            <label id="lbUploadMedia" for="uploadMedia" class="s-marginAuto s-curPointer part-of-col-flex">
-                <div id="cameraCont">
-                    <img src="../../img/post/camera.svg" alt="Добавить медиа">
-                    <span class="font1">Добавить медиа</span>
-                    <input type="file" accept=".jpg,.jpeg,.png,.mp4,.avi" name="uploadMedia" id="uploadMedia" style="display: none;" onchange="showPreview(event);">
-                </div>
-            </label> -->
             <label id="lbUploadMedia" for="uploadMedia2" class="s-marginAuto s-curPointer part-of-col-flex">
                 <div id="cameraCont">
                     <img src="../../img/post/camera.svg" alt="Добавить медиа">
                     <span class="font1">Добавить медиа</span>
-                    <input type="file" accept=".jpg,.jpeg,.png,.mp4,.avi" name="uploadMedia" id="uploadMedia" style="display: none;" onchange="showPreview(event);">
+                    <input type="file" accept=".jpg,.jpeg,.png,.mp4,.avi" name="media[]" id="uploadMedia" style="display: none;" onchange="showPreview(event);">
                 </div>
             </label>
             <div id="moments-gallery" class="part-of-col-flex" style="margin-top: 16px;">
                 <label id="lbUploadMedia2" for="uploadMedia2" class="s-curPointer" style="display: none;">
-                    <input type="file" accept=".jpg,.jpeg,.png,.mp4,.avi" name="uploadMedia2" id="uploadMedia2"
+                    <input type="file" accept=".jpg,.jpeg,.png,.mp4,.avi" name="media[]" id="uploadMedia2"
                                 onchange="addFileSmall(event);" style="display: none;">
                     <div id="cameraCont2">
                         <img src="../../img/post/camera.svg" alt="Добавить медиа">
@@ -57,9 +51,11 @@
             </div>
             <div class="part-of-col-flex" style="padding: 2px;">
                 <div style="margin-top: 10px;">
-                    <span id="spanMomentDesc" class="s-curPointer" onclick="momentDescShow(event)">
-                        Описание момента...
-                    </span>
+                    <div class="s-flex">
+                        <span id="spanMomentDesc" class="s-curPointer" onclick="momentDescShow(event)">
+                            Описание момента...
+                        </span>
+                    </div>
                     <textarea name="content" id="txtarMomentDesc" cols="30" rows="10"
                     form="formMoment" style="display: none;" onblur="momentDescUnfocused(event);"></textarea>
                 </div>
@@ -245,6 +241,9 @@
     <!-- <script src="../../js/moments_move_persons.js"></script> -->
     <!-- <script src="../../js/moments_collect_and_send.js"></script> -->
     <script src="../../js/modals.js"></script>
-    <script>    </script>
+    <script>
+        var lastUploadMediaIndex = 2
+        var lbUploadMedia2 = document.getElementById("lbUploadMedia2")
+    </script>
 </body>
 </html>

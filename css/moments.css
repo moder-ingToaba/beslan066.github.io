@@ -38,6 +38,7 @@ textarea#txtarMomentDesc::placeholder {
 }
 
 #spanMomentDesc {
+    flex-grow: 1;
     font-weight: 400;
     color: var(--primeDarkBlue);
     padding: var(--padNorm);
@@ -215,6 +216,26 @@ textarea#txtarMomentDesc::placeholder {
     position: relative;
     padding-top: 18px;
     overflow-y: scroll;
+}
+
+.gallery-vid-wrap {
+    position: relative;
+    /* relative used for video icon  */
+}
+
+.video-ico-cont {
+    max-width: 24px;
+    max-height: 24px;
+    position: absolute;
+    right: 4px;
+    bottom: 4px;
+}
+
+.video-ico-cont svg, .video-ico-cont img {
+    cursor: pointer;
+    width: 100%;
+    height: 100%;
+    filter: drop-shadow(2px 2px 2px rgba(0, 0, 0, 0.4));
 }
 
 /* add person on img */

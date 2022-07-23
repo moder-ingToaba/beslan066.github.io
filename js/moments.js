@@ -111,6 +111,16 @@ function addFileSmall(event) {
                 var divGalleryVidWrap = document.createElement("div");
                 divGalleryVidWrap.classList.add("gallery-vid-wrap");
                 divGalleryItem.appendChild(divGalleryVidWrap);
+                
+                // Добавляем иконку видео
+                var divIcoCont = document.createElement('div')
+                divIcoCont.classList.add('video-ico-cont')
+                divIcoCont.setAttribute('onclick', 'videoIcoClick(this)')
+                divGalleryVidWrap.appendChild(divIcoCont)
+                var imgSvg_ = document.createElement('img')
+                imgSvg_.setAttribute('src', '../../img/moments/video-camera.svg')
+                divIcoCont.appendChild(imgSvg_)
+
                 var vid = document.createElement("video");
                 vid.classList.add('s-curPointer');
                 // vid.setAttribute('controls', 'controls');
@@ -137,7 +147,21 @@ function addFileSmall(event) {
         adjustGallery();
         // momentPreviewedFrame(wrapToAddBorder);
         showPreview(previewSender);
+        lbUploadMedia2.setAttribute('for', addSmallInput().id)
     }
+}
+
+function addSmallInput() {
+    lastUploadMediaIndex++
+    let inp = document.createElement('input')
+    inp.id = 'uploadMedia_' + lastUploadMediaIndex
+    inp.name = 'media[]'
+    inp.type = 'file'
+    inp.accept = '.jpg,.jpeg,.png,.mp4,.avi'
+    inp.style.display = 'none'
+    inp.setAttribute('onchange', 'addFileSmall(event);')
+    momentsGallery.insertBefore(inp, lbUploadMedia2)
+    return inp
 }
 
 /* function momentPreviewedFrame(previewed) {
@@ -403,6 +427,10 @@ function addPersonOnClick(e) {
 function videoclick(v) {
     // l('video clicked ')
     showPreview(v)
+}
+
+function videoIcoClick(vi) {
+    vi.parentElement.querySelector('video').click()
 }
 
 function videoplay(v) {
@@ -1008,9 +1036,10 @@ function momsetFoundPersonOnClick(e) {
 
 
 function momsetClearSearch(searchInput) {
-    searchInput.value = '';
-    momsetHidePersons(searchInput);
+    searchInput.value = ''
+    momsetHidePersons(searchInput)
     momsetSearchDiv.innerHTML = ''
+    searchInput.focus()
 }
 
 
@@ -1053,10 +1082,10 @@ function momPublishOnClick(event) {
     var marksArr = []
 
     // var mContent = ''
-    var votes = []
+    // var votes = []
     var props = {
-        "width": null,
-        "height": null
+        "width": 324,
+        "height": 324
     }
     // if (txtarMomentDesc.style.display != 'none') {
     //     mContent = txtarMomentDesc.value
@@ -1066,16 +1095,28 @@ function momPublishOnClick(event) {
     //         votes.push(pollV.value)
     //     })
     // }
-    props.width = j('img.slide-preview').offsetWidth
-    props.height = j('img.slide-preview').offsetHeight
+    var tmpSlidePreview = j('img.slide-preview')
+    if (tmpSlidePreview != null) {
+        props.width = tmpSlidePreview.offsetWidth
+        props.height = tmpSlidePreview.offsetHeight
+    }
     marksArr = collectAllMarks()
     // l(marksArr)
 
     fd = new FormData(myForm)
-    fd.append('marked_users', marksArr)
-    fd.append('proportions', props)
+	
+    if (marksArr.length > 0) {
+        marksArr.forEach(mark=>{
+            fd.append('marked_users[]', JSON.stringify(mark))
+        })
+    } else {
+        fd.append('marked_users', null)
+    }
+    
+    fd.append('proportions[width]', props.width)
+    fd.append('proportions[height]', props.height)
     // fd.append('content', mContent)
-    fd.append('votes', votes)
+    // fd.append('votes', votes)
     
     // $('.loaded-progress-window').show()
     // e.preventDefault();
@@ -1151,5 +1192,8 @@ function collectAllMarks() {
     allSlideWraps.forEach(elem => {
         res.push(collectMarksFor1Img(elem))
     })
+    // if (res.length == null) {
+    //     res = null
+    // }
     return res
 }
